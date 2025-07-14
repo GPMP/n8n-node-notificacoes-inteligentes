@@ -2,7 +2,7 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const leadsFields: INodeProperties[] = [
   {
-    displayName: 'ID do Lead',
+    displayName: 'ID Do Lead',
     name: 'id',
     type: 'string',
     required: true,
@@ -13,7 +13,7 @@ export const leadsFields: INodeProperties[] = [
         operation: ['getonelead', 'editlead','deletelead','addlist','addlisttolead','removelisttolead'],
       },
     },
-    description: 'O identificador único do lead.',
+    description: 'O identificador único do lead',
   },
   {
     displayName: 'Nome',
@@ -27,7 +27,7 @@ export const leadsFields: INodeProperties[] = [
         operation: ['createLead', 'editlead','deletegroup'],
       },
     },
-    description: 'O nome completo do lead.',
+    description: 'O nome completo do lead',
   },
   {
     displayName: 'Telefone',
@@ -41,12 +41,13 @@ export const leadsFields: INodeProperties[] = [
         operation: ['createLead'],
       },
     },
-    description: 'O número de telefone do lead, incluindo o DDD.',
+    description: 'O número de telefone do lead, incluindo o DDD',
   },
   {
-    displayName: 'E-mail',
+    displayName: 'Email',
     name: 'email',
     type: 'string',
+    placeholder: 'name@email.com',
     required: true,
     default: '',
     displayOptions: {
@@ -55,13 +56,12 @@ export const leadsFields: INodeProperties[] = [
         operation: ['createLead', 'editlead'],
       },
     },
-    description: 'O endereço de e-mail do lead.',
+    description: 'O endereço de e-mail do lead',
   },
   {
     displayName: 'Notas',
     name: 'notes',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
@@ -69,7 +69,7 @@ export const leadsFields: INodeProperties[] = [
         operation: ['createLead','editlead'],
       },
     },
-    description: 'Notas adicionais ou observações sobre o lead.',
+    description: 'Notas adicionais ou observações sobre o lead',
   },
   {
     displayName: 'Variáveis Customizadas',
@@ -79,7 +79,6 @@ export const leadsFields: INodeProperties[] = [
       multipleValues: true,
     },
     placeholder: 'Adicionar Variável',
-		required:false,
     default: [],
     displayOptions: {
       show: {
@@ -97,20 +96,20 @@ export const leadsFields: INodeProperties[] = [
             name: 'slug',
             type: 'string',
             default: '',
-            description: 'O slug da variável customizada a ser editada.',
+            description: 'O slug da variável customizada a ser editada',
           },
           {
             displayName: 'Valor',
             name: 'value',
             type: 'string',
             default: '',
-            description: 'O valor a ser atribuído à variável customizada.',
+            description: 'O valor a ser atribuído à variável customizada',
           },
         ],
       },
     ],
   },
-	{
+  {
     displayName: 'Tags',
     name: 'addtags',
     type: 'fixedCollection',
@@ -135,7 +134,7 @@ export const leadsFields: INodeProperties[] = [
             name: 'tags1',
             type: 'string',
             default: '',
-            description: 'O slug da variável customizada a ser editada.',
+            description: 'O slug da variável customizada a ser editada',
           },
         ],
       },
@@ -146,35 +145,35 @@ export const leadsFields: INodeProperties[] = [
     name: 'filters',
     type: 'collection',
     default: {},
-		placeholder:'Escolha',
+    placeholder:'Escolha',
     options: [
       {
         displayName: 'Nome',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo nome.',
+        description: 'Filtra leads pelo nome',
       },
       {
         displayName: 'Telefone',
         name: 'phonefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo número de telefone.',
+        description: 'Filtra leads pelo número de telefone',
       },
       {
-        displayName: 'E-mail',
+        displayName: 'Email',
         name: 'emailfilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo endereço de e-mail.',
+        description: 'Filtra leads pelo endereço de e-mail',
       },
       {
         displayName: 'Tag ID',
         name: 'tagfilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo ID da tag.',
+        description: 'Filtra leads pelo ID da tag',
       },
     ],
     displayOptions: {
@@ -183,7 +182,7 @@ export const leadsFields: INodeProperties[] = [
         operation: ['getAll']
       }
     },
-    description: 'Defina filtros para buscar leads específicos.',
+    description: 'Defina filtros para buscar leads específicos',
   },
   {
     displayName: 'Incluir Relacionamentos',
@@ -195,7 +194,7 @@ export const leadsFields: INodeProperties[] = [
         value: 'lists',
       },
       {
-        name: 'Fonte das Listas',
+        name: 'Fonte Das Listas',
         value: 'lists.source',
       },
       {
@@ -208,7 +207,7 @@ export const leadsFields: INodeProperties[] = [
       },
     ],
     default: [],
-    description: 'Selecione quais relacionamentos devem ser incluídos na requisição (ex: listas, tags, usuários).',
+    description: 'Selecione quais relacionamentos devem ser incluídos na requisição (ex: listas, tags, usuários)',
     displayOptions: {
       show: {
         resource: ['leads'],
@@ -217,9 +216,9 @@ export const leadsFields: INodeProperties[] = [
     },
   },
   {
-    displayName: 'ID(s) da(s) Lista(s)',
+    displayName: 'ID(s) Da(s) Lista(s)',
     name: 'listsid',
-		placeholder:'1234, 5678, 9101112',
+    placeholder:'1234, 5678, 9101112',
     type: 'string',
     required: true,
     default: '',
@@ -229,6 +228,6 @@ export const leadsFields: INodeProperties[] = [
         operation: ['addlisttolead','removelisttolead'],
       },
     },
-    description: 'O(s) ID(s) da(s) lista(s) para associar ou remover do lead.',
+    description: 'O(s) ID(s) da(s) lista(s) para associar ou remover do lead',
   }
 ];

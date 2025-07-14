@@ -21,7 +21,7 @@ export const accountmanagementoperations:INodeProperties[] =
 			{
 				name: 'Buscar Endereço',
 				value: 'searchaddress',
-				action: 'Busca endereço',
+				action: 'Busca CEP',
 				description: 'Busca o Endereço Referente ao CEP',
 				routing: {
 					request: {
@@ -32,6 +32,6 @@ export const accountmanagementoperations:INodeProperties[] =
 			},
 
 		],
-		default: 'Escolha uma Opção'
+		default: 'searchaddress'
 	}
 ]

@@ -1,8 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-
-export const integrationsFields: INodeProperties[] =
-[
+export const integrationsFields: INodeProperties[] = [
   {
     displayName: 'Nome',
     name: 'name',
@@ -15,7 +13,7 @@ export const integrationsFields: INodeProperties[] =
         operation: ['createintegration'],
       },
     },
-    description: 'O nome da integração (limite de 100 caracteres).',
+    description: 'O nome da integração (limite de 100 caracteres)',
   },
   {
     displayName: 'Plataforma',
@@ -40,10 +38,10 @@ export const integrationsFields: INodeProperties[] =
     displayOptions: {
       show: {
         resource: ['integration', 'events'],
-        operation: ['updateintegration', 'getintegration','createnewevent','canceledorder','orderpaid','createnewticket', 'orderreceived','refundorder','orderdispatched','orderprocessed', 'orderout','orderprocessupdated','orderwaiting','orderwaitingcharge','accessevent','changepasswordevent','eventclientscore','eventclientsearch'],
+        operation: ['updateintegration', 'getintegration', 'createnewevent', 'canceledorder', 'orderpaid', 'createnewticket', 'orderreceived', 'refundorder', 'orderdispatched', 'orderprocessed', 'orderout', 'orderprocessupdated', 'orderwaiting', 'orderwaitingcharge', 'accessevent', 'changepasswordevent', 'eventclientscore', 'eventclientsearch', 'delete'],
       },
     },
-    description: 'O ID da integração existente.',
+    description: 'O ID da integração existente',
   },
   {
     displayName: 'Novo Nome',
@@ -57,7 +55,7 @@ export const integrationsFields: INodeProperties[] =
         operation: ['updateintegration'],
       },
     },
-    description: 'O novo nome da integração no painel (limite de 100 caracteres).',
+    description: 'O novo nome da integração no painel (limite de 100 caracteres)',
   },
   {
     displayName: 'Parâmetros Adicionais',
@@ -79,7 +77,7 @@ export const integrationsFields: INodeProperties[] =
       },
     ],
     default: [],
-    description: 'Relacionamentos opcionais a serem incluídos na requisição.',
+    description: 'Relacionamentos opcionais a serem incluídos na requisição',
     displayOptions: {
       show: {
         resource: ['integration'],

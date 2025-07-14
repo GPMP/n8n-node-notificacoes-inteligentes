@@ -1,6 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-export const listsFields:INodeProperties[]=[
+export const listsFields: INodeProperties[] = [
   {
     displayName: 'Incluir Relacionamentos',
     name: 'parameteraddlist',
@@ -12,53 +12,53 @@ export const listsFields:INodeProperties[]=[
         value: 'source'
       },
       {
-        name: 'Contagem de Leads',
+        name: 'Contagem De Leads',
         value: 'leadsCount'
       },
     ],
     default: [],
-    description: 'Selecione quais relacionamentos devem ser incluídos na requisição (ex: fonte, contagem de leads).',
+    description: 'Selecione quais relacionamentos devem ser incluídos na requisição (ex: fonte, contagem de leads)',
     displayOptions: {
       show: {
-        resource:  ['leadslist'],
+        resource: ['leadslist'],
         operation: ['getAlllists']
       }
     },
   },
-	{
+  {
     displayName: 'Mais Propriedades',
     name: 'properties',
     type: 'multiOptions',
     placeholder: 'Escolha',
     options: [
       {
-				name: 'Contém Leads',
-				value: 'has_leads',
-			},
+        name: 'Contém Leads',
+        value: 'has_leads',
+      },
     ],
     default: [],
-    description: 'Selecione a propriedade da lista para filtrar.',
+    description: 'Selecione a propriedade da lista para filtrar',
     displayOptions: {
       show: {
-        resource:  ['leadslist'],
+        resource: ['leadslist'],
         operation: ['getAlllists']
       }
     },
   },
-	{
-    displayName: 'ID(s) do(s) Lead(s)',
+  {
+    displayName: 'ID(s) Do(s) Lead(s)',
     name: 'id',
     type: 'string',
     required: true,
-		placeholder:'Exemplo: 17, 25, 33',
+    placeholder: 'Exemplo: 17, 25, 33',
     default: '',
     displayOptions: {
       show: {
         resource: ['leadslist'],
-        operation: ['addLEADS','removeLEADS'],
+        operation: ['addLEADS', 'removeLEADS'],
       },
     },
-    description: 'O identificador único do lead.',
+    description: 'O identificador único do lead',
   },
   {
     displayName: 'Filtros',
@@ -72,14 +72,14 @@ export const listsFields:INodeProperties[]=[
         name: 'nameFilter',
         type: 'string',
         default: '',
-        description: 'Filtra as listas pelo nome.',
+        description: 'Filtra as listas pelo nome',
       },
       {
         displayName: 'Tipo',
         name: 'typeFilter',
         type: 'string',
         default: '',
-        description: 'Filtra as listas pelo tipo.',
+        description: 'Filtra as listas pelo tipo',
       },
     ],
     displayOptions: {
@@ -88,29 +88,29 @@ export const listsFields:INodeProperties[]=[
         operation: ['getAlllists']
       }
     },
-    description: 'Defina filtros para buscar listas específicas.',
+    description: 'Defina filtros para buscar listas específicas',
   },
   {
-    displayName: 'ID da Lista',
+    displayName: 'ID Da Lista',
     name: 'listID',
     type: 'string',
     required: true,
     default: '',
-    description: 'O identificador único da lista.',
+    description: 'O identificador único da lista',
     displayOptions: {
       show: {
         resource: ['leadslist'],
-        operation: ['getList', 'listLeads','addLEADS','removeLEADS']
+        operation: ['getList', 'listLeads', 'addLEADS', 'removeLEADS', 'deleteList']
       }
     },
   },
   {
-    displayName: 'Nome da Lista',
+    displayName: 'Nome Da Lista',
     name: 'listName',
     type: 'string',
     required: true,
     default: '',
-    description: 'O nome da nova lista a ser criada.',
+    description: 'O nome da nova lista a ser criada',
     displayOptions: {
       show: {
         resource: ['leadslist'],
@@ -119,14 +119,14 @@ export const listsFields:INodeProperties[]=[
     },
   },
   {
-    displayName: 'Incluir Detalhes da Fonte',
+    displayName: 'Incluir Detalhes Da Fonte',
     name: 'parameteraddlist2',
     type: 'collection',
     placeholder: 'Escolha',
     default: {},
     options: [
       {
-        displayName: 'Detalhe a Incluir',
+        displayName: 'Detalhe A Incluir',
         name: 'parameterchoose',
         type: 'options',
         options: [
@@ -135,8 +135,8 @@ export const listsFields:INodeProperties[]=[
             value: 'source',
           },
         ],
-        default: '',
-        description: 'Selecione o detalhe da fonte a ser incluído na requisição.',
+        default: 'source',
+        description: 'Selecione o detalhe da fonte a ser incluído na requisição',
       },
     ],
     displayOptions: {
@@ -145,25 +145,25 @@ export const listsFields:INodeProperties[]=[
         operation: ['getList']
       }
     },
-    description: 'Parâmetros adicionais para buscar detalhes da fonte da lista.',
+    description: 'Parâmetros adicionais para buscar detalhes da fonte da lista',
   },
-	{
+  {
     displayName: 'Incluir Relacionamentos',
     name: 'parameteraddlist3',
     type: 'multiOptions',
     placeholder: 'Escolha',
     options: [
       {
-				name: 'Listas',
-				value: 'lists',
-			},
-			{
-				name: 'Fonte das Listas',
-				value: 'lists.source',
-			},
+        name: 'Listas',
+        value: 'lists',
+      },
+      {
+        name: 'Fonte Das Listas',
+        value: 'lists.source',
+      },
     ],
     default: [],
-    description: 'Parâmetros adicionais para incluir relacionamentos dos leads da lista.',
+    description: 'Parâmetros adicionais para incluir relacionamentos dos leads da lista',
     displayOptions: {
       show: {
         resource: ['leadslist'],
@@ -172,32 +172,32 @@ export const listsFields:INodeProperties[]=[
     },
   },
   {
-    displayName: 'Filtrar Leads da Lista por:',
+    displayName: 'Filtrar Leads Da Lista Por:',
     name: 'filterlist',
     type: 'collection',
     placeholder: 'Escolha',
     default: {},
     options: [
       {
-        displayName: 'Nome do Lead',
+        displayName: 'Nome Do Lead',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo nome dentro da lista.',
+        description: 'Filtra leads pelo nome dentro da lista',
       },
       {
-        displayName: 'Telefone do Lead',
+        displayName: 'Telefone Do Lead',
         name: 'phonefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo número de telefone dentro da lista.',
+        description: 'Filtra leads pelo número de telefone dentro da lista',
       },
       {
-        displayName: 'E-mail do Lead',
+        displayName: 'Email Do Lead',
         name: 'emailfilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo endereço de e-mail dentro da lista.',
+        description: 'Filtra leads pelo endereço de e-mail dentro da lista',
       },
     ],
     displayOptions: {
@@ -206,7 +206,6 @@ export const listsFields:INodeProperties[]=[
         operation: ['listLeads']
       }
     },
-    description: 'Defina filtros para buscar leads específicos dentro da lista.',
+    description: 'Defina filtros para buscar leads específicos dentro da lista',
   },
-
 ]

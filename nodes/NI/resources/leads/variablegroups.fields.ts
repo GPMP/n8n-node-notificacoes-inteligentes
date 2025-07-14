@@ -1,6 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-export const variablegroupsfields:INodeProperties [] =[
+export const variablegroupsfields: INodeProperties[] = [
   {
     displayName: 'Nome',
     name: 'name',
@@ -10,27 +10,26 @@ export const variablegroupsfields:INodeProperties [] =[
     displayOptions: {
       show: {
         resource: ['variablegroups'],
-        operation: ['createlist',],
+        operation: ['createlist'],
       },
     },
-    description: 'O nome do grupo de variáveis.',
+    description: 'O nome do grupo de variáveis',
   },
   {
-    displayName: 'ID do Grupo',
+    displayName: 'ID Do Grupo',
     name: 'groupid',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
         resource: ['variablegroups', 'customvariables'],
-        operation: ['getgroup', 'updategroup', 'deletegroup','updatecustomvariable'],
+        operation: ['getgroup', 'updategroup', 'deletegroup', 'updatecustomvariable'],
       },
     },
-    description: 'O identificador único do grupo de variáveis.',
+    description: 'O identificador único do grupo de variáveis',
   },
   {
-    displayName: 'Novo Nome do Grupo',
+    displayName: 'Novo Nome Do Grupo',
     name: 'newname',
     type: 'string',
     required: true,
@@ -41,7 +40,7 @@ export const variablegroupsfields:INodeProperties [] =[
         operation: ['updategroup'],
       },
     },
-    description: 'O novo nome a ser atribuído ao grupo de variáveis.',
+    description: 'O novo nome a ser atribuído ao grupo de variáveis',
   },
   {
     displayName: 'Incluir Relacionamentos',
@@ -62,15 +61,15 @@ export const variablegroupsfields:INodeProperties [] =[
       },
     ],
     default: [],
-    description: 'Selecione quais relacionamentos opcionais devem ser incluídos na requisição.',
+    description: 'Selecione quais relacionamentos opcionais devem ser incluídos na requisição',
     displayOptions: {
       show: {
         resource: ['variablegroups'],
-        operation: ['getgroup','getlists']
-      }
+        operation: ['getgroup', 'getlists'],
+      },
     },
   },
-	{
+  {
     displayName: 'Filtrar',
     name: 'variablefilter',
     type: 'collection',
@@ -78,19 +77,19 @@ export const variablegroupsfields:INodeProperties [] =[
     default: {},
     options: [
       {
-        displayName: 'Nome do Lead',
+        displayName: 'Nome Do Lead',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo nome dentro da lista.',
+        description: 'Filtra leads pelo nome dentro da lista',
       },
     ],
     displayOptions: {
       show: {
         resource: ['variablegroups'],
-        operation: ['getlists']
-      }
+        operation: ['getlists'],
+      },
     },
-    description: 'Defina filtros para buscar leads específicos dentro da lista.',
+    description: 'Defina filtros para buscar leads específicos dentro da lista',
   },
 ];

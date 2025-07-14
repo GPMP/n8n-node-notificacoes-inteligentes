@@ -1,3 +1,4 @@
+/* eslint-disable n8n-nodes-base/node-filename-against-convention */
 import type { INodeTypeDescription } from 'n8n-workflow';
 import { leadsOperations } from './resources/leads/leads.operations';
 import { leadsFields } from './resources/leads/leads.fields';
@@ -18,11 +19,12 @@ import {eventsFields} from './resources/events/events.fields';
 
 export function getNodeDescription(): INodeTypeDescription {
   return {
-    displayName: 'NI',
+    displayName: 'Notificações Inteligentes',
     name: 'NI',
     icon: 'file:Nifoto.svg',
     group: [],
     version: 1,
+				subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
     description: 'Integração do NI',
     defaults: {
       name: 'NI Node',
@@ -31,7 +33,7 @@ export function getNodeDescription(): INodeTypeDescription {
     outputs: [NodeConnectionType.Main],
     credentials: [
       {
-        name: 'NIApi',
+        name: 'niApi',
         required: true,
       },
     ],
@@ -51,15 +53,16 @@ export function getNodeDescription(): INodeTypeDescription {
 				placeholder:'Escolha',
         noDataExpression: true,
         options: [
-					{name: 'Integrações', value: 'integration'},
-          {name: 'Eventos', value: 'events'},
-					{name: 'Leads', value: 'leads'},
-					{name: 'Listas de Leads', value: 'leadslist'},
-					{name: 'Variáveis Customizadas', value: 'customvariables'},
-					{name: 'Grupos de Variáveis Customizadas', value: 'variablegroups'},
-					{name: 'Gerenciamento da Conta', value: 'accountmanagement'},
+          {name: 'Evento', value: 'events'},
+					{name: 'Gerenciamento Da Conta', value: 'accountmanagement'},
+					{name: 'Grupo De Variável Customizada', value: 'variablegroups'},
+					{name: 'Integração', value: 'integration'},
+					{name: 'Lead', value: 'leads'},
+					{name: 'Lista De Lead', value: 'leadslist'},
+					{name: 'Variável Customizada', value: 'customvariables'},
+
         ],
-        default: '',
+        default: 'integration',
 
 
       },

@@ -1,11 +1,10 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-export const customvariablefields:INodeProperties[] = [
+export const customvariablefields: INodeProperties[] = [
   {
     displayName: 'Nome',
     name: 'name',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
@@ -13,21 +12,20 @@ export const customvariablefields:INodeProperties[] = [
         operation: ['createcustomvariable'],
       },
     },
-    description: 'O nome da variável customizada.',
+    description: 'O nome da variável customizada',
   },
   {
-    displayName: 'ID da Variável Customizada',
+    displayName: 'ID Da Variável Customizada',
     name: 'customvariableid',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
         resource: ['customvariables'],
-        operation: ['updatecustomvariable', 'deletecustomvariable','getvariable'],
+        operation: ['updatecustomvariable', 'deletecustomvariable', 'getvariable'],
       },
     },
-    description: 'O identificador único para a variável customizada.',
+    description: 'O identificador único para a variável customizada',
   },
   {
     displayName: 'Descrição',
@@ -38,54 +36,54 @@ export const customvariablefields:INodeProperties[] = [
       rows: 4,
     },
     default: '',
-    description: 'Uma breve descrição da variável customizada.',
+    description: 'Uma breve descrição da variável customizada',
     displayOptions: {
       show: {
         resource: ['customvariables'],
-        operation: ['createcustomvariable','updatecustomvariable']
+        operation: ['createcustomvariable', 'updatecustomvariable']
       }
     },
   },
   {
-    displayName: 'Tipo de Variável',
+    displayName: 'Tipo De Variável',
     name: 'selecaotipo',
     type: 'options',
     options: [
       {
-        name: 'Email',
-        value: 'email',
-      },
-      {
-        name: 'Texto',
-        value: 'text',
-      },
-      {
-        name: 'CNPJ',
-        value: 'cnpj',
-      },
-      {
-        name: 'CPF',
-        value: 'cpf',
-      },
-      {
-        name: 'Inteiro',
-        value: 'integer',
-      },
-      {
-        name: 'Numérico',
-        value: 'numeric',
-      },
-      {
-        name: 'Múltipla Seleção',
-        value: 'multi_select',
-      },
-      {
-        name: 'Lista de Opções',
-        value: 'option_list',
-      },
+				name: 'CNPJ',
+				value: 'cnpj',
+			},
+			{
+				name: 'CPF',
+				value: 'cpf',
+			},
+			{
+				name: 'Email',
+				value: 'email',
+			},
+			{
+				name: 'Inteiro',
+				value: 'integer',
+			},
+			{
+				name: 'Lista De Opções',
+				value: 'option_list',
+			},
+			{
+				name: 'Múltipla Seleção',
+				value: 'multi_select',
+			},
+			{
+				name: 'Numérico',
+				value: 'numeric',
+			},
+			{
+				name: 'Texto',
+				value: 'text',
+			},
     ],
-    default: 'Selecione o Tipo de Variável',
-    description: 'Selecione o tipo de dado para a variável customizada.',
+    default: 'cpf',
+    description: 'Selecione o tipo de dado para a variável customizada',
     displayOptions: {
       show: {
         resource: ['customvariables'],
@@ -111,12 +109,12 @@ export const customvariablefields:INodeProperties[] = [
         value: 'lastEditedBy',
       },
       {
-        name: 'Grupo de Variáveis',
+        name: 'Grupo De Variáveis',
         value: 'variableGroup',
       },
     ],
     default: [],
-    description: 'Selecione parâmetros opcionais para incluir na requisição.',
+    description: 'Selecione parâmetros opcionais para incluir na requisição',
     displayOptions: {
       show: {
         resource: ['customvariables'],
@@ -125,10 +123,9 @@ export const customvariablefields:INodeProperties[] = [
     },
   },
   {
-    displayName: 'Nome do Grupo de Variáveis Customizadas',
+    displayName: 'Nome Do Grupo De Variáveis Customizadas',
     name: 'variable_group_name',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
@@ -136,13 +133,12 @@ export const customvariablefields:INodeProperties[] = [
         operation: [''],
       },
     },
-    description: 'Exibe todas as variáveis customizadas pertencentes a um grupo específico.',
+    description: 'Exibe todas as variáveis customizadas pertencentes a um grupo específico',
   },
   {
     displayName: 'Slug',
     name: 'slug',
     type: 'string',
-    required: false,
     default: '',
     displayOptions: {
       show: {
@@ -150,7 +146,7 @@ export const customvariablefields:INodeProperties[] = [
         operation: [''],
       },
     },
-    description: 'Filtra as variáveis customizadas pelo seu slug.',
+    description: 'Filtra as variáveis customizadas pelo seu slug',
   },
   {
     displayName: 'Filtros',
@@ -172,7 +168,7 @@ export const customvariablefields:INodeProperties[] = [
         default: '',
       },
       {
-        displayName: 'Nome do Grupo de Variáveis',
+        displayName: 'Nome Do Grupo De Variáveis',
         name: 'variablegroupnamefilter',
         type: 'string',
         default: '',
