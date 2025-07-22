@@ -21,8 +21,10 @@ export function getNodeDescription(): INodeTypeDescription {
   return {
     displayName: 'Notificações Inteligentes',
     name: 'NI',
+
+    // eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
     icon: 'file:Nifoto.svg',
-    group: [],
+    group: ['action'],
     version: 1,
 				subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
     description: 'Integração do NI',

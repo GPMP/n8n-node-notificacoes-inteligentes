@@ -5,13 +5,13 @@ import {
 	ICredentialTestRequest
 } from 'n8n-workflow';
 
-export class NIApi implements ICredentialType {
+export class niApi implements ICredentialType {
   name = 'niApi';
   displayName = 'NI API';
   documentationUrl = 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/';
 
   properties: INodeProperties[] = [
-    {
+		{
       displayName: 'Bearer Token',
       name: 'bearerToken',
       type: 'string',

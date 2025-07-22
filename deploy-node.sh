@@ -30,10 +30,13 @@ SOURCE_DIR="./dist"
 
 echo "Copying build output to container '$CONTAINER_NAME' at '$TARGET_PATH'..."
 
-# Create target dir inside container
+# Limpa todo o conteúdo anterior do custom node dentro do container
+docker exec -u node "$CONTAINER_NAME" rm -rf "$TARGET_PATH"/*
+
+# Cria target dir dentro do container
 docker exec -u node "$CONTAINER_NAME" mkdir -p "$TARGET_PATH"
 
-# Copy all files from dist/ into the container
+# Copia todos os arquivos da dist/ para dentro do container
 tar -cf - -C "$SOURCE_DIR" . | docker exec -u node -i "$CONTAINER_NAME" tar -xf - -C "$TARGET_PATH"
 
 echo "Files copied successfully."
