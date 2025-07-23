@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-https://notificacoesinteligentes.com/
 
 ## O que é a Notificações Inteligentes?
 
@@ -56,10 +54,9 @@ A Notificações Inteligentes é uma plataforma líder em automação de mensage
 
 
 
+# Guia de Uso - Grupos de Variáveis (n8n)
 
-=============================================
-===Guia de Uso - Grupos de Variáveis (n8n)===
-=============================================
+
 * O recurso Grupos de Variáveis permite organizar variáveis customizadas em grupos, facilitando a
 gestão, busca, atualização e automação de dados estruturados em sua plataforma via n8n.
 
@@ -123,8 +120,8 @@ Dicas
 - Sempre revise nomes antes de editar ou apagar, pois ações de deleção não podem ser desfeitas.
 
 
+# Guia de Uso - Integração (n8n)
 
-======================================Guia de Uso - Integração (n8n)============================================================================
 
 * O recurso Integração permite criar, buscar, atualizar e listar integrações conectadas à sua conta,
 diretamente pelo n8n.
@@ -181,9 +178,8 @@ consultar.
 - Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
 - Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
 
-=================================
-===Guia de Uso - Eventos (n8n)===
-=================================
+
+# Guia de Uso - Eventos (n8n)
 
 * O recurso Eventos permite criar e enviar diferentes tipos de eventos para integrações, como:
 carrinho abandonado, boletos, pagamentos, cancelamentos, entregas, NPS, acesso de membros e
@@ -272,9 +268,9 @@ específicos.
 abertos para inserir dados detalhados.
 - Utilize o evento correspondente ao status real do pedido/ação.
 
-=========================================
-===Guia de Uso - Listas de Leads (n8n)===
-=========================================
+
+# Guia de Uso - Listas de Leads (n8n)
+
 
 * O recurso Listas de Leads permite criar, buscar, filtrar, editar e gerenciar grupos de contatos no seu
 sistema de leads diretamente pelo n8n. Com esse recurso, você pode automatizar o agrupamento
@@ -363,9 +359,9 @@ Dicas
 bases de leads.- O recurso "Listar Leads da Lista" é ideal para consultar leads de uma campanha ou segmento
 específico.
 
-===============================
-===Guia de Uso - Leads (n8n)===
-===============================
+
+# Guia de Uso - Leads (n8n)
+
 
 * O recurso Leads permite cadastrar, buscar, editar, apagar e gerenciar listas de leads (contatos) em
 sua plataforma diretamente pelo n8n, com suporte a variáveis customizadas, tags e filtros
@@ -459,9 +455,10 @@ Dicas
 seu lead e facilitar automações.
 - Variáveis customizadas são ideais para dados específicos do seu negócio.
 - Sempre revise os dados antes de executar ações de deleção, pois não são reversíveis.
-==============================================
-===Guia de Uso - Variável Customizada (n8n)===
-==============================================
+
+
+# Guia de Uso - Variável Customizada (n8n)
+
 
 * O recurso Variável Customizada permite criar, buscar, atualizar e apagar variáveis customizadas
 associadas à sua organização, facilitando a configuração dinâmica e personalizada de integrações
@@ -536,61 +533,8 @@ para CPF, use o tipo "CPF").
 - Os campos obrigatórios são sinalizados pelo sistema.
 - Variáveis apagadas não podem ser recuperadas.
 
-====================================
-===Guia de Uso - Integração (n8n)===
-====================================
 
-* O recurso Integração permite criar, buscar, atualizar e listar integrações conectadas à sua conta,
-diretamente pelo n8n.
-Veja abaixo o que faz cada operação e como preencher os campos.
+# Guia de Uso - Gerenciamento da Conta (n8n)
 
-Operações Disponíveis
-
-1. Criar Nova Integração
-Cria uma nova integração conectando sua plataforma ao sistema.
-Campos obrigatórios:
-- Nome: Dê um nome amigável para identificar a integração (ex: "Minha Loja Shopify").
-- Plataforma: Especifique a plataforma (ex: shopify-next, hotmart-v2, wooocommerce, etc). Veja na
-descrição do campo a lista de plataformas suportadas.
-Como usar:
-Selecione a operação "Criar Nova Integração", preencha nome e plataforma, e execute.
-A integração será criada e listada em seu painel.
-
-2. Buscar Todas Integrações
-Lista todas as integrações já cadastradas na sua conta.
-Nenhum campo precisa ser preenchido.
-Retorna uma lista com todos os nomes e plataformas cadastrados.
-Como usar:
-Selecione "Buscar Todas Integrações" e execute.Você verá a lista completa de integrações.
-
-3. Buscar uma Integração
-Permite consultar os dados detalhados de uma integração específica.
-Campos obrigatórios:
-- ID: O identificador único da integração que você quer consultar (você pode copiar esse ID ao listar
-todas as integrações).
-Parâmetros Adicionais (opcional):
-- Você pode escolher incluir campos extras na resposta, como "Eventos Disponíveis", "Setup
-Fields", ou "Checklist".
-- Basta marcar os que deseja ver detalhados.
-Como usar:
-Selecione "Buscar uma Integração", informe o ID, selecione (se quiser) algum parâmetro adicional,
-e execute.
-
-4. Mudar o Nome de uma Integração
-Atualiza o nome de uma integração existente.
-Campos obrigatórios:
-- ID: O identificador da integração que você quer renomear.
-- Novo Nome: O novo nome para exibir no painel.
-Como usar:
-Selecione "Mudar o Nome de uma Integração", informe o ID e o novo nome, e execute.
-Campos Especiais
-- Nome: Nome da integração (até 100 caracteres).- Plataforma: Plataforma da integração (consulte a lista na descrição do campo).
-- ID: Identificador único da integração, normalmente fornecido ao criar ou ao listar integrações.
-- Parâmetros Adicionais: Marque para incluir informações extras na busca da integração.
-Dicas
-- Use "Buscar Todas Integrações" para descobrir o ID da integração que você deseja editar ou
-consultar.
-- Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
-- Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
-=======
+- Busca um Cep e retorna o endereço.
 

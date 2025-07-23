@@ -1,15 +1,16 @@
 {
-  "name": "n8n-node-ni",
-  "version": "0.2.1",
+  "name": "n8n-nodes-notificacoes-inteligentes",
+  "version": "0.0.6",
   "description": "Notificações Inteligentes Node",
   "keywords": [
     "n8n-community-node-package",
     "Notificações Inteligentes",
     "NI",
-    "n8n"
+    "n8n-node-ni"
+
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://notificacoesinteligentes.com/",
   "author": {
     "name": "Marcos Pena",
     "email": "marcos.pena@gpmp.com.br"
