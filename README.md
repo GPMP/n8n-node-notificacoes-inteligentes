@@ -1,4 +1,64 @@
-===================================Guia de Uso - Grupos de Variáveis (n8n)=================================================
+https://notificacoesinteligentes.com/
+
+## O que é a Notificações Inteligentes?
+
+A Notificações Inteligentes é uma empresa fundada em 2015, focada em transformar o relacionamento entre empresas e clientes por meio da automação de mensagens, especialmente pelo WhatsApp e outras ferramentas inteligentes.
+Com quase 10 anos de mercado, faz parte do Grupo GPM Participações e Tecnologias Ltda, oferecendo soluções robustas de comunicação automática para milhares de clientes em todo o Brasil.
+
+# Missão, visão e valores
+
+A missão da Notificações Inteligentes é empoderar empresas com tecnologia acessível e inteligente, ajudando-as a vender mais, atender melhor e crescer com eficiência. A empresa acredita na inovação prática, que gera valor real desde o primeiro contato com o cliente.
+
+Os valores estão centrados em:
+
+* Soluções eficazes e intuitivas
+* Foco no crescimento sustentável dos negócios dos clientes
+* Atendimento de excelência e inovação contínua
+
+---
+
+# Como a plataforma funciona e qual sua utilidade
+
+A Notificações Inteligentes utiliza tecnologia de automação para transformar dados em alertas estratégicos, antecipar riscos, automatizar processos e garantir que nenhuma venda seja perdida por falta de comunicação.
+Os principais produtos e recursos incluem:
+
+* Mensagens automáticas via WhatsApp
+* Workflows automatizados
+* Campanhas inteligentes
+* Central de atendimento e chatbots (inclusive com IA)
+* Gerenciamento de leads e pipelines de vendas
+* Recuperadores de vendas, integrações com plataformas de e-commerce e pagamento, entre outros
+
+A plataforma processa milhares de mensagens diariamente e já é referência nacional no segmento de comunicação automatizada, com mais de 15 mil empresas atendidas, que utilizam a solução para agilizar processos, melhorar o atendimento e aumentar a eficiência operacional.
+
+---
+
+# Por que a Notificações Inteligentes é útil?
+
+* Automatiza e escala o relacionamento com clientes, evitando perdas de vendas por falta de comunicação.
+* Aumenta a eficiência e a agilidade** dos times de vendas, suporte e marketing.
+* Facilita a personalização e o monitoramento de interações, permitindo decisões mais rápidas e seguras.
+* Oferece uma variedade de integrações com as principais plataformas do mercado, facilitando a implantação em qualquer negócio.
+* Atua de ponta a ponta: do primeiro contato até o pós-venda, incluindo campanhas, notificações, atendimento automatizado e mais.
+* É reconhecida nacionalmente, com alto volume de clientes e casos de sucesso.
+
+---
+
+# Resumo em uma frase
+
+A Notificações Inteligentes é uma plataforma líder em automação de mensagens e relacionamento via WhatsApp, que ajuda empresas de todos os portes a vender mais, atender melhor e crescer com tecnologia prática e inteligente.
+
+
+
+
+# GUIA DAS FUNÇÕES DO NODE DO NI
+
+
+
+
+=============================================
+===Guia de Uso - Grupos de Variáveis (n8n)===
+=============================================
 * O recurso Grupos de Variáveis permite organizar variáveis customizadas em grupos, facilitando a
 gestão, busca, atualização e automação de dados estruturados em sua plataforma via n8n.
 
@@ -120,8 +180,9 @@ consultar.
 - Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
 - Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
 
-
-=================================================Guia de Uso - Eventos (n8n)=======================================================================
+=================================
+===Guia de Uso - Eventos (n8n)===
+=================================
 
 * O recurso Eventos permite criar e enviar diferentes tipos de eventos para integrações, como:
 carrinho abandonado, boletos, pagamentos, cancelamentos, entregas, NPS, acesso de membros e
@@ -210,7 +271,9 @@ específicos.
 abertos para inserir dados detalhados.
 - Utilize o evento correspondente ao status real do pedido/ação.
 
-=================================================Guia de Uso - Listas de Leads (n8n)========================================================
+=========================================
+===Guia de Uso - Listas de Leads (n8n)===
+=========================================
 
 * O recurso Listas de Leads permite criar, buscar, filtrar, editar e gerenciar grupos de contatos no seu
 sistema de leads diretamente pelo n8n. Com esse recurso, você pode automatizar o agrupamento
@@ -298,7 +361,10 @@ Dicas
 - Filtros permitem buscas e ações altamente segmentadas, otimizando o gerenciamento de grandes
 bases de leads.- O recurso "Listar Leads da Lista" é ideal para consultar leads de uma campanha ou segmento
 específico.
-=================================================Guia de Uso - Leads (n8n)========================================================
+
+===============================
+===Guia de Uso - Leads (n8n)===
+===============================
 
 * O recurso Leads permite cadastrar, buscar, editar, apagar e gerenciar listas de leads (contatos) em
 sua plataforma diretamente pelo n8n, com suporte a variáveis customizadas, tags e filtros
@@ -392,8 +458,9 @@ Dicas
 seu lead e facilitar automações.
 - Variáveis customizadas são ideais para dados específicos do seu negócio.
 - Sempre revise os dados antes de executar ações de deleção, pois não são reversíveis.
-
-================================================Guia de Uso - Variável Customizada (n8n)============================================================
+==============================================
+===Guia de Uso - Variável Customizada (n8n)===
+==============================================
 
 * O recurso Variável Customizada permite criar, buscar, atualizar e apagar variáveis customizadas
 associadas à sua organização, facilitando a configuração dinâmica e personalizada de integrações
@@ -468,7 +535,9 @@ para CPF, use o tipo "CPF").
 - Os campos obrigatórios são sinalizados pelo sistema.
 - Variáveis apagadas não podem ser recuperadas.
 
-===========================================================Guia de Uso - Integração (n8n)============================================================
+====================================
+===Guia de Uso - Integração (n8n)===
+====================================
 
 * O recurso Integração permite criar, buscar, atualizar e listar integrações conectadas à sua conta,
 diretamente pelo n8n.

@@ -1,7 +1,7 @@
 {
-  "name": "n8n-nodes-ni",
+  "name": "n8n-node-ni",
   "version": "0.2.1",
-  "description": "Node Notificações Inteligentes",
+  "description": "Notificações Inteligentes Node",
   "keywords": [
     "n8n-community-node-package",
     "Notificações Inteligentes",
@@ -11,12 +11,12 @@
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "Pedro Maia",
-    "email": "pedro@gpmp.com.br"
+    "name": "Marcos Pena",
+    "email": "marcos.pena@gpmp.com.br"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xxx/n8n-nodes-NI.git"
+    "url": "https://github.com/GPMP/n8n-node-notificacoes-inteligentes"
   },
   "engines": {
     "node": ">=20.15"
