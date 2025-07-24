@@ -5,8 +5,6 @@ import { leadsFields } from './resources/leads/leads.fields';
 import { integrationsOperations } from './resources/Integrations/integrations.operations';
 import { integrationsFields } from './resources/Integrations/integrations.fields';
 import { NodeConnectionType } from 'n8n-workflow';
-import {accountmanagementoperations} from './resources/account-management/accountmanagement.operations';
-import {accountmanagementfields} from './resources/account-management/accountmanagement.fields';
 import {variablegroupsoperations} from './resources/leads/variablegroups.operations';
 import {variablegroupsfields} from './resources/leads/variablegroups.fields';
 import {customvariableoperations} from './resources/leads/customvariable.operations';
@@ -56,7 +54,6 @@ export function getNodeDescription(): INodeTypeDescription {
         noDataExpression: true,
         options: [
           {name: 'Evento', value: 'events'},
-					{name: 'Gerenciamento Da Conta', value: 'accountmanagement'},
 					{name: 'Grupo De Variável Customizada', value: 'variablegroups'},
 					{name: 'Integração', value: 'integration'},
 					{name: 'Lead', value: 'leads'},
@@ -74,8 +71,6 @@ export function getNodeDescription(): INodeTypeDescription {
       ...leadsFields,
 			...integrationsOperations,
 			...integrationsFields,
-			...accountmanagementoperations,
-			...accountmanagementfields,
       ...customvariableoperations,
 			...customvariablefields,
 			...variablegroupsoperations,

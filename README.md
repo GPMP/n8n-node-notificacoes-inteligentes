@@ -119,6 +119,8 @@ Dicas
 à organização do grupo.
 - Sempre revise nomes antes de editar ou apagar, pois ações de deleção não podem ser desfeitas.
 
+- Para informações adicionais acerca das Variáveis Customizadas no NI:  https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/
+
 
 # Guia de Uso - Integração (n8n)
 
@@ -177,6 +179,8 @@ Dicas
 consultar.
 - Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
 - Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
+
+- Para informações adicionais acerca das Integrações no NI:  https://ajuda.notificacoesinteligentes.com/pt-br/article/como-conectar-mrlog2/
 
 
 # Guia de Uso - Eventos (n8n)
@@ -268,6 +272,8 @@ específicos.
 abertos para inserir dados detalhados.
 - Utilize o evento correspondente ao status real do pedido/ação.
 
+- Para informações adicionais acerca de Eventos no NI: https://ajuda.notificacoesinteligentes.com/pt-br/article/eventos-1n02369/
+
 
 # Guia de Uso - Listas de Leads (n8n)
 
@@ -358,6 +364,8 @@ Dicas
 - Filtros permitem buscas e ações altamente segmentadas, otimizando o gerenciamento de grandes
 bases de leads.- O recurso "Listar Leads da Lista" é ideal para consultar leads de uma campanha ou segmento
 específico.
+
+- Para informações adicionais acerca de Listas de Leads no NI: https://ajuda.notificacoesinteligentes.com/pt-br/article/listas-de-leads-1tdvrll/
 
 
 # Guia de Uso - Leads (n8n)
@@ -456,6 +464,8 @@ seu lead e facilitar automações.
 - Variáveis customizadas são ideais para dados específicos do seu negócio.
 - Sempre revise os dados antes de executar ações de deleção, pois não são reversíveis.
 
+- Para informações adicionais acerca de Leads no NI: https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/
+
 
 # Guia de Uso - Variável Customizada (n8n)
 
@@ -533,8 +543,4 @@ para CPF, use o tipo "CPF").
 - Os campos obrigatórios são sinalizados pelo sistema.
 - Variáveis apagadas não podem ser recuperadas.
 
-
-# Guia de Uso - Gerenciamento da Conta (n8n)
-
-- Busca um Cep e retorna o endereço.
-
+- Para informações adicionais acerca das Variáveis Customizadas no NI:  https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/
