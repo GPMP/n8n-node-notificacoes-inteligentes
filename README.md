@@ -1,5 +1,5 @@
 
-## O que é a Notificações Inteligentes?
+# O que é a Notificações Inteligentes?
 
 A Notificações Inteligentes é uma empresa fundada em 2015, focada em transformar o relacionamento entre empresas e clientes por meio da automação de mensagens, especialmente pelo WhatsApp e outras ferramentas inteligentes.
 Com quase 10 anos de mercado, faz parte do Grupo GPM Participações e Tecnologias Ltda, oferecendo soluções robustas de comunicação automática para milhares de clientes em todo o Brasil.
@@ -35,7 +35,7 @@ A plataforma processa milhares de mensagens diariamente e já é referência nac
 # Por que a Notificações Inteligentes é útil?
 
 * Automatiza e escala o relacionamento com clientes, evitando perdas de vendas por falta de comunicação.
-* Aumenta a eficiência e a agilidade** dos times de vendas, suporte e marketing.
+* Aumenta a eficiência e a agilidade dos times de vendas, suporte e marketing.
 * Facilita a personalização e o monitoramento de interações, permitindo decisões mais rápidas e seguras.
 * Oferece uma variedade de integrações com as principais plataformas do mercado, facilitando a implantação em qualquer negócio.
 * Atua de ponta a ponta: do primeiro contato até o pós-venda, incluindo campanhas, notificações, atendimento automatizado e mais.
