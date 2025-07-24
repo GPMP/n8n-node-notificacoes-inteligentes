@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-notificacoes-inteligentes",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Notificações Inteligentes Node",
   "keywords": [
     "n8n-community-node-package",
