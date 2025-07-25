@@ -119,7 +119,7 @@ Dicas
 à organização do grupo.
 - Sempre revise nomes antes de editar ou apagar, pois ações de deleção não podem ser desfeitas.
 
-- [Para informações adicionais acerca das Variáveis Customizadas no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
+- [Informações adicionais acerca das Variáveis Customizadas no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
 
 
 # Guia de Uso - Integração (n8n)
