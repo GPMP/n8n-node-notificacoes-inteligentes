@@ -1,7 +1,8 @@
 import type { INodeProperties } from "n8n-workflow";
 
 export const eventsFields: INodeProperties[] = [
-  // ================================================CUSTOMER DATA===============================================
+
+	// =============================================================CUSTOMER DATA=============================================================================
   {
     displayName: 'Primeiro Nome',
     name: 'first_name',
@@ -15,6 +16,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.first_name'}}
   },
   {
     displayName: 'Telefone',
@@ -29,6 +31,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.phone'}}
   },
   {
     displayName: 'Sobrenome',
@@ -42,6 +45,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.last_name'}}
   },
   {
     displayName: 'Data De Nascimento',
@@ -56,6 +60,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.birthdate'}}
   },
   {
     displayName: 'Moeda',
@@ -70,6 +75,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.currency'}}
   },
   {
     displayName: 'Gênero',
@@ -83,6 +89,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.gender'}}
   },
   {
     displayName: 'Email',
@@ -97,6 +104,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.email'}}
   },
   {
     displayName: 'CPF/CNPJ',
@@ -110,6 +118,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.cpf_cnpj'}}
   },
   {
     displayName: 'IP',
@@ -123,8 +132,9 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','eventclientscore','eventclientsearch','accessevent','orderwaitingcharge','changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'customer.ip'}}
   },
-  // ================================================PRODUCT DATA===============================================
+  // ================================================================EVENTS PRODUCT DATA=======================================================================
   {
     displayName: 'Produtos',
     name: 'products',
@@ -142,24 +152,27 @@ export const eventsFields: INodeProperties[] = [
         values: [
           {
             displayName: 'Nome Do Produto',
-            name: 'productname',
+            name: 'name',
             type: 'string',
             required: true,
-            default:''
+            default:'',
+
           },
           {
             displayName: 'Quantidade Do Produto',
-            name: 'productquantity',
+            name: 'quantity',
             type: 'number',
             required: true,
-            default:0
+            default:0,
+
           },
           {
             displayName: 'Valor Do Produto',
-            name: 'productvalue',
+            name: 'value',
             type: 'number',
             required: true,
-            default:0
+            default:0,
+
           },
         ],
       },
@@ -167,9 +180,71 @@ export const eventsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['events'],
-        operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','accessevent','orderwaitingcharge']
+        operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send: {
+        type: 'body',
+        property: 'order.products',
+        value: '={{$value.metadataValues.map(product => ({ name: product.name, quantity: product.quantity, value: product.value }))}}'
+      }
+		}
+  },
+	//===================================================================ACCESS EVENT PRODUCT DATA==============================================================
+	{
+    displayName: 'Produtos',
+    name: 'products',
+    placeholder: 'Adicionar Dados Do(s) Produto(s)',
+    type: 'fixedCollection',
+    required: true,
+    default: {},
+    typeOptions: {
+      multipleValues: true,
+    },
+    options: [
+      {
+        name: 'metadataValues',
+        displayName: 'Metadata',
+        values: [
+          {
+            displayName: 'Nome Do Produto',
+            name: 'name',
+            type: 'string',
+            required: true,
+            default:'',
+
+          },
+          {
+            displayName: 'Quantidade Do Produto',
+            name: 'quantity',
+            type: 'number',
+            required: true,
+            default:0,
+
+          },
+          {
+            displayName: 'Valor Do Produto',
+            name: 'value',
+            type: 'number',
+            required: true,
+            default:0,
+
+          },
+        ],
+      },
+    ],
+    displayOptions: {
+      show: {
+        resource: ['events'],
+        operation: ['accessevent']
+      }
+    },
+		routing:{send: {
+        type: 'body',
+        property: 'access.products',
+        value: '={{$value.metadataValues.map(product => ({ name: product.name, quantity: product.quantity, value: product.value }))}}'
+      }
+		}
   },
   {
     displayName: 'Campo Produtos Obrigatório',
@@ -183,8 +258,63 @@ export const eventsFields: INodeProperties[] = [
       }
     }
   },
-  // ================================================ORDER OBJECT===============================================
+  // ==========================================================================ORDER OBJECT=======================================================================
   {
+    displayName: 'Pedido',
+    name: 'products',
+    placeholder: 'Adicionar Dados Do Pedido',
+    type: 'fixedCollection',
+    required: true,
+    default: {},
+    typeOptions: {
+      multipleValues: true,
+    },
+    options: [
+      {
+        name: 'metadataValues',
+        displayName: 'Metadata',
+        values: [
+          {
+            displayName: 'Nome Do Produto',
+            name: 'name',
+            type: 'string',
+            required: true,
+            default:'',
+
+          },
+          {
+            displayName: 'Quantidade Do Produto',
+            name: 'quantity',
+            type: 'number',
+            required: true,
+            default:0,
+
+          },
+          {
+            displayName: 'Valor Do Produto',
+            name: 'value',
+            type: 'number',
+            required: true,
+            default:0,
+
+          },
+        ],
+      },
+    ],
+    displayOptions: {
+      show: {
+        resource: ['events'],
+        operation: ['accessevent']
+      }
+    },
+		routing:{send: {
+        type: 'body',
+        property: 'access.products',
+        value: '={{$value.metadataValues.map(product => ({ name: product.name, quantity: product.quantity, value: product.value }))}}'
+      }
+		}
+  },
+	{
     displayName: 'ID Do Pedido',
     name: 'orderid',
     type: 'string',
@@ -196,6 +326,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket', 'canceledorder', 'orderpaid','refundorder','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.id'}}
   },
   {
     displayName: 'Valor Somado Dos Produtos Do Pedido',
@@ -210,6 +341,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.products_total'}}
   },
   {
     displayName: 'Valor Do Pedido Total',
@@ -224,6 +356,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket', 'canceledorder', 'orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.total'}}
   },
   {
     displayName: 'Desconto',
@@ -238,6 +371,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket', 'canceledorder', 'orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.discount'}}
   },
   {
     displayName: 'Status',
@@ -251,7 +385,9 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket', 'canceledorder', 'orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.status'}}
   },
+	// =========================================================================OPCIONAL ORDERS=====================================================================
   {
     displayName: 'Link Para O Boleto Em HTML',
     name: 'billet_url',
@@ -264,6 +400,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket']
       }
     },
+		routing:{send:{type:'body', property:'order.billet_url'}}
   },
   {
     displayName: 'Link Para O Boleto Em PDF',
@@ -277,6 +414,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket']
       }
     },
+		routing:{send:{type:'body', property:'order.billet_pdf'}}
   },
   {
     displayName: 'Linha Digitável Do Boleto',
@@ -290,6 +428,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket']
       }
     },
+		routing:{send:{type:'body', property:'order.billet_barcode'}}
   },
   {
     displayName: 'Valor Do Boleto',
@@ -302,19 +441,21 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewticket']
       }
     },
+		routing:{send:{type:'body', property:'order.billet_value'}}
   },
   {
     displayName: 'Data Do Vencimento Do Boleto',
     name: 'billet_due_date',
-    type: 'string',
+    type: 'dateTime',
     default: '',
-    description: 'Data de vencimento do boleto em timezone UTC +0 (necessário para o funcionamento do lembrador de boletos)',
+    description: 'Data de vencimento do boleto',
     displayOptions: {
       show: {
         resource: ['events'],
         operation: ['createnewticket']
       }
     },
+		routing:{send:{type:'body', property:'order.billet_due_date', value:'={{ new Date($value).toISOString().slice(0,10) }}'}}
   },
   {
     displayName: 'Método De Pagamento',
@@ -342,6 +483,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.payment_type'}}
   },
   {
     displayName: 'Código Bacen',
@@ -357,6 +499,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.pix.bacen_code'}}
   },
   {
     displayName: 'Data Do Vencimento Do Pix',
@@ -372,6 +515,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.pix.due_date', value:'={{ new Date($value).toISOString().replace("T", " ").split(".")["0"] }}'}}
   },
   {
     displayName: 'QR Code',
@@ -387,6 +531,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.pix.qr_code'}}
   },
   {
     displayName: 'URL De Pagamento Do Pix',
@@ -402,6 +547,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.pix.url'}}
   },
   {
     displayName: 'Valor Do Pix',
@@ -417,8 +563,9 @@ export const eventsFields: INodeProperties[] = [
         operation: ['orderwaitingcharge']
       }
     },
+		routing:{send:{type:'body', property:'order.pix.value'}}
   },
-  //=================================================CHECKOUT DATA=================================================
+  //==========================================================================CHECKOUT DATA========================================================================
   {
     displayName: 'Checkout',
     name: 'checkoutparameter',
@@ -458,10 +605,11 @@ export const eventsFields: INodeProperties[] = [
         operation: ['createnewevent']
       }
     },
+		routing:{request:{body:{checkout:{url:'={{$value.checkout.url}}', id:'={{$value.checkout.cartid}}'}}}}
   },
-  //================================================ADDRESS DATA==================================================
+  //=========================================================================ADDRESS DATA==========================================================================
   {
-    displayName: 'Parâmetros Adicionais',
+    displayName: 'Parâmetros Adicionais De Endereço',
     name: 'addressparameter',
     placeholder: 'Endereço Do Cliente',
     type: 'fixedCollection',
@@ -540,10 +688,11 @@ export const eventsFields: INodeProperties[] = [
       },
 
     },
+		routing:{request:{body:{address:{city:'={{$value.address.city}}', complement:'={{$value.address.complement}}', country:'={{$value.address.country}}', neighborhood:'={{$value.address.neighborhood}}',number:'={{$value.address.number}}',postal_code:'={{$value.address.postal_code}}',state:'={{$value.address.state}}',street:'={{$value.address.street}}'}}}}
   },
-  //=================================================DELIVERY DATA===================================================
+  //=====================================================================DELIVERY DATA===========================================================================
   {
-    displayName: 'Parâmetros Adicionais',
+    displayName: 'Parâmetros Adicionais De Entrega',
     name: 'deliveryparameter',
     placeholder: 'Entrega',
     type: 'fixedCollection',
@@ -566,8 +715,7 @@ export const eventsFields: INodeProperties[] = [
 					{
 						displayName: 'Data De Estimativa De Entrega Do Pedido',
 						name: 'orderdate',
-						type: 'string',
-						placeholder: 'ANO-MÊS-DIA',
+						type: 'dateTime',
 						default: '',
 						description: 'Data de estimativa de entrega do pedido em timezone UTC +0',
 					},
@@ -611,6 +759,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting']
       }
     },
+		routing:{request:{body:{order:{delivery:{fee:'={{$value.delivery.trackingvalue}}',description:'={{$value.delivery.description}}',code:'={{$value.delivery.trackingcode}}',url:'={{$value.delivery.trackingcodeurl}}',estimate: '={{ new Date($value.delivery.orderdate).toISOString().slice(0,10) }}',message:'={{$value.delivery.messageorder}}'}}}}}
   },
   //=====================================================NPS DATA =======================================================================================
   {
@@ -626,6 +775,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['eventclientscore']
       }
     },
+		routing:{send:{type:'body',property:'nps.answer.score'}}
   },
   {
     displayName: 'Comentário Feito Pelo Cliente',
@@ -639,11 +789,12 @@ export const eventsFields: INodeProperties[] = [
         operation: ['eventclientscore']
       }
     },
+		routing:{send:{type:'body',property:'nps.answer.comment'}}
   },
   {
     displayName: 'Data Da Resposta',
     name: 'answered_at',
-    type: 'string',
+    type: 'dateTime',
     default: '',
     description: 'Data da resposta em timezone UTC +0',
     displayOptions: {
@@ -652,6 +803,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['eventclientscore']
       }
     },
+		routing:{send:{type:'body',property:'nps.answer.answered_at', value:'={{ new Date($value).toISOString().replace("T", " ").split(".")["0"] }}'}}
   },
   {
     displayName: 'URL Da Pesquisa',
@@ -666,6 +818,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['eventclientsearch']
       }
     },
+		routing:{send:{type:'body',property:'nps.answer.url'}}
   },
   //===============================================================ACCESS DATA================================================================================
   {
@@ -681,6 +834,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['accessevent']
       }
     },
+		routing:{send:{type:'body',property:'access.url'}}
   },
   {
     displayName: 'URL De Primeiro Acesso Do Cliente',
@@ -695,6 +849,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['accessevent']
       }
     },
+		routing:{send:{type:'body',property:'access.first_access_url'}}
   },
   {
     displayName: 'Login',
@@ -709,6 +864,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['accessevent']
       }
     },
+		routing:{send:{type:'body',property:'access.login'}}
   },
   {
     displayName: 'Senha',
@@ -726,6 +882,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['accessevent']
       }
     },
+		routing:{send:{type:'body',property:'access.password'}}
   },
   //=================================================================ACCESS DATA END=============================================================================
   {
@@ -742,5 +899,6 @@ export const eventsFields: INodeProperties[] = [
         operation: ['changepasswordevent']
       }
     },
+		routing:{send:{type:'body',property:'url'}}
   },
 ];

@@ -192,7 +192,12 @@ A Notificações Inteligentes é uma plataforma líder em automação de mensage
   
   
 
-## Guia de Uso - Grupos de Variáveis (n8n)
+
+
+
+
+
+# Guia de Uso - Grupos de Variáveis (n8n)
 
   
 
@@ -214,7 +219,7 @@ Operações Disponíveis
 
   
 
-1. Criar Grupo
+## Criar Grupo
 
   
 
@@ -240,7 +245,7 @@ Selecione "Criar Grupo", informe o nome do grupo e execute para criar.
 
   
 
-2. Buscar Todos os Grupos
+## Buscar Todos os Grupos
 
   
 
@@ -278,7 +283,7 @@ execute.
 
   
 
-3. Buscar Grupo por ID
+## Buscar Grupo por ID
 
   
 
@@ -316,7 +321,7 @@ execute.
 
   
 
-4. Editar Nome do Grupo
+## Editar Nome do Grupo
 
   
 
@@ -346,7 +351,7 @@ Selecione "Editar Nome do Grupo", informe o ID, o novo nome e execute.
 
   
 
-5. Apagar Grupo
+## Apagar Grupo
 
   
 
@@ -438,7 +443,7 @@ Dicas
 
   
 
-## Guia de Uso - Integração (n8n)
+# Guia de Uso - Integração (n8n)
 
   
 
@@ -464,7 +469,7 @@ Operações Disponíveis
 
   
 
-1. Criar Nova Integração
+## Criar Nova Integração
 
   
 
@@ -502,7 +507,7 @@ A integração será criada e listada em seu painel.
 
   
 
-2. Buscar Todas Integrações
+## Buscar Todas Integrações
 
   
 
@@ -532,7 +537,7 @@ Você verá a lista completa de integrações.
 
   
 
-3. Buscar uma Integração
+## Buscar uma Integração
 
   
 
@@ -582,7 +587,7 @@ e execute.
 
   
 
-4. Mudar o Nome de uma Integração
+## Mudar o Nome de uma Integração
 
   
 
@@ -658,7 +663,7 @@ consultar.
 
   
 
-## Guia de Uso - Eventos (n8n)
+# Guia de Uso - Eventos (n8n)
 
   
 
@@ -684,7 +689,7 @@ Operações Disponíveis
 
   
 
-1. Criar Evento de Carrinho Abandonado
+## Criar Evento de Carrinho Abandonado
 
   
 
@@ -710,7 +715,7 @@ Envia um evento para notificar sobre um carrinho de compras que foi abandonado.
 
   
 
-2. Criar Evento de Boleto Impresso
+## Criar Evento de Boleto Impresso
 
   
 
@@ -740,7 +745,7 @@ Notifica que um boleto foi gerado e impresso para o cliente.
 
   
 
-3. Criar Evento de Pedido Cancelado, Pago, Estornado, Entregue, Despachado, Processando, Saiu
+## Criar Evento de Pedido Cancelado, Pago, Estornado, Entregue, Despachado, Processando, Saiu
 
   
 
@@ -770,7 +775,7 @@ Cada evento registra um status diferente do pedido, sempre incluindo:- Campos ob
 
   
 
-4. Criar Evento de Acesso Concedido
+## Criar Evento de Acesso Concedido
 
   
 
@@ -796,7 +801,7 @@ Envia dados de acesso para membros.
 
   
 
-5. Criar Evento de Redefinição de Senha
+## Criar Evento de Redefinição de Senha
 
   
 
@@ -818,7 +823,7 @@ Notifica o cliente com o link para redefinir sua senha.
 
   
 
-6. Criar Evento de NPS (Pesquisa de Satisfação)
+## Criar Evento de NPS (Pesquisa de Satisfação)
 
   
 
@@ -850,7 +855,7 @@ uma pesquisa NPS.
 
   
 
-6.2 Criar Evento de Pesquisa NPS
+## Criar Evento de Pesquisa NPS
 
   
 
@@ -1001,8 +1006,7 @@ abertos para inserir dados detalhados.
   
 
   
-
-## Guia de Uso - Listas de Leads (n8n)
+# Guia de Uso - Listas de Leads (n8n)
 
   
 
@@ -1027,8 +1031,7 @@ Operações Disponíveis
   
 
   
-
-1. Buscar Todas as Listas
+## Buscar Todas as Listas
 
   
 
@@ -1070,7 +1073,7 @@ todas as listas disponíveis.
 
   
 
-2. Criar Lista
+## Criar Lista
 
   
 
@@ -1104,7 +1107,7 @@ Selecione "Criar Lista", preencha o nome, adicione tags (opcional) e execute par
 
   
 
-3. Buscar Lista por ID
+## Buscar Lista por ID
 
   
 
@@ -1138,7 +1141,7 @@ Selecione "Buscar Lista por ID", preencha o ID e marque detalhes extras caso des
 
   
 
-4. Listar Leads da Lista
+## Listar Leads da Lista
 
   
 
@@ -1176,7 +1179,7 @@ para ver todos os leads dessa lista.
 
   
 
-5. Adicionar Leads à Lista
+## Adicionar Leads à Lista
 
   
 
@@ -1210,7 +1213,7 @@ e execute.
 
   
 
-6. Remover Leads da Lista
+## Remover Leads da Lista
 
   
 
@@ -1346,7 +1349,7 @@ específico.
 
   
 
-## Guia de Uso - Leads (n8n)
+# Guia de Uso - Leads (n8n)
 
   
 
@@ -1372,7 +1375,7 @@ Operações Disponíveis
 
   
 
-1. Criar Lead
+## Criar Lead
 
   
 
@@ -1430,7 +1433,7 @@ variáveis customizadas. Execute para cadastrar o lead.
 
   
 
-2. Buscar Todos os Leads
+## Buscar Todos os Leads
 
   
 
@@ -1468,7 +1471,7 @@ todos) e execute.
 
   
 
-3. Buscar Lead por ID
+## Buscar Lead por ID
 
   
 
@@ -1506,7 +1509,7 @@ incluir. Execute para ver detalhes completos.
 
   
 
-4. Editar Lead
+## Editar Lead
 
   
 
@@ -1548,7 +1551,7 @@ Selecione "Editar Lead", informe o ID, atualize os campos desejados e execute.
 
   
 
-5. Apagar Lead
+## Apagar Lead
 
   
 
@@ -1578,7 +1581,7 @@ Uma mensagem de confirmação será exibida se a operação for bem-sucedida.
 
   
 
-6. Adicionar Listas a um Lead
+## Adicionar Listas a um Lead
 
   
 
@@ -1608,7 +1611,7 @@ Execute para associar.
 
   
 
-7. Remover Listas de um Lead
+## Remover Listas de um Lead
 
   
 
@@ -1738,7 +1741,7 @@ Operações Disponíveis
 
   
 
-1. Criar Variável Customizada
+## Criar Variável Customizada
 
   
 
@@ -1780,7 +1783,7 @@ A variável ficará disponível para outras operações e integrações.
 
   
 
-2. Buscar Todas as Variáveis Customizadas
+## Buscar Todas as Variáveis Customizadas
 
   
 
@@ -1830,7 +1833,7 @@ branco para ver todas) e execute.
 
   
 
-3. Buscar Variável Customizada por ID
+## Buscar Variável Customizada por ID
 
   
 
@@ -1868,7 +1871,7 @@ adicionais. Execute para obter detalhes.
 
   
 
-4. Editar Variável Customizada
+## Editar Variável Customizada
 
   
 
@@ -1898,7 +1901,7 @@ Selecione "Editar Variável Customizada", informe o ID, preencha os novos dados 
 
   
 
-5. Apagar Variável Customizada
+## Apagar Variável Customizada
 
   
 

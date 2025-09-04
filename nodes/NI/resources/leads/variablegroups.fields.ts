@@ -14,6 +14,7 @@ export const variablegroupsfields: INodeProperties[] = [
       },
     },
     description: 'O nome do grupo de variáveis',
+		routing:{send:{type:'body', property:'name'}}
   },
   {
     displayName: 'ID Do Grupo',
@@ -22,11 +23,12 @@ export const variablegroupsfields: INodeProperties[] = [
     default: '',
     displayOptions: {
       show: {
-        resource: ['variablegroups', 'customvariables'],
-        operation: ['getgroup', 'updategroup', 'deletegroup', 'updatecustomvariable'],
+        resource: ['variablegroups'],
+        operation: ['getgroup', 'updategroup', 'deletegroup'],
       },
     },
     description: 'O identificador único do grupo de variáveis',
+		routing:{send:{type:'body', property:'group_id'}}
   },
   {
     displayName: 'Novo Nome Do Grupo',
@@ -41,6 +43,7 @@ export const variablegroupsfields: INodeProperties[] = [
       },
     },
     description: 'O novo nome a ser atribuído ao grupo de variáveis',
+		routing:{send:{type:'body', property:'name'}}
   },
   {
     displayName: 'Incluir Relacionamentos',
@@ -68,6 +71,7 @@ export const variablegroupsfields: INodeProperties[] = [
         operation: ['getgroup', 'getlists'],
       },
     },
+		routing: { send: { type: 'query', property: 'include' } },
   },
   {
     displayName: 'Filtrar',
@@ -77,11 +81,11 @@ export const variablegroupsfields: INodeProperties[] = [
     default: {},
     options: [
       {
-        displayName: 'Nome Do Lead',
+        displayName: 'Nome',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo nome dentro da lista',
+        description: 'Filtra pelo nome',
       },
     ],
     displayOptions: {
@@ -91,5 +95,6 @@ export const variablegroupsfields: INodeProperties[] = [
       },
     },
     description: 'Defina filtros para buscar leads específicos dentro da lista',
+		routing:{request:{qs:{'filter[name]':'={{$value.namefilter}}'}}}
   },
 ];

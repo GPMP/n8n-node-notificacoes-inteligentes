@@ -1,3 +1,4 @@
+/* eslint-disable n8n-nodes-base/node-param-operation-option-action-miscased */
 import type { INodeProperties } from 'n8n-workflow';
 
 export const integrationsOperations: INodeProperties[] = [
@@ -14,75 +15,145 @@ export const integrationsOperations: INodeProperties[] = [
     options:[
       {
         name: 'Apagar Uma Integração',
-        value: 'delete',
-        action: 'Excluir integracao',
-        description: 'Remove uma integração',
+        value: 'delete_integration',
+        action: 'Excluir Integração',
+        description: 'Remove Uma Integração',
         routing: {
           request: {
             method: 'DELETE',
             url: '=/integrations/{{$parameter.id}}',
           },
+					output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Integração apagada com sucesso!',
+												response: response.body
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir a integração'}`
+                );
+              },
+            ],
+          },
+
         },
       },
       {
-        name: 'Buscar Todas Integrações',
-        value: 'getAllIntegrations',
-        action: 'Buscar integracoes',
-        description: 'Mostra todas as integrações',
-        routing: {
-          request: {
-            method: 'GET',
-            url: '/integrations',
+  name: 'Buscar Todas Integrações',
+  value: 'get_all_integrations',
+  action: 'Buscar Todas Integrações',
+  description: 'Mostra todas as integrações',
+  routing: {
+  request: {
+    method: 'GET',
+    url: '/integrations',
+  },
+  operations: {
+    pagination: {
+      type: 'generic',
+      properties: {
+        continue: '={{!!$response.body?.links?.next}}',
+        request: {
+          qs: {
+            page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}'
           },
         },
       },
-      {
-        name: 'Buscar Uma Integração',
-        value: 'getintegration',
-        action: 'Buscar integracao',
-        description: 'Busca uma determinada integração específica',
-        routing: {
-          request: {
-            method: 'GET',
-            url: '=/integrations/{{$parameter.id}}',
-            qs: {
-              append: '={{$parameter.parameteraddintegration}}'
-            },
-          },
-        },
-      },
-      {
-        name: 'Criar Nova Integração',
-        value: 'createintegration',
-        action: 'Criar integracao',
-        description: 'Cria uma nova integração',
-        routing: {
-          request: {
-            method: 'POST',
-            url: '/integrations',
-            body: {
-              name: '={{$parameter.name}}',
-              platform: '={{$parameter.platform}}'
-            },
-          },
-        },
-      },
-      {
-        name: 'Mudar O Nome De Uma Integração',
-        value: 'updateintegration',
-        action: 'Atualizar integracao',
-        description: 'Muda o nome de uma integração',
-        routing: {
-          request: {
-            method: 'PUT',
-            url: '=/integrations/{{$parameter.id}}',
-            body: {
-              name: '={{$parameter.newname}}',
-            },
-          },
-        },
-      },
+    },
+  },
+  send: { paginate: true },
+  output: {
+    postReceive: [
+      { type: 'rootProperty', properties: { property: 'data' } }, // concatena todas as páginas
     ],
-    default: 'createintegration',
+  },
+}
+},
+{
+  name: 'Criar Integração',
+  value: 'create_integration',
+  action: 'Criar Integração',
+  description: 'Cria uma nova integração ou edita o nome de uma existente',
+			routing:{
+				request:{
+					method:'POST',
+					url:'/integrations',
+				},
+				output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Integração criada com sucesso!',
+												data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível criar a integração'}`
+                );
+              },
+            ],
+          },
+			}
+},
+{
+  name: 'Editar Nome Da Integração',
+  value: 'edit_integration',
+  action: 'Editar Integração',
+  description: 'Cria uma nova integração ou edita o nome de uma existente',
+			routing:{
+				request:{
+					method:'PUT',
+					url:'=/integrations/{{$parameter.id}}',
+				},
+				output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Integração editada com sucesso!',
+												data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível editar a integração'}`
+                );
+              },
+            ],
+          },
+			}
+},
+{
+  name: 'Buscar Integração',
+  value: 'get_integration',
+  action: 'Busca Uma Integração',
+  description: 'Busca uma integração pelo seu ID',
+			routing:{
+				request:{
+					method:'GET',
+					url:'=/integrations/{{$parameter.id}}',
+				}
+			}
+}
+    ],
+    default: 'create_integration',
   },
 ];

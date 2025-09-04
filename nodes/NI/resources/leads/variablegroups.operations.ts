@@ -21,11 +21,30 @@ export const variablegroupsoperations: INodeProperties[] = [
           request: {
             method: 'POST',
             url: '/variable-groups',
-            body: {
-              name: '={{$parameter.name}}',
-            },
           },
-        },
+        output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204|| response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Grupo de variáveis criado com sucesso!',
+												data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir a variável'}`
+                );
+              },
+            ],
+          },
+
+				},
+
       },
       {
         name: 'Buscar Todos Os Grupos',
@@ -36,11 +55,28 @@ export const variablegroupsoperations: INodeProperties[] = [
           request: {
             method: 'GET',
             url: '/variable-groups',
-            qs: {
-              include: '={{$parameter.parameteradd}}',
-              'filter[name]': '={{$parameter.variablefilter}}',
-            },
           },
+					operations: {
+    pagination: {
+      type: 'generic',
+      properties: {
+        continue: '={{!!$response.body?.links?.next}}',
+        request: {
+          qs: {
+            include: '={{ $request.qs.include }}',
+            'filter[name]': '={{ $request.qs["filter[name]"] }}',
+            page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}',
+          },
+        },
+      },
+    },
+  },
+  send: { paginate: true },
+  output: {
+    postReceive: [
+      { type: 'rootProperty', properties: { property: 'data' } }, // concatena todas as páginas
+    ],
+  },
         },
       },
       {
@@ -52,7 +88,6 @@ export const variablegroupsoperations: INodeProperties[] = [
           request: {
             method: 'GET',
             url: '=/variable-groups/{{$parameter.groupid}}',
-            qs: { include: '={{$parameter.parameteradd}}' },
           },
         },
       },
@@ -65,11 +100,29 @@ export const variablegroupsoperations: INodeProperties[] = [
           request: {
             method: 'PUT',
             url: '=/variable-groups/{{$parameter.groupid}}',
-            body: {
-              name: '={{$parameter.newname}}',
-            },
+          },
+					output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Grupo de variáveis editado com sucesso!',
+												data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível editar o grupo de variáveis'}`
+                );
+              },
+            ],
           },
         },
+
       },
       {
         name: 'Apagar Grupo',
@@ -90,6 +143,7 @@ export const variablegroupsoperations: INodeProperties[] = [
                       json: {
                         success: true,
                         message: 'Grupo apagado com sucesso!',
+
                       },
                     },
                   ];

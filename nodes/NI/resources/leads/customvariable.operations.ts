@@ -21,11 +21,26 @@ export const customvariableoperations: INodeProperties[] = [
           request: {
             method: 'POST',
             url: '/organizations/custom-variables',
-            body: {
-              name: '={{$parameter.name}}',
-              description: '={{$parameter.description}}',
-              type: '={{$parameter.selecaotipo}}',
-            },
+          },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Variável customizada criada com sucesso!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível criar a variável'}`
+                );
+              },
+            ],
           },
         },
       },
@@ -38,11 +53,23 @@ export const customvariableoperations: INodeProperties[] = [
           request: {
             method: 'GET',
             url: '/organizations/custom-variables',
-            qs: {
-              include: '={{$parameter.include}}',
-              'filter[slug]': '={{$parameter.filters.slugfilter}}',
-              'filter[type]': '={{$parameter.filters.typefilter}}',
-              'filter[variable_group_name]': '={{$parameter.filters.variablegroupnamefilter}}',
+          },
+          operations: {
+            pagination: {
+              type: 'generic',
+              properties: {
+                continue: '={{!!$response.body?.links?.next}}',
+                request: {
+                  qs: {
+                    include: '={{$request.qs.include}}',
+                    'filter[slug]': '={{$request.qs["filter[slug]"]}}',
+                    'filter[type]': '={{$request.qs["filter[type]"]}}',
+                    'filter[variable_group_name]': '={{$request.qs["filter[variable_group_name]"]}}',
+                    page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}',
+                    per_page: '={{ $request.qs.per_page }}',
+                  },
+                },
+              },
             },
           },
         },
@@ -55,8 +82,7 @@ export const customvariableoperations: INodeProperties[] = [
         routing: {
           request: {
             method: 'GET',
-            url: '=/organizations/custom-variables/{{$parameter.customvariableid}}',
-            qs: { include: '={{$parameter.include}}' },
+            url: '=/organizations/custom-variables/{{$parameter.customVariableId}}',
           },
         },
       },
@@ -69,11 +95,26 @@ export const customvariableoperations: INodeProperties[] = [
           request: {
             method: 'PUT',
             url: '=/organizations/custom-variables/{{$parameter.customvariableid}}',
-            body: {
-              description: '={{$parameter.description}}',
-              options: [['']],
-              group_id: '={{$parameter.groupid}}',
-            },
+          },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Variável editada com sucesso!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível editar a variável'}`
+                );
+              },
+            ],
           },
         },
       },
