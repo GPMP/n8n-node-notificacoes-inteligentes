@@ -157,7 +157,7 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
 *  **Tratamento de Erros e Confirmações:**
 
-   * **Confirmação de Sucesso:** Todas as operações de criação, edição e exclusão são validadas pela plataforma. Ao serem bem-sucedidas, retornam uma mensagem de  confirmação explícita, garantendo ao usuário que a ação foi concluída conforme esperado.
+   * **Confirmação de Sucesso:** Todas as operações de criação, edição e exclusão são validadas pela plataforma. Ao serem bem-sucedidas, retornam uma mensagem de  confirmação explícita, garantindo ao usuário que a ação foi concluída conforme esperado.
 
    <img src="readme.img/success_message.png" width="800" alt="Screenshot da aplicação">
 
@@ -166,12 +166,12 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 	 <img src="readme.img/create_message.png" width="800" alt="Screenshot da aplicação">
 
    * **Tratamento de Erros:** Em caso de falha, o node fornece respostas de erro detalhadas e estruturadas, incluindo:
-   * Descrição do Erro: Uma mensagem legível que explica a natureza do problema.
-   * Código de Erro HTTP: O código de status padrão, permitindo uma depuração técnica eficiente e a construção de lógicas condicionais robustas dentro do fluxo do n8n.
+     * Descrição do Erro: Uma mensagem legível que explica a natureza do problema.
+     * Código de Erro HTTP: O código de status padrão, permitindo uma depuração técnica eficiente e a construção de lógicas condicionais robustas dentro do fluxo do n8n.
 
 	 * Quando relacionado a alguma regra própria da API, na maioria dos casos ela retorna o motivo do erro, deixando ainda mais claro. 
 
-	 <img src="readme.img/detailed_message_error" width="800" alt="Screenshot da aplicação">
+   <img src="readme.img/detailed_message_error" width="800" alt="Screenshot da aplicação">
 
 	 * Em todos os erros são retornados o código de erro. No caso de exemplo abaixo, retornou 404 (Not Found) pois não encontrou nenhum ID relacionado ao que tentamos apagar na conta.
 
