@@ -15,10 +15,10 @@ export const leadsOperations: INodeProperties[] = [
     options: [
 
       {
-        name: 'Buscar Todos Os Leads',
+        name: 'Get All Leads',
         value: 'get_all_leads',
-        action: 'Buscar leads',
-        description: 'Lista todos os leads existentes no sistema',
+        action: 'Get all leads',
+        description: 'List all existing leads in the system',
         routing: {
           request: {
             method: 'GET',
@@ -40,16 +40,16 @@ export const leadsOperations: INodeProperties[] = [
           send: { paginate: true },
           output: {
             postReceive: [
-              { type: 'rootProperty', properties: { property: 'data' } }, // concatena todas as páginas
+              { type: 'rootProperty', properties: { property: 'data' } }, // concatenate all pages
             ],
           },
         },
       },
       {
-        name: 'Buscar Lead Por ID',
+        name: 'Get Lead by ID',
         value: 'get_lead',
-        action: 'Buscar lead',
-        description: 'Busca um lead específico utilizando seu identificador único (ID)',
+        action: 'Get lead',
+        description: 'Fetch a specific lead using its unique identifier (ID)',
         routing: {
           request: {
             method: 'GET',
@@ -58,10 +58,10 @@ export const leadsOperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Apagar Lead',
+        name: 'Delete Lead',
         value: 'delete_lead',
-        action: 'Excluir lead',
-        description: 'Apaga um lead permanentemente do sistema',
+        action: 'Delete lead',
+        description: 'Permanently delete a lead from the system',
         routing: {
           request: {
             method: 'DELETE',
@@ -75,150 +75,150 @@ export const leadsOperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Contato apagado com sucesso!',
+                        message: 'Lead deleted successfully.',
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir o contato'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to delete lead'}`
                 );
               },
             ],
           },
         },
       },
-{
-  name: 'Criar/editar Lead',
-  value: 'manage_lead',
-  action: 'Criar ou editar lead',
-  description: 'Cria um novo lead ou edita um existente',
-  routing: {
-    send: {
-      preSend: [
-        async function (this, requestOptions) {
-          const id = this.getNodeParameter('id', 0) as string;
-          const isUpdate = id && id.trim() !== '';
-
-          if (isUpdate) {
-            // Modo UPDATE - editar lead existente
-            requestOptions.method = 'PUT';
-            requestOptions.url = `/leads/${id}`;
-
-            // Para update, você pode querer enviar todos os campos ou apenas os alterados
-            requestOptions.body = {
-              name: this.getNodeParameter('name', 0) as string,
-              phone: this.getNodeParameter('phone', 0) as string,
-              email: this.getNodeParameter('email', 0) as string,
-              notes: this.getNodeParameter('notes', 0) as string,
-            };
-
-            // Adicionar tags se fornecidas
-            const tagsParam = this.getNodeParameter('addtags', 0) as any;
-            if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
-              const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-              if (tags.length > 0) {
-                requestOptions.body.tags = tags;
-              }
-            }
-
-            // Adicionar variáveis customizadas se fornecidas
-            const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
-            if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
-              const customVars = customVarsParam.variable.map((v: any) => ({
-                slug: v.slug,
-                value: v.value
-              }));
-              if (customVars.length > 0) {
-                requestOptions.body.custom_variables_to_add_or_update = customVars;
-              }
-            }
-
-          } else {
-            // Modo CREATE - criar novo lead
-            requestOptions.method = 'POST';
-            requestOptions.url = '/leads';
-
-            requestOptions.body = {
-              name: this.getNodeParameter('name', 0) as string,
-              phone: this.getNodeParameter('phone', 0) as string,
-              email: this.getNodeParameter('email', 0) as string,
-              notes: this.getNodeParameter('notes', 0) as string,
-            };
-
-            // Adicionar tags
-            const tagsParam = this.getNodeParameter('addtags', 0) as any;
-            if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
-              const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-              requestOptions.body.tags = tags;
-            }
-
-            // Adicionar variáveis customizadas
-            const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
-            if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
-              const customVars = customVarsParam.variable.map((v: any) => ({
-                slug: v.slug,
-                value: v.value
-              }));
-              requestOptions.body.custom_variables = customVars;
-            }
-          }
-
-          return requestOptions;
-        }
-      ]
-    },
-    output: {
-      postReceive: [
-        async function (this, items, response) {
-          const id = this.getNodeParameter('id', 0) as string;
-          const isUpdate = id && id.trim() !== '';
-          const isCreate = !isUpdate;
-
-          // Verifica se a operação foi bem-sucedida
-          const isSuccess = isCreate
-            ? response.statusCode === 201
-            : (response.statusCode === 200 || response.statusCode === 204);
-
-          if (isSuccess) {
-            return [
-              {
-                json: {
-                  success: true,
-                  message: isCreate
-                    ? 'Lead criado com sucesso!'
-                    : 'Lead editado com sucesso!',
-                  data: response.body,
-                  operation: isCreate ? 'create' : 'update',
-                },
-              },
-            ];
-          }
-
-          // Em caso de erro
-          return [
-            {
-              json: {
-                success: false,
-                message: isCreate
-                  ? `Não foi possível criar o lead: ${response.body?.message || 'Erro desconhecido'}`
-                  : `Não foi possível editar o lead: ${response.body?.message || 'Erro desconhecido'}`,
-                errorCode: response.statusCode,
-                errorData: response.body,
-                operation: isCreate ? 'create' : 'update',
-              },
-            },
-          ];
-        },
-      ],
-    },
-  },
-},
       {
-        name: 'Adicionar Listas A Um Lead',
+        name: 'Create/Edit Lead',
+        value: 'manage_lead',
+        action: 'Create or edit lead',
+        description: 'Create a new lead or edit an existing one',
+        routing: {
+          send: {
+            preSend: [
+              async function (this, requestOptions) {
+                const id = this.getNodeParameter('id', 0) as string;
+                const isUpdate = id && id.trim() !== '';
+
+                if (isUpdate) {
+                  // UPDATE mode - edit existing lead
+                  requestOptions.method = 'PUT';
+                  requestOptions.url = `/leads/${id}`;
+
+                  // For update, send all fields or only changed ones as desired
+                  requestOptions.body = {
+                    name: this.getNodeParameter('name', 0) as string,
+                    phone: this.getNodeParameter('phone', 0) as string,
+                    email: this.getNodeParameter('email', 0) as string,
+                    notes: this.getNodeParameter('notes', 0) as string,
+                  };
+
+                  // Add tags if provided
+                  const tagsParam = this.getNodeParameter('addtags', 0) as any;
+                  if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
+                    const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
+                    if (tags.length > 0) {
+                      requestOptions.body.tags = tags;
+                    }
+                  }
+
+                  // Add custom variables if provided
+                  const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
+                  if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
+                    const customVars = customVarsParam.variable.map((v: any) => ({
+                      slug: v.slug,
+                      value: v.value
+                    }));
+                    if (customVars.length > 0) {
+                      requestOptions.body.custom_variables_to_add_or_update = customVars;
+                    }
+                  }
+
+                } else {
+                  // CREATE mode - create new lead
+                  requestOptions.method = 'POST';
+                  requestOptions.url = '/leads';
+
+                  requestOptions.body = {
+                    name: this.getNodeParameter('name', 0) as string,
+                    phone: this.getNodeParameter('phone', 0) as string,
+                    email: this.getNodeParameter('email', 0) as string,
+                    notes: this.getNodeParameter('notes', 0) as string,
+                  };
+
+                  // Add tags
+                  const tagsParam = this.getNodeParameter('addtags', 0) as any;
+                  if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
+                    const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
+                    requestOptions.body.tags = tags;
+                  }
+
+                  // Add custom variables
+                  const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
+                  if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
+                    const customVars = customVarsParam.variable.map((v: any) => ({
+                      slug: v.slug,
+                      value: v.value
+                    }));
+                    requestOptions.body.custom_variables = customVars;
+                  }
+                }
+
+                return requestOptions;
+              }
+            ]
+          },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                const id = this.getNodeParameter('id', 0) as string;
+                const isUpdate = id && id.trim() !== '';
+                const isCreate = !isUpdate;
+
+                // Check if the operation succeeded
+                const isSuccess = isCreate
+                  ? response.statusCode === 201
+                  : (response.statusCode === 200 || response.statusCode === 204);
+
+                if (isSuccess) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: isCreate
+                          ? 'Lead created successfully.'
+                          : 'Lead updated successfully.',
+                        data: response.body,
+                        operation: isCreate ? 'create' : 'update',
+                      },
+                    },
+                  ];
+                }
+
+                // Error case
+                return [
+                  {
+                    json: {
+                      success: false,
+                      message: isCreate
+                        ? `Unable to create lead: ${response.body?.message || 'Unknown error'}`
+                        : `Unable to update lead: ${response.body?.message || 'Unknown error'}`,
+                      errorCode: response.statusCode,
+                      errorData: response.body,
+                      operation: isCreate ? 'create' : 'update',
+                    },
+                  },
+                ];
+              },
+            ],
+          },
+        },
+      },
+      {
+        name: 'Add Lists to Lead',
         value: 'add_list_lead',
-        action: 'Adicionar listas ao lead',
-        description: 'Adiciona as listas informadas a um lead específico',
+        action: 'Add lists to lead',
+        description: 'Add the provided lists to a specific lead',
         routing: {
           request: {
             method: 'POST',
@@ -232,13 +232,13 @@ export const leadsOperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Lead adicionado com sucesso!',
+                        message: 'Lists added to lead successfully.',
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível remover o lead'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to add lists to lead'}`
                 );
               },
             ],
@@ -246,10 +246,10 @@ export const leadsOperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Remover Listas De Um Lead',
+        name: 'Remove Lists From Lead',
         value: 'remove_list_lead',
-        action: 'Remover listas do lead',
-        description: 'Remove as listas informadas de um contato específico',
+        action: 'Remove lists from lead',
+        description: 'Remove the provided lists from a specific lead',
         routing: {
           request: {
             method: 'POST',
@@ -263,13 +263,13 @@ export const leadsOperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Listas foram removidas com sucesso!',
+                        message: 'Lists removed from lead successfully.',
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Ops! Não foi possível remover as listas do lead'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to remove lists from lead'}`
                 );
               },
             ],

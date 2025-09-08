@@ -3,58 +3,64 @@ import type { INodeProperties } from 'n8n-workflow';
 export const listsFields: INodeProperties[] = [
   // getAllLists — include (source | leadsCount)
   {
-    displayName: 'Incluir Relacionamentos',
+    displayName: 'Include Relationships',
     name: 'include',
     type: 'multiOptions',
-    placeholder: 'Escolha',
+    placeholder: 'Choose',
     options: [
-      { name: 'Fonte (Source)', value: 'source' },
-      { name: 'Contagem De Leads', value: 'leadsCount' },
+      { name: 'Source', value: 'source' },
+      { name: 'Lead Count', value: 'leadsCount' },
     ],
     default: [],
-    description: 'Relacionamentos a incluir na requisição',
+    description: 'Relationships to include in the request',
     displayOptions: { show: { resource: ['leadslist'], operation: ['getAllLists'] } },
-		routing:{request:{qs:{include:'={{$value}}'}}}
+    routing: { request: { qs: { include: '={{$value}}' } } },
   },
 
   // getAllLists — append (has_leads)
   {
-    displayName: 'Mais Propriedades',
+    displayName: 'Additional Properties',
     name: 'append',
     type: 'multiOptions',
-    placeholder: 'Escolha',
-    options: [{ name: 'Contém Leads', value: 'has_leads' }],
+    placeholder: 'Choose',
+    options: [{ name: 'Has Leads', value: 'has_leads' }],
     default: [],
-    description: 'Propriedades a incluir na resposta',
+    description: 'Properties to include in the response',
     displayOptions: { show: { resource: ['leadslist'], operation: ['getAllLists'] } },
-		routing:{request:{qs:{append:'={{$value}}'}}}
+    routing: { request: { qs: { append: '={{$value}}' } } },
   },
 
-  // getAllLists — filtros
+  // getAllLists — filters
   {
-    displayName: 'Filtros',
+    displayName: 'Filters',
     name: 'filters',
     type: 'collection',
-    placeholder: 'Escolha',
+    placeholder: 'Choose',
     default: {},
     options: [
-      { displayName: 'Nome', name: 'nameFilter', type: 'string', default: '', description: 'Filtra as listas pelo nome' },
-      { displayName: 'Tipo', name: 'typeFilter', type: 'string', default: '', description: 'Filtra as listas pelo tipo' },
+      { displayName: 'Name', type: 'string', name: 'nameFilter', default: '', description: 'Filter lists by name' },
+      { displayName: 'Type', type: 'string', name: 'typeFilter', default: '', description: 'Filter lists by type' },
     ],
     displayOptions: { show: { resource: ['leadslist'], operation: ['getAllLists'] } },
-    description: 'Defina filtros para buscar listas específicas',
-		routing:{request:{qs:{'filter[name]': '={{ $value.nameFilter }}','filter[type]': '={{ $value.typeFilter }}',}}}
+    description: 'Set filters to search for specific lists',
+    routing: {
+      request: {
+        qs: {
+          'filter[name]': '={{ $value.nameFilter }}',
+          'filter[type]': '={{ $value.typeFilter }}',
+        },
+      },
+    },
   },
 
-
-  // listId usado por várias operações
+  // listId used by multiple operations
   {
-    displayName: 'ID Da Lista',
+    displayName: 'List ID',
     name: 'listId',
     type: 'string',
     required: true,
     default: '',
-    description: 'O identificador único da lista',
+    description: 'Unique identifier of the list',
     displayOptions: {
       show: {
         resource: ['leadslist'],
@@ -63,33 +69,42 @@ export const listsFields: INodeProperties[] = [
     },
   },
 
-  // addLeads/removeLeads — IDs de leads
+  // addLeads/removeLeads — lead IDs
   {
     displayName: 'Leads (IDs)',
     name: 'leadIds',
     type: 'string',
     required: true,
-    placeholder: 'Exemplo: 17, 25, 33',
+    placeholder: 'Example: 17, 25, 33',
     default: '',
-    description: 'Identificadores de leads a serem adicionados/removidos',
+    description: 'Identifiers of leads to be added or removed',
     displayOptions: { show: { resource: ['leadslist'], operation: ['addLeads', 'removeLeads'] } },
-		routing:{request:{qs:{body: {leads:'={{ String($parameter.leadIds).split(",").map(i => parseInt(i.trim(), 10)).filter(id => Number.isFinite(id) && id > 0) }}',},}}}
+    routing: {
+      request: {
+        qs: {
+          body: {
+            leads:
+              '={{ String($parameter.leadIds).split(",").map(i => parseInt(i.trim(), 10)).filter(id => Number.isFinite(id) && id > 0) }}',
+          },
+        },
+      },
+    },
   },
 
-  // createList — nome + type dinâmico (no body)
+  // createList — name + dynamic type (in body)
   {
-    displayName: 'Nome Da Lista',
+    displayName: 'List Name',
     name: 'listName',
     type: 'string',
     required: true,
     default: '',
-    description: 'O nome da nova lista a ser criada',
+    description: 'Name of the new list to create',
     displayOptions: { show: { resource: ['leadslist'], operation: ['createList'] } },
     routing: {
       request: {
         body: {
           name: '={{ $value }}',
-          type: '={{ "dynamic" }}', // estático e oculto ao usuário
+          type: '={{ "dynamic" }}', // static and hidden from the user
         },
       },
     },
@@ -97,51 +112,51 @@ export const listsFields: INodeProperties[] = [
 
   // getList — include=source
   {
-    displayName: 'Incluir Detalhes Da Fonte',
+    displayName: 'Include Source Details',
     name: 'includeSource',
     type: 'options',
-    placeholder: 'Escolha',
-    options: [{ name: 'Fonte', value: 'source' }],
+    placeholder: 'Choose',
+    options: [{ name: 'Source', value: 'source' }],
     default: 'source',
-    description: 'Parâmetros adicionais para buscar detalhes da fonte da lista',
+    description: 'Additional parameters to fetch the list’s source details',
     displayOptions: { show: { resource: ['leadslist'], operation: ['getList'] } },
     routing: { request: { qs: { include: '={{ $value }}' } } },
   },
 
   // listLeads — include extra
   {
-  displayName: 'Incluir Relacionamentos',
-  name: 'includeRelations',
-  type: 'multiOptions',
-  options: [
-    { name: 'Listas', value: 'lists' },
-    { name: 'Fonte Das Listas', value: 'lists.source' },
-  ],
-  default: [],
-  displayOptions: { show: { resource: ['leadslist'], operation: ['listLeads'] } },
-  routing: { send: { type: 'query', property: 'include' } },
-},
+    displayName: 'Include Relationships',
+    name: 'includeRelations',
+    type: 'multiOptions',
+    options: [
+      { name: 'Lists', value: 'lists' },
+      { name: 'List Source', value: 'lists.source' },
+    ],
+    default: [],
+    displayOptions: { show: { resource: ['leadslist'], operation: ['listLeads'] } },
+    routing: { send: { type: 'query', property: 'include' } },
+  },
 
-  // listLeads — filtros
+  // listLeads — filters
   {
-  displayName: 'Filtrar Leads a Lista Por:',
-  name: 'leadFilters',
-  type: 'collection',
-  default: {},
-  options: [
-    { displayName: 'Nome Do Lead',   name: 'nameFilter',  type: 'string', default: '' },
-    { displayName: 'Telefone Do Lead', name: 'phoneFilter', type: 'string', default: '' },
-    { displayName: 'Email Do Lead',  name: 'emailFilter', type: 'string', default: '' },
-  ],
-  displayOptions: { show: { resource: ['leadslist'], operation: ['listLeads'] } },
-  routing: {
-    request: {
-      qs: {
-        'filter[name]':  '={{ $value.nameFilter || undefined }}',
-        'filter[phone]': '={{ $value.phoneFilter || undefined }}',
-        'filter[email]': '={{ $value.emailFilter || undefined }}',
+    displayName: 'Filter Leads In List By',
+    name: 'leadFilters',
+    type: 'collection',
+    default: {},
+    options: [
+      { displayName: 'Lead Name', name: 'nameFilter', type: 'string', default: '' },
+      { displayName: 'Lead Phone', name: 'phoneFilter', type: 'string', default: '' },
+      { displayName: 'Lead Email', name: 'emailFilter', type: 'string', default: '' },
+    ],
+    displayOptions: { show: { resource: ['leadslist'], operation: ['listLeads'] } },
+    routing: {
+      request: {
+        qs: {
+          'filter[name]': '={{ $value.nameFilter || undefined }}',
+          'filter[phone]': '={{ $value.phoneFilter || undefined }}',
+          'filter[email]': '={{ $value.emailFilter || undefined }}',
+        },
       },
     },
   },
-}
 ];

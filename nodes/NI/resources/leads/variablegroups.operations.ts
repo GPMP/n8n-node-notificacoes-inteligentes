@@ -13,95 +13,16 @@ export const variablegroupsoperations: INodeProperties[] = [
     },
     options: [
       {
-        name: 'Criar Grupo',
+        name: 'Create Group',
         value: 'createlist',
-        action: 'Criar grupo',
-        description: 'Cria um novo grupo para variáveis customizadas',
+        action: 'Create group',
+        description: 'Create a new group for custom variables',
         routing: {
           request: {
             method: 'POST',
             url: '/variable-groups',
           },
-        output: {
-            postReceive: [
-              async function (this, items, response) {
-                if (response.statusCode === 200 || response.statusCode === 204|| response.statusCode === 201) {
-                  return [
-                    {
-                      json: {
-                        success: true,
-                        message: 'Grupo de variáveis criado com sucesso!',
-												data: response.body,
-                      },
-                    },
-                  ];
-                }
-                throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir a variável'}`
-                );
-              },
-            ],
-          },
-
-				},
-
-      },
-      {
-        name: 'Buscar Todos Os Grupos',
-        value: 'getlists',
-        action: 'Buscar grupos',
-        description: 'Busca e retorna todos os grupos de variáveis ativos no sistema',
-        routing: {
-          request: {
-            method: 'GET',
-            url: '/variable-groups',
-          },
-					operations: {
-    pagination: {
-      type: 'generic',
-      properties: {
-        continue: '={{!!$response.body?.links?.next}}',
-        request: {
-          qs: {
-            include: '={{ $request.qs.include }}',
-            'filter[name]': '={{ $request.qs["filter[name]"] }}',
-            page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}',
-          },
-        },
-      },
-    },
-  },
-  send: { paginate: true },
-  output: {
-    postReceive: [
-      { type: 'rootProperty', properties: { property: 'data' } }, // concatena todas as páginas
-    ],
-  },
-        },
-      },
-      {
-        name: 'Buscar Grupo Por ID',
-        value: 'getgroup',
-        action: 'Buscar grupo',
-        description: 'Busca e retorna um grupo de variáveis específico utilizando seu ID',
-        routing: {
-          request: {
-            method: 'GET',
-            url: '=/variable-groups/{{$parameter.groupid}}',
-          },
-        },
-      },
-      {
-        name: 'Editar Nome Do Grupo',
-        value: 'updategroup',
-        action: 'Editar grupo',
-        description: 'Altera o nome de um grupo de variáveis existente',
-        routing: {
-          request: {
-            method: 'PUT',
-            url: '=/variable-groups/{{$parameter.groupid}}',
-          },
-					output: {
+          output: {
             postReceive: [
               async function (this, items, response) {
                 if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
@@ -109,26 +30,102 @@ export const variablegroupsoperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Grupo de variáveis editado com sucesso!',
-												data: response.body,
+                        message: 'Variable group created successfully!',
+                        data: response.body,
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível editar o grupo de variáveis'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create variable group'}`
                 );
               },
             ],
           },
         },
-
       },
       {
-        name: 'Apagar Grupo',
+        name: 'Get All Groups',
+        value: 'getlists',
+        action: 'Get groups',
+        description: 'Retrieve all active variable groups in the system',
+        routing: {
+          request: {
+            method: 'GET',
+            url: '/variable-groups',
+          },
+          operations: {
+            pagination: {
+              type: 'generic',
+              properties: {
+                continue: '={{!!$response.body?.links?.next}}',
+                request: {
+                  qs: {
+                    include: '={{ $request.qs.include }}',
+                    'filter[name]': '={{ $request.qs["filter[name]"] }}',
+                    page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}',
+                  },
+                },
+              },
+            },
+          },
+          send: { paginate: true },
+          output: {
+            postReceive: [
+              { type: 'rootProperty', properties: { property: 'data' } }, // concatenate all pages
+            ],
+          },
+        },
+      },
+      {
+        name: 'Get Group by ID',
+        value: 'getgroup',
+        action: 'Get group',
+        description: 'Retrieve a specific variable group by ID',
+        routing: {
+          request: {
+            method: 'GET',
+            url: '=/variable-groups/{{$parameter.groupid}}',
+          },
+        },
+      },
+      {
+        name: 'Update Group Name',
+        value: 'updategroup',
+        action: 'Edit group',
+        description: 'Change the name of an existing variable group',
+        routing: {
+          request: {
+            method: 'PUT',
+            url: '=/variable-groups/{{$parameter.groupid}}',
+          },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Variable group updated successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to update variable group'}`
+                );
+              },
+            ],
+          },
+        },
+      },
+      {
+        name: 'Delete Group',
         value: 'deletegroup',
-        action: 'Excluir grupo',
-        description: 'Apaga um grupo de variáveis permanentemente do sistema',
+        action: 'Delete group',
+        description: 'Permanently delete a variable group from the system',
         routing: {
           request: {
             method: 'DELETE',
@@ -142,14 +139,13 @@ export const variablegroupsoperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Grupo apagado com sucesso!',
-
+                        message: 'Variable group deleted successfully!',
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir o grupo'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to delete variable group'}`
                 );
               },
             ],

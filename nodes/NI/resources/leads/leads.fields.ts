@@ -1,26 +1,27 @@
 import type { INodeProperties } from 'n8n-workflow';
+
 export const leadsFields: INodeProperties[] = [
   {
-    displayName: 'ID Do Lead',
+    displayName: 'Lead ID',
     name: 'id',
     type: 'string',
-		required:true,
+    required: true,
     default: '',
     displayOptions: {
       show: {
-        resource: ['leads','leadslist'],
-        operation: ['get_lead','delete_lead','addlist','addlisttolead','removelisttolead'],
+        resource: ['leads', 'leadslist'],
+        operation: ['get_lead', 'delete_lead', 'addlist', 'addlisttolead', 'removelisttolead'],
       },
     },
-    description: 'Identificado do Lead',
+    description: 'Lead identifier',
   },
   {
-    displayName: 'Modo De Operação',
+    displayName: 'Operation Mode',
     name: 'operationMode',
     type: 'options',
     options: [
-      { name: 'Criar Novo Lead', value: 'create' },
-      { name: 'Editar Lead Existente', value: 'update' }
+      { name: 'Create New Lead', value: 'create' },
+      { name: 'Edit Existing Lead', value: 'update' },
     ],
     default: 'create',
     displayOptions: {
@@ -29,10 +30,10 @@ export const leadsFields: INodeProperties[] = [
         operation: ['manage_lead'],
       },
     },
-    description: 'Escolha se deseja criar um novo lead ou editar um existente',
+    description: 'Choose whether to create a new lead or edit an existing one',
   },
-	{
-    displayName: 'ID Do Lead',
+  {
+    displayName: 'Lead ID',
     name: 'id',
     type: 'string',
     required: true,
@@ -44,10 +45,10 @@ export const leadsFields: INodeProperties[] = [
         operationMode: ['update'],
       },
     },
-    description: 'O identificador único do lead a ser editado',
+    description: 'Unique identifier of the lead to edit',
   },
   {
-    displayName: 'Nome',
+    displayName: 'Name',
     name: 'name',
     type: 'string',
     required: true,
@@ -55,14 +56,14 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead','deletegroup'],
+        operation: ['manage_lead', 'deletegroup'],
       },
     },
     routing: { send: { type: 'body', property: 'name' } },
-    description: 'O nome completo do lead',
+    description: 'Lead’s full name',
   },
   {
-    displayName: 'Telefone',
+    displayName: 'Phone',
     name: 'phone',
     type: 'string',
     required: true,
@@ -75,43 +76,43 @@ export const leadsFields: INodeProperties[] = [
       },
     },
     routing: { send: { type: 'body', property: 'phone' } },
-    description: 'O número de telefone do lead, incluindo o DDD (obrigatório para criar)',
+    description: 'Lead’s phone number including area code (required for create)',
   },
   {
     displayName: 'Email',
     name: 'email',
     type: 'string',
-		required:true,
+    required: true,
     placeholder: 'name@email.com',
     default: '',
     displayOptions: {
       show: {
         resource: ['leads'],
         operation: ['manage_lead'],
-				operationMode:['create']
+        operationMode: ['create'],
       },
     },
     routing: { send: { type: 'body', property: 'email' } },
-    description: 'O endereço de e-mail do lead (obrigatório para criar)',   //Dupliquei email pois o email do update não é required
+    description: 'Lead’s email address (required for create)', // Dupliquei email pois o email do update não é required
   },
-	{
-  displayName: 'Email',
-  name: 'email',
-  type: 'string',
-	placeholder: 'name@email.com',
-	  default: '',
-  displayOptions: {
-    show: {
-      resource: ['leads'],
-      operation: ['manage_lead'],
-      operationMode: ['update'],
-    },
-  },
-  routing: { send: { type: 'body', property: 'email' } },
-  description: 'Email opcional ao editar lead',
-},
   {
-    displayName: 'Notas',
+    displayName: 'Email',
+    name: 'email',
+    type: 'string',
+    placeholder: 'name@email.com',
+    default: '',
+    displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['manage_lead'],
+        operationMode: ['update'],
+      },
+    },
+    routing: { send: { type: 'body', property: 'email' } },
+    description: 'Optional email when editing a lead',
+  },
+  {
+    displayName: 'Notes',
     name: 'notes',
     type: 'string',
     default: '',
@@ -122,16 +123,16 @@ export const leadsFields: INodeProperties[] = [
       },
     },
     routing: { send: { type: 'body', property: 'notes' } },
-    description: 'Notas adicionais ou observações sobre o lead',
+    description: 'Additional notes or remarks about the lead',
   },
   {
-    displayName: 'Variáveis Customizadas',
+    displayName: 'Custom Variables',
     name: 'customVariables',
     type: 'fixedCollection',
     typeOptions: {
       multipleValues: true,
     },
-    placeholder: 'Adicionar Variável',
+    placeholder: 'Add Variable',
     default: {},
     displayOptions: {
       show: {
@@ -142,21 +143,21 @@ export const leadsFields: INodeProperties[] = [
     options: [
       {
         name: 'variable',
-        displayName: 'Variável',
+        displayName: 'Variable',
         values: [
           {
             displayName: 'Slug',
             name: 'slug',
             type: 'string',
             default: '',
-            description: 'O slug da variável customizada a ser editada',
+            description: 'Slug of the custom variable to edit',
           },
           {
-            displayName: 'Valor',
+            displayName: 'Value',
             name: 'value',
             type: 'string',
             default: '',
-            description: 'O valor a ser atribuído à variável customizada',
+            description: 'Value to assign to the custom variable',
           },
         ],
       },
@@ -164,7 +165,8 @@ export const leadsFields: INodeProperties[] = [
     routing: {
       request: {
         body: {
-          custom_variables_to_add_or_update:'={{ Array.isArray($value.variable) ? $value.variable.map(v => ({ slug: v.slug, value: v.value })) : (Array.isArray($value) ? $value.map(v => ({ slug: v.slug, value: v.value })) : []) }}',
+          custom_variables_to_add_or_update:
+            '={{ Array.isArray($value.variable) ? $value.variable.map(v => ({ slug: v.slug, value: v.value })) : (Array.isArray($value) ? $value.map(v => ({ slug: v.slug, value: v.value })) : []) }}',
         },
       },
     },
@@ -176,26 +178,26 @@ export const leadsFields: INodeProperties[] = [
     typeOptions: {
       multipleValues: true,
     },
-    placeholder: 'Adicionar Tags',
+    placeholder: 'Add Tags',
     default: {},
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead','createList'],
-				operationMode:['create']
+        operation: ['manage_lead', 'createList'],
+        operationMode: ['create'],
       },
     },
     options: [
       {
         name: 'optiontags',
-        displayName: 'Adicionar Tags',
+        displayName: 'Add Tags',
         values: [
           {
             displayName: 'Tags',
             name: 'tags1',
             type: 'string',
             default: '',
-            description: 'Nome da tag',
+            description: 'Tag name',
           },
         ],
       },
@@ -203,111 +205,112 @@ export const leadsFields: INodeProperties[] = [
     routing: {
       request: {
         body: {
-          tags: '={{ Array.isArray($value.optiontags) ? $value.optiontags.map(o => o.tags1).filter(Boolean) : (Array.isArray($value) ? $value.map(o => o.tags1).filter(Boolean) : []) }}',
+          tags:
+            '={{ Array.isArray($value.optiontags) ? $value.optiontags.map(o => o.tags1).filter(Boolean) : (Array.isArray($value) ? $value.map(o => o.tags1).filter(Boolean) : []) }}',
         },
       },
     },
   },
   {
-    displayName: 'Filtros',
+    displayName: 'Filters',
     name: 'filters',
     type: 'collection',
     default: {},
-    placeholder:'Escolha',
+    placeholder: 'Choose',
     options: [
       {
-        displayName: 'Nome',
+        displayName: 'Name',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo nome',
+        description: 'Filter leads by name',
       },
       {
-        displayName: 'Telefone',
+        displayName: 'Phone',
         name: 'phonefilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo número de telefone',
+        description: 'Filter leads by phone number',
       },
       {
         displayName: 'Email',
         name: 'emailfilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo endereço de e-mail',
+        description: 'Filter leads by email address',
       },
       {
         displayName: 'Tag ID',
         name: 'tagfilter',
         type: 'string',
         default: '',
-        description: 'Filtra leads pelo ID da tag',
+        description: 'Filter leads by tag ID',
       },
     ],
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['getAll']
-      }
+        operation: ['getAll'],
+      },
     },
-    description: 'Defina filtros para buscar leads específicos',
-    routing:{
-      request:{
-        qs:{
+    description: 'Set filters to search for specific leads',
+    routing: {
+      request: {
+        qs: {
           'filter[name]': '={{$value.namefilter}}',
           'filter[phone]': '={{$value.phonefilter}}',
           'filter[email]': '={{$value.emailfilter}}',
-          'filter[tags]': ['={{$value.tagfilter}}']
-        }
-      }
-    }
+          'filter[tags]': ['={{$value.tagfilter}}'],
+        },
+      },
+    },
   },
   {
-    displayName: 'Incluir Relacionamentos',
+    displayName: 'Include Relationships',
     name: 'aditionalfilter',
     type: 'multiOptions',
     options: [
-      { name: 'Listas', value: 'lists' },
-      { name: 'Fonte Das Listas', value: 'lists.source' },
+      { name: 'Lists', value: 'lists' },
+      { name: 'List Source', value: 'lists.source' },
       { name: 'Tags', value: 'tags' },
-      { name: 'Usuários', value: 'users' },
+      { name: 'Users', value: 'users' },
     ],
     default: [],
-    description: 'Selecione quais relacionamentos devem ser incluídos na requisição (ex: listas, tags, usuários)',
+    description: 'Select which relationships to include in the request (e.g., lists, tags, users)',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['getAll','getonelead']
-      }
+        operation: ['getAll', 'getonelead'],
+      },
     },
-    routing:{
-      request:{
-        qs:{
-          include: '={{$value}}'
-        }
-      }
-    }
+    routing: {
+      request: {
+        qs: {
+          include: '={{$value}}',
+        },
+      },
+    },
   },
   {
-    displayName: 'ID(s) Da(s) Lista(s)',
+    displayName: 'List ID(s)',
     name: 'lists_id',
-    placeholder:'1234, 5678, 9101112',
+    placeholder: '1234, 5678, 9101112',
     type: 'string',
     required: true,
     default: '',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['addlisttolead','removelisttolead'],
+        operation: ['addlisttolead', 'removelisttolead'],
       },
     },
-    description: 'O(s) ID(s) da(s) lista(s) para associar ou remover do lead (separados por vírgula)',
-    routing:{
-      request:{
-        body:{
+    description: 'List ID(s) to associate with or remove from the lead (comma-separated)',
+    routing: {
+      request: {
+        body: {
           lists: '={{$value.split(",").map(item => parseInt(item.trim(), 10))}}',
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 ];

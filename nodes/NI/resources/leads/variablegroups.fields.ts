@@ -2,7 +2,7 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const variablegroupsfields: INodeProperties[] = [
   {
-    displayName: 'Nome',
+    displayName: 'Name',
     name: 'name',
     type: 'string',
     required: true,
@@ -13,11 +13,11 @@ export const variablegroupsfields: INodeProperties[] = [
         operation: ['createlist'],
       },
     },
-    description: 'O nome do grupo de variáveis',
-		routing:{send:{type:'body', property:'name'}}
+    description: 'Name of the variable group',
+    routing: { send: { type: 'body', property: 'name' } },
   },
   {
-    displayName: 'ID Do Grupo',
+    displayName: 'Group ID',
     name: 'groupid',
     type: 'string',
     default: '',
@@ -27,11 +27,11 @@ export const variablegroupsfields: INodeProperties[] = [
         operation: ['getgroup', 'updategroup', 'deletegroup'],
       },
     },
-    description: 'O identificador único do grupo de variáveis',
-		routing:{send:{type:'body', property:'group_id'}}
+    description: 'Unique identifier of the variable group',
+    routing: { send: { type: 'body', property: 'group_id' } },
   },
   {
-    displayName: 'Novo Nome Do Grupo',
+    displayName: 'New Group Name',
     name: 'newname',
     type: 'string',
     required: true,
@@ -42,50 +42,41 @@ export const variablegroupsfields: INodeProperties[] = [
         operation: ['updategroup'],
       },
     },
-    description: 'O novo nome a ser atribuído ao grupo de variáveis',
-		routing:{send:{type:'body', property:'name'}}
+    description: 'New name to assign to the variable group',
+    routing: { send: { type: 'body', property: 'name' } },
   },
   {
-    displayName: 'Incluir Relacionamentos',
+    displayName: 'Include Relationships',
     name: 'parameteradd',
     type: 'multiOptions',
     options: [
-      {
-        name: 'Organização',
-        value: 'organization',
-      },
-      {
-        name: 'Autor',
-        value: 'author',
-      },
-      {
-        name: 'Última Edição Por',
-        value: 'lastEditedBy',
-      },
+      { name: 'Organization', value: 'organization' },
+      { name: 'Author', value: 'author' },
+      { name: 'Last Edited By', value: 'lastEditedBy' },
     ],
     default: [],
-    description: 'Selecione quais relacionamentos opcionais devem ser incluídos na requisição',
+    description: 'Select which optional relationships to include in the request',
     displayOptions: {
       show: {
         resource: ['variablegroups'],
         operation: ['getgroup', 'getlists'],
       },
     },
-		routing: { send: { type: 'query', property: 'include' } },
+    routing: { send: { type: 'query', property: 'include' } },
   },
   {
-    displayName: 'Filtrar',
+    displayName: 'Filters',
     name: 'variablefilter',
     type: 'collection',
-    placeholder: 'Escolha',
+    placeholder: 'Choose',
     default: {},
     options: [
       {
-        displayName: 'Nome',
+        displayName: 'Name',
         name: 'namefilter',
         type: 'string',
         default: '',
-        description: 'Filtra pelo nome',
+        description: 'Filter by name',
       },
     ],
     displayOptions: {
@@ -94,7 +85,7 @@ export const variablegroupsfields: INodeProperties[] = [
         operation: ['getlists'],
       },
     },
-    description: 'Defina filtros para buscar leads específicos dentro da lista',
-		routing:{request:{qs:{'filter[name]':'={{$value.namefilter}}'}}}
+    description: 'Set filters to search for specific variable groups in the list',
+    routing: { request: { qs: { 'filter[name]': '={{$value.namefilter}}' } } },
   },
 ];

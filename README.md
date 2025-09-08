@@ -116,20 +116,24 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 
 > Seu Custom Node está agora pronto para se comunicar de forma segura com a API.
 
+6. Caso tiver mais de uma organização, é possível adicionar mais de uma chave e organizar as credenciais conforme cada organização. Pra facilitar a identificação basta renomear cada credencial.
+
+<img src="readme.img/credential_rename.png" width="800" alt="Screenshot da aplicação">
+
 ---
 
 ## Testando a Conexão
 
-1. Crie uma ação de teste no Custom Node, como **Listar Variáveis Customizadas**.
+1. Crie uma ação de teste no Custom Node, como **Get All Integrations**.
 2. Execute a ação.
 3. Se tudo estiver correto, você verá os dados retornados da API.
 
+<img src="readme.img/testing_token.png" width="800" alt="Screenshot da aplicação">
+
 > Caso ocorra algum erro de autenticação, verifique se:
->
 > * O **Bearer Token** foi copiado corretamente.
 > * A chave não expirou.
 > * Sua conta tem permissão para acessar a organização escolhida.
-> * Qual o código de erro exibido.
 
 ---
 
@@ -138,6 +142,36 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou consultar variáveis customizadas com segurança, utilizando sua **API Key (Bearer Token)**.
 
 ---
+
+Claro! Aqui está um resumo introdutório que explica a "ideia" por trás do Custom Node do NI, perfeito para colocar antes das instruções detalhadas:
+
+---
+
+### **Ideia do Node: Como funciona e o que esperar**
+
+O **Custom Node do NI (Notificações Inteligentes)** para o n8n é uma ferramenta que permite integrar e automatizar todas as funcionalidades da sua conta NI diretamente nos seus fluxos de trabalho (workflows).
+
+A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
+
+#### Principais Conceitos:
+
+*   #### Base de Operação:** Quase todas as operações no Node giram em torno de um **ID**.
+    *   Para gerenciar uma **Integração**, você precisa do seu `ID`.
+    *   Para editar um **Lead**, você precisa do `ID do Lead`.
+    *   Para adicionar leads a uma **Lista**, você precisa do `ID da Lista` e dos `IDs dos Leads`.
+    *   E assim por diante para Variáveis e Grupos.
+
+*   #### Fluxo de Trabalho Típico:
+    1.  **Buscar/Buscar Todos:** Você frequentemente começará usando uma operação como "Buscar Todas as Integrações" ou "Buscar Todos os Leads" para obter uma lista de itens e seus respectivos **IDs**.
+    2.  **Usar o ID:** Em seguida, você utilizará esse **ID** em uma operação subsequente no mesmo fluxo (como "Editar Lead", "Mudar o Nome de uma Integração" ou "Adicionar Leads à Lista") para realizar a ação desejada no item específico.
+
+   #### Dados adicionais: 
+	 Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
+
+Em resumo, o Node transforma a API do NI em blocos visuais e intuitivos no n8n, onde a principal moeda de operação são os **IDs**, permitindo que você construa automações complexas e personalizadas para gerenciar sua comunicação e base de contatos de forma eficiente.
+
+---
+
 
 
 # GUIA DAS FUNÇÕES DO NODE DO NI
@@ -148,48 +182,56 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
 ### Operações Disponíveis
 
-#### Criar Nova Integração
+### Criar Nova Integração
 Cria uma nova integração conectando sua plataforma ao sistema.
-**Campos obrigatórios:**
+
+#### Campos obrigatórios:
 - Nome: Dê um nome amigável para identificar a integração (ex: "Minha Loja Shopify").
 - Plataforma: Especifique a plataforma (ex: shopify-next, hotmart-v2, wooocommerce, etc). Veja na descrição do campo a lista de plataformas suportadas.
-**Como usar:**
+
+#### Como usar
 Selecione a operação "Criar Nova Integração", preencha nome e plataforma, e execute.
 A integração será criada e listada em seu painel.
 
 #### Buscar Todas Integrações
 Lista todas as integrações já cadastradas na sua conta.
-**Nenhum campo precisa ser preenchido.**
+
+#### Nenhum campo precisa ser preenchido.
+
 Retorna uma lista com todos os nomes e plataformas cadastrados.
-**Como usar:**
+
+#### Como usar:
 Selecione "Buscar Todas Integrações" e execute.
 Você verá a lista completa de integrações.
 
-#### Buscar uma Integração
+### Buscar uma Integração
 Permite consultar os dados detalhados de uma integração específica.
-**Campos obrigatórios:**
+
+#### Campos obrigatórios:
 - ID: O identificador único da integração que você quer consultar (você pode copiar esse ID ao listar todas as integrações).
-**Parâmetros Adicionais (opcional):**
+
+#### Parâmetros Adicionais (opcional):
 - Você pode escolher incluir campos extras na resposta, como "Eventos Disponíveis", "Setup Fields", ou "Checklist".
 - Basta marcar os que deseja ver detalhados.
-**Como usar:**
+
+#### Como usar:
 Selecione "Buscar uma Integração", informe o ID, selecione (se quiser) algum parâmetro adicional, e execute.
 
 #### Mudar o Nome de uma Integração
 Atualiza o nome de uma integração existente.
-**Campos obrigatórios:**
+#### Campos obrigatórios:
 - ID: O identificador da integração que você quer renomear.
 - Novo Nome: O novo nome para exibir no painel.
-**Como usar:**
+#### Como usar:
 Selecione "Mudar o Nome de uma Integração", informe o ID e o novo nome, e execute.
 
-### Campos Especiais
+#### Campos Especiais
 - **Nome:** Nome da integração (até 100 caracteres).
 - **Plataforma:** Plataforma da integração (consulte a lista na descrição do campo).
 - **ID:** Identificador único da integração, normalmente fornecido ao criar ou ao listar integrações.
 - **Parâmetros Adicionais:** Marque para incluir informações extras na busca da integração.
 
-### Dicas
+#### Dicas
 - Use "Buscar Todas Integrações" para descobrir o ID da integração que você deseja editar ou consultar.
 - Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
 - Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
