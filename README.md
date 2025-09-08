@@ -74,8 +74,7 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 
 > Certifique-se de usar a conta correta que tem acesso às **Organizações** que deseja gerenciar via API.
 
----file:///home/marcos-pena/Downloads/Gif%20pegando%20bearer%20token.gif
-
+---
 
 ## Gerando a API Key (Bearer Token)
 
@@ -84,9 +83,12 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 3. Acesse **Configurações**.
 4. Procure a seção **Chave de API**.
 5. Clique em **Gerar nova chave**.
+
 <img src="readme.img/generate_key.png" width="600" alt="Screenshot da aplicação">
 
 6. Uma caixa de diálogo será exibida:
+
+<img src="readme.img/token.png" width="600" alt="Screenshot da aplicação">
 
    * **Marque a caixinha** confirmando que você guardou a chave em um local seguro.
    * Clique em **Concluir**.
@@ -96,13 +98,21 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 
 ---
 
-## 3️⃣ Configurando o Custom Node
+## Configurando o Custom Node
 
-1. No seu ambiente de integração (n8n, Make, etc.), abra o **Custom Node**.
-2. Localize o campo **API Key / Bearer Token**.
+1. No seu ambiente de integração (n8n), abra o **Custom Node**.
+2. Localize o campo **Create new Credential / Bearer Token**.
+
+<img src="readme.img/credential_field.png" width="600" alt="Screenshot da aplicação">
+
 3. Cole a chave gerada no site da Notificações Inteligentes.
 4. Salve as configurações.
-5. Caso houver algum problema com a chave API, uma mensagem de erro aparecerá informando o código de erro. 
+
+<img src="readme.img/success_example.png" width="600" alt="Screenshot da aplicação">
+
+5. Caso houver algum problema com a chave API, uma mensagem de erro aparecerá. 
+
+<img src="readme.img/error_example.png" width="600" alt="Screenshot da aplicação">
 
 > Seu Custom Node está agora pronto para se comunicar de forma segura com a API.
 
