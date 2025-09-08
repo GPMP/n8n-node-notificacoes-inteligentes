@@ -32,6 +32,11 @@ export const leadsOperations: INodeProperties[] = [
                 request: {
                   qs: {
                     page: '={{Number($response.body?.meta?.current_page || 0) + 1 }}',
+										include: '={{ $request.qs.include }}',
+                    'filter[name]': '={{ $request.qs["filter[name]"] }}',
+                    'filter[phone]': '={{ $request.qs["filter[phone]"] }}',
+                    'filter[email]': '={{ $request.qs["filter[email]"] }}',
+										'filter[tags]': '={{ $request.qs["filter[tags]"] }}',
                   },
                 },
               },

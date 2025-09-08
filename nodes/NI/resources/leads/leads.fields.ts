@@ -10,7 +10,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads', 'leadslist'],
-        operation: ['get_lead', 'delete_lead', 'addlist', 'addlisttolead', 'removelisttolead'],
+        operation: ['get_lead', 'delete_lead', 'addlist', 'add_list_lead', 'remove_list_lead',],
       },
     },
     description: 'Lead identifier',
@@ -250,7 +250,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['getAll'],
+        operation: ['get_all_leads'],
       },
     },
     description: 'Set filters to search for specific leads',
@@ -280,7 +280,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['getAll', 'getonelead'],
+        operation: ['get_all_leads', 'get_lead'],
       },
     },
     routing: {
@@ -301,7 +301,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['addlisttolead', 'removelisttolead'],
+        operation: ['add_list_lead', 'remove_list_lead'],
       },
     },
     description: 'List ID(s) to associate with or remove from the lead (comma-separated)',
