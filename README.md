@@ -139,21 +139,21 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
 ## **Ideia do Node: Como funciona e o que esperar**
 
-O **Custom Node do NI (Notificações Inteligentes)** para o n8n é uma ferramenta que permite integrar e automatizar todas as funcionalidades da sua conta NI diretamente nos seus fluxos de trabalho (workflows).
+* O **Custom Node do NI (Notificações Inteligentes)** para o n8n é uma ferramenta que permite integrar e automatizar todas as funcionalidades da sua conta NI diretamente nos seus fluxos de trabalho (workflows).
 
-A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
+*A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
 
 ### Principais Conceitos:
 
-*   #### Base de Operação:** Quase todas as operações no Node giram em torno de um **ID**.
-    *   Para gerenciar uma **Integração**, você precisa do seu `ID`.
-    *   Para editar um **Lead**, você precisa do `ID do Lead`.
-    *   Para adicionar leads a uma **Lista**, você precisa do `ID da Lista` e dos `IDs dos Leads`.
-    *   E assim por diante para Variáveis e Grupos.
+  * **Base de Operação:** Quase todas as operações no Node giram em torno de um **ID**.
+    - Para gerenciar uma **Integração**, você precisa do seu `ID`.
+    - Para editar um **Lead**, você precisa do `ID do Lead`.
+    - Para adicionar leads a uma **Lista**, você precisa do `ID da Lista` e dos `IDs dos Leads`.
+    - E assim por diante para Variáveis e Grupos.
 
-*   ### Fluxo de Trabalho Típico:
-    **Buscar/Buscar Todos:** Você frequentemente começará usando uma operação como "Buscar Todas as Integrações" ou "Buscar Todos os Leads" para obter uma lista de itens e seus respectivos **IDs**.
-    **Usar o ID:** Em seguida, você utilizará esse **ID** em uma operação subsequente no mesmo fluxo (como "Editar Lead", "Mudar o Nome de uma Integração" ou "Adicionar Leads à Lista") para realizar a ação desejada no item específico.
+*  **Fluxo de Trabalho Típico:**
+   * **Buscar/Buscar Todos:** Você frequentemente começará usando uma operação como "Buscar Todas as Integrações" ou "Buscar Todos os Leads" para obter uma lista de itens e seus respectivos **IDs**.
+   * **Usar o ID:** Em seguida, você utilizará esse **ID** em uma operação subsequente no mesmo fluxo (como "Editar Lead", "Mudar o Nome de uma Integração" ou "Adicionar Leads à Lista") para realizar a ação desejada no item específico.
 
    ### Dados adicionais 
 	 Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
