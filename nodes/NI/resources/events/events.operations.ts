@@ -13,185 +13,498 @@ export const eventsOperations: INodeProperties[] = [
     },
     options: [
       {
-        name: 'Criar Evento De Acesso Concedido',
+         name: 'Access Granted',
         value: 'accessevent',
-        action: 'Criar evento de acesso concedido na integracao',
-        description: 'Cria um evento para registrar a concessao de acesso a um membro na integracao',
+        action: 'Create access granted event',
+        description: 'Create an event indicating access was created for a member',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/access-created',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if ([200, 201, 204].includes(response.statusCode)) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Aguardando Pagamento',
+         name: 'Waiting Payment',
         value: 'orderwaitingcharge',
-        action: 'Cria um novo evento de pedido que esta aguardando o pagamento ser efetuado',
-        description: 'Cria um evento para registrar que um pedido está aguardando o pagamento na integração',
+        action: 'Create order waiting payment event',
+        description: 'Create an event indicating an order is awaiting payment',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/waiting-payment',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Boleto Impresso',
+         name: 'Boleto Printed',
         value: 'createnewticket',
-        action: 'Criar evento de boleto impresso na integracao',
-        description: 'Cria um evento para registrar que um boleto foi impresso na integracao',
+        action: 'Create boleto printed event',
+        description: 'Create an event indicating a boleto was printed in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/billet-printed',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Carrinho Abandonado',
+        name: 'Abandoned Cart',
         value: 'createnewevent',
-        action: 'Criar evento de carrinho abandonado na integracao',
-        description: 'Cria um evento indicando que um carrinho de compras foi abandonado na integracao',
+        action: 'Create abandoned cart event',
+        description: 'Create an event indicating a shopping cart was abandoned in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/abandoned-cart',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Nota Nps',
+        name: 'NPS Score',
         value: 'eventclientscore',
-        action: 'Criar evento com a nota referente a disposicao do cliente em recomendar algo a terceiros',
-        description: 'Cria um evento para registrar a nota de recomendacao NPS de um cliente na integracao',
+        action: 'Create NPS score event',
+        description: 'Create an event recording the customer’s score for willingness to recommend to others',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/nps-answer',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pacote Aguardando Retirada',
+         name: 'Awaiting Pickup',
         value: 'orderwaiting',
-        action: 'Criar evento de pacote aguardando retirada na integracao',
-        description: 'Cria um evento para notificar que o pacote aguarda retirada na integracao',
+        action: 'Create package awaiting pickup event',
+        description: 'Create an event indicating a package is awaiting pickup',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/shipping-arrived-for-withdrawal',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pacote Saiu Para Entrega',
+        name: 'Out for Delivery',
         value: 'orderout',
-        action: 'Criar evento de pacote saiu para entrega na integracao',
-        description: 'Cria um evento para registrar que o pacote saiu para entrega na integracao',
+        action: 'Create package out for delivery event',
+        description: 'Log when a package is out for delivery in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/shipping-out-for-delivery',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Cancelado',
+        name: 'Order Canceled',
         value: 'canceledorder',
-        action: 'Criar evento de pedido cancelado na integracao',
-        description: 'Cria um evento para notificar que um pedido foi cancelado na integracao',
+        action: 'Create order canceled event',
+        description: 'Create an event indicating an order was canceled in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-canceled',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Despachado',
+        name: 'Order Dispatched',
         value: 'orderdispatched',
-        action: 'Criar evento de pedido despachado na integracao',
-        description: 'Cria um evento para registrar que um pedido foi despachado para entrega na integracao',
+        action: 'Create order dispatched event',
+        description: 'Create an event indicating an order was dispatched to the carrier',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-fulfilled',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Entregue',
+        name: 'Order Delivered',
         value: 'orderreceived',
-        action: 'Criar evento de pedido entregue na integracao',
-        description: 'Cria um evento para indicar que um pedido foi entregue ao cliente na integracao',
+        action: 'Create order delivered event',
+        description: 'Create an event indicating an order was delivered',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-delivered',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Estornado',
+        name: 'Order Refunded',
         value: 'refundorder',
-        action: 'Criar evento de pedido estornado na integracao',
-        description: 'Cria um evento para registrar que um pedido foi estornado na integracao',
+        action: 'Create order refunded event',
+        description: 'Create an event indicating an order was refunded in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-refunded',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Pago',
+        name: 'Order Paid',
         value: 'orderpaid',
-        action: 'Criar evento de pedido pago na integracao',
-        description: 'Cria um evento para registrar que um pedido foi pago na integracao',
+        action: 'Create order paid event',
+        description: 'Create an event indicating an order was paid in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-paid',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pedido Processando',
+        name: 'Order Processing',
         value: 'orderprocessed',
-        action: 'Criar evento de pedido processando na integracao',
-        description: 'Cria um evento para indicar que um pedido esta em processamento na integracao',
+        action: 'Create order processing event',
+        description: 'Indicate when an order is being processed in the integration',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/order-processing',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Pesquisa Nps',
+        name: 'NPS Survey',
         value: 'eventclientsearch',
-        action: 'Criar evento com o link para pesquisa',
-        description: 'Cria um evento para enviar um link de pesquisa de recomendacao NPS ao cliente na integracao',
+        action: 'Create NPS survey event',
+        description: 'Create an event containing the survey link',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/nps-survery',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
       {
-        name: 'Criar Evento De Progresso De Envio',
+        name: 'Progress Updated',
         value: 'orderprocessupdated',
-        action: 'Criar evento de progresso de envio na integracao',
-        description: 'Cria um evento para registrar a atualizacao do progresso de envio de um pacote na integracao',
+        action: 'Create shipping progress event',
+        description: 'Create an event indicating a package’s shipping progress was updated',
         routing: {
           request: {
             method: 'POST',
             url: '=/integrations/{{$parameter.id}}/events/shipping-progress',
           },
+          output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Event created successfully!',
+                        data: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create event'}`
+                );
+              },
+            ],
+          },
         },
       },
+			{
+      name:  'Create Password Reset Event',
+      value: 'changepasswordevent',
+      action: 'Create a password reset event in the integration',
+      description: 'Logs a user password reset request or completion',
+      routing: {
+      request: {
+      method: 'POST',
+      url: '=/integrations/{{$parameter.id}}/events/reset-password',
+    },
+  },
+}
+
     ],
     default: 'createnewevent',
   },

@@ -13,10 +13,10 @@ export const customvariableoperations: INodeProperties[] = [
     },
     options: [
       {
-        name: 'Criar Variável Customizada',
+        name: 'Create Custom Variable',
         value: 'createcustomvariable',
-        action: 'Criar variavel',
-        description: 'Cria uma nova variável customizada no sistema',
+        action: 'Create variable',
+        description: 'Creates a new custom variable in the system',
         routing: {
           request: {
             method: 'POST',
@@ -30,14 +30,14 @@ export const customvariableoperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Variável customizada criada com sucesso!',
+                        message: 'Custom variable created successfully!',
                         data: response.body,
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível criar a variável'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Failed to create the variable'}`
                 );
               },
             ],
@@ -45,10 +45,10 @@ export const customvariableoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Buscar Todas as Variáveis Customizadas',
+        name: 'Get All Custom Variables',
         value: 'getcustomvariables',
-        action: 'Buscar variaveis',
-        description: 'Busca e retorna todas as variáveis customizadas disponíveis',
+        action: 'Get variables',
+        description: 'Fetches and returns all available custom variables',
         routing: {
           request: {
             method: 'GET',
@@ -75,10 +75,10 @@ export const customvariableoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Buscar Variável Customizada Por ID',
+        name: 'Get Custom Variable By ID',
         value: 'getvariable',
-        action: 'Buscar variavel',
-        description: 'Busca e retorna uma variável customizada específica utilizando seu ID',
+        action: 'Get variable',
+        description: 'Fetches and returns a specific custom variable by its ID',
         routing: {
           request: {
             method: 'GET',
@@ -87,14 +87,14 @@ export const customvariableoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Editar Variável Customizada',
+        name: 'Update Custom Variable',
         value: 'updatecustomvariable',
-        action: 'Editar variavel',
-        description: 'Edita as propriedades de uma variável customizada existente',
+        action: 'Update variable',
+        description: 'Updates the properties of an existing custom variable',
         routing: {
           request: {
             method: 'PUT',
-            url: '=/organizations/custom-variables/{{$parameter.customvariableid}}',
+            url: '=/organizations/custom-variables/{{$parameter.customVariableId}}',
           },
           output: {
             postReceive: [
@@ -104,14 +104,14 @@ export const customvariableoperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Variável editada com sucesso!',
+                        message: 'Custom variable updated successfully!',
                         data: response.body,
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível editar a variável'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Failed to update the variable'}`
                 );
               },
             ],
@@ -119,14 +119,14 @@ export const customvariableoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Apagar Variável Customizada',
+        name: 'Delete Custom Variable',
         value: 'deletecustomvariable',
-        action: 'Excluir variavel',
-        description: 'Apaga uma variável customizada do sistema de forma permanente',
+        action: 'Delete variable',
+        description: 'Permanently deletes a custom variable from the system',
         routing: {
           request: {
             method: 'DELETE',
-            url: '=/organizations/custom-variables/{{$parameter.customvariableid}}',
+            url: '=/organizations/custom-variables/{{$parameter.customVariableId}}',
           },
           output: {
             postReceive: [
@@ -136,13 +136,13 @@ export const customvariableoperations: INodeProperties[] = [
                     {
                       json: {
                         success: true,
-                        message: 'Variável apagada com sucesso!',
+                        message: 'Custom variable deleted successfully!',
                       },
                     },
                   ];
                 }
                 throw new Error(
-                  `Erro ${response.statusCode}: ${response.body?.message || 'Não foi possível excluir a variável'}`
+                  `Error ${response.statusCode}: ${response.body?.message || 'Failed to delete the variable'}`
                 );
               },
             ],

@@ -2,7 +2,7 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const customvariablefields: INodeProperties[] = [
   {
-    displayName: 'Nome',
+    displayName: 'Name',
     name: 'name',
     type: 'string',
     default: '',
@@ -12,11 +12,11 @@ export const customvariablefields: INodeProperties[] = [
         operation: ['createcustomvariable'],
       },
     },
-    description: 'O nome da variável customizada',
+    description: 'The name of the custom variable',
     routing: { send: { type: 'body', property: 'name' } },
   },
   {
-    displayName: 'ID Do Grupo',
+    displayName: 'Group ID',
     name: 'groupId',
     type: 'string',
     default: '',
@@ -26,11 +26,11 @@ export const customvariablefields: INodeProperties[] = [
         operation: ['updatecustomvariable'],
       },
     },
-    description: 'O identificador único do grupo de variáveis',
+    description: 'The unique identifier of the variable group',
     routing: { send: { type: 'body', property: 'group_id' } },
   },
   {
-    displayName: 'ID Da Variável Customizada',
+    displayName: 'Custom Variable ID',
     name: 'customVariableId',
     type: 'string',
     default: '',
@@ -40,10 +40,10 @@ export const customvariablefields: INodeProperties[] = [
         operation: ['updatecustomvariable', 'deletecustomvariable', 'getvariable'],
       },
     },
-    description: 'O identificador único para a variável customizada',
+    description: 'The unique identifier for the custom variable',
   },
   {
-    displayName: 'Descrição',
+    displayName: 'Description',
     name: 'description',
     type: 'string',
     required: true,
@@ -51,7 +51,7 @@ export const customvariablefields: INodeProperties[] = [
       rows: 4,
     },
     default: '',
-    description: 'Uma breve descrição da variável customizada',
+    description: 'A brief description of the custom variable',
     displayOptions: {
       show: {
         resource: ['customvariables'],
@@ -61,21 +61,21 @@ export const customvariablefields: INodeProperties[] = [
     routing: { send: { type: 'body', property: 'description' } },
   },
   {
-    displayName: 'Tipo De Variável',
+    displayName: 'Variable Type',
     name: 'variableType',
     type: 'options',
     options: [
       { name: 'CNPJ', value: 'cnpj' },
       { name: 'CPF', value: 'cpf' },
       { name: 'Email', value: 'email' },
-      { name: 'Inteiro', value: 'integer' },
-      { name: 'Lista De Opções', value: 'option_list' },
-      { name: 'Múltipla Seleção', value: 'multi_select' },
-      { name: 'Numérico', value: 'numeric' },
-      { name: 'Texto', value: 'text' },
+      { name: 'Integer', value: 'integer' },
+      { name: 'Multi Select', value: 'multi_select' },
+			{ name: 'Numeric', value: 'numeric' },
+			{ name: 'Option List', value: 'option_list' },
+      { name: 'Text', value: 'text' },
     ],
     default: 'cpf',
-    description: 'Selecione o tipo de dado para a variável customizada',
+    description: 'Select the data type for the custom variable',
     displayOptions: {
       show: {
         resource: ['customvariables'],
@@ -85,17 +85,17 @@ export const customvariablefields: INodeProperties[] = [
     routing: { send: { type: 'body', property: 'type' } },
   },
   {
-    displayName: 'Parâmetros Adicionais',
+    displayName: 'Additional Parameters',
     name: 'additionalParameters',
     type: 'multiOptions',
     options: [
-      { name: 'Organização', value: 'organization' },
-      { name: 'Autor', value: 'author' },
-      { name: 'Última Edição Por', value: 'lastEditedBy' },
-      { name: 'Grupo De Variáveis', value: 'variableGroup' },
+      { name: 'Organization', value: 'organization' },
+      { name: 'Author', value: 'author' },
+      { name: 'Last Edited By', value: 'lastEditedBy' },
+      { name: 'Variable Group', value: 'variableGroup' },
     ],
     default: [],
-    description: 'Selecione parâmetros opcionais para incluir na requisição',
+    description: 'Select optional parameters to include in the request',
     displayOptions: {
       show: {
         resource: ['customvariables'],
@@ -105,21 +105,21 @@ export const customvariablefields: INodeProperties[] = [
     routing: { request:{qs:{include:'={{$value}}'}}},
   },
   {
-    displayName: 'Filtros',
+    displayName: 'Filters',
     name: 'filters',
     type: 'collection',
-    placeholder: 'Escolha',
+    placeholder: 'Select',
     default: {},
     options: [
       { displayName: 'Slug', name: 'slugFilter', type: 'string', default: '' },
       {
-        displayName: 'Tipo',
+        displayName: 'Type',
         name: 'typeFilter',
-        description: 'Defina o tipo: cpf | cnpj | email | integer | option_list | multi_select | numeric | text',
+        description: 'Set the type: cpf | cnpj | email | integer | option_list | multi_select | numeric | text',
         type: 'string',
         default: '',
       },
-      { displayName: 'Nome Do Grupo De Variáveis', name: 'variableGroupNameFilter', type: 'string', default: '' },
+      { displayName: 'Variable Group Name', name: 'variableGroupNameFilter', type: 'string', default: '' },
     ],
     displayOptions: {
       show: {

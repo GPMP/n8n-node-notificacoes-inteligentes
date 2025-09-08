@@ -25,7 +25,7 @@ export function getNodeDescription(): INodeTypeDescription {
     group: ['action'],
     version: 1,
 				subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
-    description: 'Integração do NI',
+    description: 'NI Integration',
     defaults: {
       name: 'NI Node',
     },
@@ -50,15 +50,16 @@ export function getNodeDescription(): INodeTypeDescription {
         displayName: 'Resource',
         name: 'resource',
         type: 'options',
-				placeholder:'Escolha',
+				placeholder:'Choose',
         noDataExpression: true,
         options: [
-          {name: 'Evento', value: 'events'},
-					{name: 'Grupo De Variável Customizada', value: 'variablegroups'},
-					{name: 'Integração', value: 'integration'},
+					{name: 'Custom Variable', value: 'customvariables'},
+				  {name: 'Custom Variable Group', value: 'variablegroups'},
+          {name: 'Event', value: 'events'},
+					{name: 'Integration', value: 'integration'},
 					{name: 'Lead', value: 'leads'},
-					{name: 'Lista De Lead', value: 'leadslist'},
-					{name: 'Variável Customizada', value: 'customvariables'},
+					{name: 'Lead List', value: 'leadslist'},
+
 
         ],
         default: 'integration',

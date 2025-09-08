@@ -4,12 +4,12 @@ export const eventsFields: INodeProperties[] = [
 
 	// =============================================================CUSTOMER DATA=============================================================================
   {
-    displayName: 'Primeiro Nome',
+    displayName: 'First Name',
     name: 'first_name',
     type: 'string',
     required: true,
     default: '',
-    description: 'Primeiro nome do cliente',
+    description: 'Customer’s first name',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -19,12 +19,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.first_name'}}
   },
   {
-    displayName: 'Telefone',
+    displayName: 'Phone',
     name: 'phone',
     type: 'string',
     required: true,
     default: '',
-    description: 'Número de telefone do cliente contendo DDD e código do país',
+    description: 'Customer phone number including country and area code',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -34,11 +34,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.phone'}}
   },
   {
-    displayName: 'Sobrenome',
+    displayName: 'Last Name',
     name: 'last_name',
     type: 'string',
     default: '',
-    description: 'Sobrenome do cliente',
+    description: 'Customer’s last name',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -48,12 +48,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.last_name'}}
   },
   {
-    displayName: 'Data De Nascimento',
+    displayName: 'Birth Date',
     name: 'birthdate',
     type: 'string',
     default: '',
-    placeholder:'Formato: Ano-Mês-Dia | Exemplo: 2001-08-20',
-    description: 'Data de nascimento do cliente',
+    placeholder:'Format: Year-Month-Day | Example: 2001-08-20',
+    description: 'Customer’s birth date',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -63,12 +63,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.birthdate'}}
   },
   {
-    displayName: 'Moeda',
+    displayName: 'Currency',
     name: 'currency',
     type: 'string',
-    placeholder:'BRL | USD | GPB ...',
+    placeholder:'BRL | USD | GBP ...',
     default: '',
-    description: 'Tipo da moeda utilizada pelo cliente',
+    description: 'Currency used by the customer',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -78,11 +78,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.currency'}}
   },
   {
-    displayName: 'Gênero',
+    displayName: 'Gender',
     name: 'gender',
     type: 'string',
     default: '',
-    description: 'Gênero do cliente',
+    description: 'Customer’s gender',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -96,7 +96,7 @@ export const eventsFields: INodeProperties[] = [
     name: 'email',
     type: 'string',
     default: '',
-    description: 'Email do cliente',
+    description: 'Customer’s email address',
 		placeholder:'name@email.com',
     displayOptions: {
       show: {
@@ -107,11 +107,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.email'}}
   },
   {
-    displayName: 'CPF/CNPJ',
+    displayName: 'Tax ID (CPF/CNPJ)',
     name: 'cpf_cnpj',
     type: 'string',
     default: '',
-    description: 'Documento do cliente (CPF/CNPJ)',
+    description: 'Customer’s tax document (CPF/CNPJ)',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -121,11 +121,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'customer.cpf_cnpj'}}
   },
   {
-    displayName: 'IP',
+    displayName: 'IP Address',
     name: 'ip',
     type: 'string',
     default: '',
-    description: 'Endereço de IP do cliente',
+    description: 'Customer’s IP address',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -136,9 +136,9 @@ export const eventsFields: INodeProperties[] = [
   },
   // ================================================================EVENTS PRODUCT DATA=======================================================================
   {
-    displayName: 'Produtos',
+    displayName: 'Products',
     name: 'products',
-    placeholder: 'Adicionar Dados Do(s) Produto(s)',
+    placeholder: 'Add Product Data',
     type: 'fixedCollection',
     required: true,
     default: {},
@@ -151,28 +151,25 @@ export const eventsFields: INodeProperties[] = [
         displayName: 'Metadata',
         values: [
           {
-            displayName: 'Nome Do Produto',
+            displayName: 'Product Name',
             name: 'name',
             type: 'string',
             required: true,
             default:'',
-
           },
           {
-            displayName: 'Quantidade Do Produto',
+            displayName: 'Product Quantity',
             name: 'quantity',
             type: 'number',
             required: true,
             default:0,
-
           },
           {
-            displayName: 'Valor Do Produto',
+            displayName: 'Product Value',
             name: 'value',
             type: 'number',
             required: true,
             default:0,
-
           },
         ],
       },
@@ -192,9 +189,9 @@ export const eventsFields: INodeProperties[] = [
   },
 	//===================================================================ACCESS EVENT PRODUCT DATA==============================================================
 	{
-    displayName: 'Produtos',
+    displayName: 'Products',
     name: 'products',
-    placeholder: 'Adicionar Dados Do(s) Produto(s)',
+    placeholder: 'Add Product Data',
     type: 'fixedCollection',
     required: true,
     default: {},
@@ -207,28 +204,25 @@ export const eventsFields: INodeProperties[] = [
         displayName: 'Metadata',
         values: [
           {
-            displayName: 'Nome Do Produto',
+            displayName: 'Product Name',
             name: 'name',
             type: 'string',
             required: true,
             default:'',
-
           },
           {
-            displayName: 'Quantidade Do Produto',
+            displayName: 'Product Quantity',
             name: 'quantity',
             type: 'number',
             required: true,
             default:0,
-
           },
           {
-            displayName: 'Valor Do Produto',
+            displayName: 'Product Value',
             name: 'value',
             type: 'number',
             required: true,
             default:0,
-
           },
         ],
       },
@@ -247,7 +241,7 @@ export const eventsFields: INodeProperties[] = [
 		}
   },
   {
-    displayName: 'Campo Produtos Obrigatório',
+    displayName: 'Products Field Is Required',
     name: 'notice',
     type: 'notice',
     default: '',
@@ -260,9 +254,9 @@ export const eventsFields: INodeProperties[] = [
   },
   // ==========================================================================ORDER OBJECT=======================================================================
   {
-    displayName: 'Pedido',
+    displayName: 'Order',
     name: 'products',
-    placeholder: 'Adicionar Dados Do Pedido',
+    placeholder: 'Add Order Data',
     type: 'fixedCollection',
     required: true,
     default: {},
@@ -275,28 +269,25 @@ export const eventsFields: INodeProperties[] = [
         displayName: 'Metadata',
         values: [
           {
-            displayName: 'Nome Do Produto',
+            displayName: 'Product Name',
             name: 'name',
             type: 'string',
             required: true,
             default:'',
-
           },
           {
-            displayName: 'Quantidade Do Produto',
+            displayName: 'Product Quantity',
             name: 'quantity',
             type: 'number',
             required: true,
             default:0,
-
           },
           {
-            displayName: 'Valor Do Produto',
+            displayName: 'Product Value',
             name: 'value',
             type: 'number',
             required: true,
             default:0,
-
           },
         ],
       },
@@ -315,7 +306,7 @@ export const eventsFields: INodeProperties[] = [
 		}
   },
 	{
-    displayName: 'ID Do Pedido',
+    displayName: 'Order ID',
     name: 'orderid',
     type: 'string',
     required: true,
@@ -329,12 +320,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.id'}}
   },
   {
-    displayName: 'Valor Somado Dos Produtos Do Pedido',
+    displayName: 'Order Products Total Value',
     name: 'products_total',
     type: 'number',
     required: true,
     default: 0,
-    description: 'Somatória dos valores dos produtos',
+    description: 'Sum of the product values',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -344,12 +335,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.products_total'}}
   },
   {
-    displayName: 'Valor Do Pedido Total',
+    displayName: 'Order Total Value',
     name: 'total',
     type: 'number',
     required: true,
     default: 0,
-    description: 'Total do valor do pedido',
+    description: 'Order total amount',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -359,12 +350,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.total'}}
   },
   {
-    displayName: 'Desconto',
+    displayName: 'Discount',
     name: 'discount',
     type: 'number',
     required: true,
     default: 0,
-    description: 'Desconto total do pedido',
+    description: 'Total discount amount',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -378,7 +369,7 @@ export const eventsFields: INodeProperties[] = [
     name: 'status',
     type: 'string',
     default: '',
-    description: 'Descrição atual do estado do pedido para enriquecimento das informações',
+    description: 'Current order status description for enrichment',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -389,7 +380,7 @@ export const eventsFields: INodeProperties[] = [
   },
 	// =========================================================================OPCIONAL ORDERS=====================================================================
   {
-    displayName: 'Link Para O Boleto Em HTML',
+    displayName: 'Boleto HTML URL',
     name: 'billet_url',
     type: 'string',
     required: true,
@@ -403,11 +394,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_url'}}
   },
   {
-    displayName: 'Link Para O Boleto Em PDF',
+    displayName: 'Boleto PDF URL',
     name: 'billet_pdf',
     type: 'string',
     default: '',
-    description: 'Link para visualizar o boleto em PDF',
+    description: 'URL to view the boleto in PDF',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -417,7 +408,7 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_pdf'}}
   },
   {
-    displayName: 'Linha Digitável Do Boleto',
+    displayName: 'Boleto Digitable Line',
     name: 'billet_barcode',
     type: 'string',
     required: true,
@@ -431,7 +422,7 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_barcode'}}
   },
   {
-    displayName: 'Valor Do Boleto',
+    displayName: 'Boleto Amount',
     name: 'billet_value',
     type: 'number',
     default: 0,
@@ -444,11 +435,10 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_value'}}
   },
   {
-    displayName: 'Data Do Vencimento Do Boleto',
+    displayName: 'Boleto Due Date',
     name: 'billet_due_date',
     type: 'dateTime',
     default: '',
-    description: 'Data de vencimento do boleto',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -458,16 +448,16 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_due_date', value:'={{ new Date($value).toISOString().slice(0,10) }}'}}
   },
   {
-    displayName: 'Método De Pagamento',
+    displayName: 'Payment Method',
     name: 'payment_type',
     type: 'options',
     options: [
       {
-        name: 'Cartão De Crédito',
+        name: 'Credit Card',
         value: 'credit-card',
       },
       {
-        name: 'Depósito',
+        name: 'Bank Deposit',
         value: 'deposit',
       },
       {
@@ -476,7 +466,7 @@ export const eventsFields: INodeProperties[] = [
       },
     ],
     default: 'deposit',
-    description: 'Tipo de pagamento do pedido. Para cada tipo de pagamento, um evento daquele tipo será despachado. Ex: um pedido com payment_type = deposit irá resultar em um evento do tipo aguardando depósito bancário',
+    description: 'Order payment type. Each type dispatches a corresponding event. For example, payment_type = deposit results in a bank deposit pending event.',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -486,12 +476,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.payment_type'}}
   },
   {
-    displayName: 'Código Bacen',
+    displayName: 'BACEN Code',
     name: 'bacen_code',
     type: 'string',
     required: true,
     default: '',
-    description: 'Código Bacen para o pagamento do PIX',
+    description: 'BACEN code for PIX payment',
     displayOptions: {
       show: {
         payment_type: ['pix'],
@@ -502,12 +492,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.pix.bacen_code'}}
   },
   {
-    displayName: 'Data Do Vencimento Do Pix',
+    displayName: 'PIX Due Date',
     name: 'due_date',
     type: 'dateTime',
     required: true,
     default: '',
-    description: 'Data de vencimento do PIX em timezone UTC +0 (necessário para o funcionamento do lembrador de PIX)',
+    description: 'PIX due date in UTC +0 timezone (required for PIX reminder to work)',
     displayOptions: {
       show: {
         payment_type: ['pix'],
@@ -523,7 +513,7 @@ export const eventsFields: INodeProperties[] = [
     type: 'string',
     required: true,
     default: '',
-    description: 'QR Code para o pagamento do PIX',
+    description: 'QR code for PIX payment',
     displayOptions: {
       show: {
         payment_type: ['pix'],
@@ -534,12 +524,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.pix.qr_code'}}
   },
   {
-    displayName: 'URL De Pagamento Do Pix',
+    displayName: 'PIX Payment URL',
     name: 'pixurl',
     type: 'string',
     required: true,
     default: '',
-    description: 'URL para o pagamento do PIX',
+    description: 'URL for PIX payment',
     displayOptions: {
       show: {
         payment_type: ['pix'],
@@ -550,12 +540,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.pix.url'}}
   },
   {
-    displayName: 'Valor Do Pix',
+    displayName: 'PIX Amount',
     name: 'pixvalue',
     type: 'number',
     required: true,
     default: 0,
-    description: 'Valor do pagamento do PIX',
+    description: 'PIX payment amount',
     displayOptions: {
       show: {
         payment_type: ['pix'],
@@ -579,14 +569,14 @@ export const eventsFields: INodeProperties[] = [
       {
         name: 'checkout',
         displayName: 'Checkout',
-        description: 'Adiciona informações sobre o pedido',
-        placeholder: 'Adiciona informações sobre o pedido',
+        description: 'Add order details',
+        placeholder: 'Add order details',
         values: [
           {
-            displayName: 'Url',
+            displayName: 'URL',
             name: 'url',
             type: 'string',
-            description: 'URL do checkout para retornar o cliente para a compra',
+            description: 'Checkout URL to return the customer to the purchase',
             default: ''
           },
           {
@@ -594,7 +584,7 @@ export const eventsFields: INodeProperties[] = [
             name: 'cartid',
             type: 'string',
             default: '',
-            description: 'Código de identificação do carrinho',
+            description: 'Cart identifier code',
           },
         ],
       },
@@ -609,9 +599,9 @@ export const eventsFields: INodeProperties[] = [
   },
   //=========================================================================ADDRESS DATA==========================================================================
   {
-    displayName: 'Parâmetros Adicionais De Endereço',
+    displayName: 'Additional Address Parameters',
     name: 'addressparameter',
-    placeholder: 'Endereço Do Cliente',
+    placeholder: 'Customer Address',
     type: 'fixedCollection',
     default: {},
     typeOptions: {
@@ -623,60 +613,60 @@ export const eventsFields: INodeProperties[] = [
         displayName: 'Address',
         values: [
           {
-            displayName: 'Cidade',
+            displayName: 'City',
             name: 'city',
             type: 'string',
             default: '',
-            description: 'Cidade do cliente',
+            description: 'Customer city',
           },
           {
-            displayName: 'Complemento',
+            displayName: 'Complement',
             name: 'complement',
             type: 'string',
             default: '',
-            description: 'Complemento do cliente',
+            description: 'Customer address complement',
           },
           {
-            displayName: 'País',
+            displayName: 'Country',
             name: 'country',
             type: 'string',
             default: '',
-            description: 'País do cliente',
+            description: 'Customer country',
           },
           {
-            displayName: 'Bairro',
+            displayName: 'Neighborhood',
             name: 'neighborhood',
             type: 'string',
             default: '',
-            description: 'Bairro do cliente',
+            description: 'Customer neighborhood',
           },
           {
-            displayName: 'Número',
+            displayName: 'Number',
             name: 'number',
             type: 'string',
             default: '',
-            description: 'Número da casa do cliente',
+            description: 'Customer house number',
           },
           {
-            displayName: 'CEP',
+            displayName: 'Postal Code',
             name: 'postal_code',
             type: 'string',
             default: '',
-            description: 'CEP do cliente',
+            description: 'Customer postal code',
           },
           {
-            displayName: 'Estado',
+            displayName: 'State',
             name: 'state',
             type: 'string',
             default: '',
-            description: 'Estado do cliente',
+            description: 'Customer state',
           },
           {
-            displayName: 'Rua',
+            displayName: 'Street',
             name: 'street',
             type: 'string',
             default: '',
-            description: 'Rua do cliente',
+            description: 'Customer street',
           },
         ],
       },
@@ -692,9 +682,9 @@ export const eventsFields: INodeProperties[] = [
   },
   //=====================================================================DELIVERY DATA===========================================================================
   {
-    displayName: 'Parâmetros Adicionais De Entrega',
+    displayName: 'Additional Delivery Parameters',
     name: 'deliveryparameter',
-    placeholder: 'Entrega',
+    placeholder: 'Delivery',
     type: 'fixedCollection',
     default: {},
     typeOptions: {
@@ -702,56 +692,56 @@ export const eventsFields: INodeProperties[] = [
     },
     options: [
       {
-        name: 'delivery',
-        displayName: 'Entrega',
-        values: [
-					{
-						displayName: 'Código De Rastreio Da Entrega',
-						name: 'trackingcode',
-						type: 'string',
-						default: '',
-						description: 'Campo para informar o código de rastreio da entrega',
-					},
-					{
-						displayName: 'Data De Estimativa De Entrega Do Pedido',
-						name: 'orderdate',
-						type: 'dateTime',
-						default: '',
-						description: 'Data de estimativa de entrega do pedido em timezone UTC +0',
-					},
-					{
-						displayName: 'Descrição Da Entrega',
-						name: 'description',
-						type: 'string',
-						typeOptions: {
-							rows: 4,
-						},
-						default: '',
-						description: 'Campo para informações sobre a entrega, como prazo ou método',
-					},
-					{
-						displayName: 'Mensagem Da Entrega',
-						name: 'messageorder',
-						type: 'string',
-						default: '',
-						description: 'Campo para mensagem sobre entrega',
-					},
-					{
-						displayName: 'URL De Rastreio Da Entrega',
-						name: 'trackingcodeurl',
-						type: 'string',
-						default: '',
-						description: 'Campo para informar a URL de rastreio da entrega',
-					},
-					{
-						displayName: 'Valor Do Frete Da Entrega',
-						name: 'trackingvalue',
-						type: 'string',
-						default: '',
-						description: 'Valor total do frete',
-					},
-				]
+  name: 'delivery',
+  displayName: 'Delivery',
+  values: [
+    {
+      displayName: 'Delivery Description',
+      name: 'description',
+      type: 'string',
+      typeOptions: {
+        rows: 4,
       },
+      default: '',
+      description: 'Field for delivery information such as timeframe or method',
+    },
+    {
+      displayName: 'Delivery Fee Amount',
+      name: 'trackingvalue',
+      type: 'string',
+      default: '',
+      description: 'Total shipping fee amount',
+    },
+    {
+      displayName: 'Delivery Message',
+      name: 'messageorder',
+      type: 'string',
+      default: '',
+      description: 'Field for a delivery message',
+    },
+    {
+      displayName: 'Delivery Tracking Code',
+      name: 'trackingcode',
+      type: 'string',
+      default: '',
+      description: 'Field to inform the delivery tracking code',
+    },
+    {
+      displayName: 'Delivery Tracking URL',
+      name: 'trackingcodeurl',
+      type: 'string',
+      default: '',
+      description: 'Field to inform the delivery tracking URL',
+    },
+    {
+      displayName: 'Estimated Delivery Date',
+      name: 'orderdate',
+      type: 'dateTime',
+      default: '',
+      description: 'Estimated delivery date in UTC +0 timezone',
+    },
+  ]
+}
     ],
     displayOptions: {
       show: {
@@ -763,12 +753,12 @@ export const eventsFields: INodeProperties[] = [
   },
   //=====================================================NPS DATA =======================================================================================
   {
-    displayName: 'Nota Dada Pelo Cliente',
+    displayName: 'Customer Score',
     name: 'score',
     type: 'number',
     required: true,
     default: 0,
-    description: 'Nota Que o Cliente Deu',
+    description: 'Score given by the customer',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -778,11 +768,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'nps.answer.score'}}
   },
   {
-    displayName: 'Comentário Feito Pelo Cliente',
+    displayName: 'Customer Comment',
     name: 'comment',
     type: 'string',
     default: '',
-    description: 'Comentário que Foi Feito Pelo Cliente',
+    description: 'Comment provided by the customer',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -792,11 +782,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'nps.answer.comment'}}
   },
   {
-    displayName: 'Data Da Resposta',
+    displayName: 'Answered At',
     name: 'answered_at',
     type: 'dateTime',
     default: '',
-    description: 'Data da resposta em timezone UTC +0',
+    description: 'Answer date/time in UTC +0',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -806,12 +796,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'nps.answer.answered_at', value:'={{ new Date($value).toISOString().replace("T", " ").split(".")["0"] }}'}}
   },
   {
-    displayName: 'URL Da Pesquisa',
+    displayName: 'Survey URL',
     name: 'surveryurl',
     type: 'string',
     required: true,
     default: '',
-    description: 'URL para acesso a pesquisa',
+    description: 'URL to access the survey',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -822,12 +812,12 @@ export const eventsFields: INodeProperties[] = [
   },
   //===============================================================ACCESS DATA================================================================================
   {
-    displayName: 'URL Da Página De Membros',
+    displayName: 'Members Page URL',
     name: 'memberurl',
     type: 'string',
     required: true,
     default: '',
-    description: 'URL para Redirecionamento da Página de Membros',
+    description: 'Redirect URL for the members page',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -837,12 +827,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'access.url'}}
   },
   {
-    displayName: 'URL De Primeiro Acesso Do Cliente',
+    displayName: 'Customer First Access URL',
     name: 'first_access_url',
     type: 'string',
     required: true,
     default: '',
-    description: 'URL do primeiro acesso do cliente para criação de senha',
+    description: 'First access URL for the customer to create a password',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -857,7 +847,7 @@ export const eventsFields: INodeProperties[] = [
     type: 'string',
     required: true,
     default: '',
-    description: 'Login do usuário na página de membros',
+    description: 'User login on the members page',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -867,12 +857,12 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body',property:'access.login'}}
   },
   {
-    displayName: 'Senha',
+    displayName: 'Password',
     name: 'password',
     type: 'string',
     required: true,
     default: '',
-    description: 'Senha do usuário na página de membros',
+    description: 'User password on the members page',
     typeOptions: {
       password: true
     },
@@ -886,19 +876,19 @@ export const eventsFields: INodeProperties[] = [
   },
   //=================================================================ACCESS DATA END=============================================================================
   {
-    displayName: 'URL Para Redefinição De Senha',
+    displayName: 'Password Reset URL',
     name: 'urlchangepassword',
     // eslint-disable-next-line n8n-nodes-base/node-param-type-options-password-missing
     type: 'string',
     required: true,
     default: '',
-    description: 'Link para redefinir a senha',
+    description: 'Link to reset the password',
     displayOptions: {
       show: {
         resource: ['events'],
         operation: ['changepasswordevent']
       }
     },
-		routing:{send:{type:'body',property:'url'}}
+		routing:{send:{type:'body',property:'reset_password.url'}}
   },
 ];
