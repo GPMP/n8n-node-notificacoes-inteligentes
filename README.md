@@ -141,7 +141,7 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
 * O **Custom Node do NI (Notificações Inteligentes)** para o n8n é uma ferramenta que permite integrar e automatizar todas as funcionalidades da sua conta NI diretamente nos seus fluxos de trabalho (workflows).
 
-*A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
+* A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
 
 ### Principais Conceitos:
 
@@ -155,8 +155,16 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
    * **Buscar/Buscar Todos:** Você frequentemente começará usando uma operação como "Buscar Todas as Integrações" ou "Buscar Todos os Leads" para obter uma lista de itens e seus respectivos **IDs**.
    * **Usar o ID:** Em seguida, você utilizará esse **ID** em uma operação subsequente no mesmo fluxo (como "Editar Lead", "Mudar o Nome de uma Integração" ou "Adicionar Leads à Lista") para realizar a ação desejada no item específico.
 
-   ### Dados adicionais 
+   ### Dados adicionais: 
 	 Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
+
+	 
+* **Tratamento de Erros e Confirmações:**
+
+- **Confirmação de Sucesso:** Todas as operações de criação, edição e exclusão são validadas pela plataforma. Ao serem bem-sucedidas, retornam uma mensagem de  confirmação explícita (ex: "Lead criado com sucesso", "Integração apagada com sucesso"), garantendo ao usuário que a ação foi concluída conforme esperado.
+- **Tratamento de Erros:** Em caso de falha, o node fornece respostas de erro detalhadas e estruturadas, incluindo:
+- **Descrição Clara do Erro:** Uma mensagem legível que explica a natureza do problema (ex: "Lead não encontrado", "Campo 'E-mail' é obrigatório").
+- **Código de Erro HTTP:** O código de status padrão, permitindo uma depuração técnica eficiente e a construção de lógicas condicionais robustas dentro do fluxo do n8n.
 
 Em resumo, o Node transforma a API do NI em blocos visuais e intuitivos no n8n, onde a principal moeda de operação são os **IDs**, permitindo que você construa automações complexas e personalizadas para gerenciar sua comunicação e base de contatos de forma eficiente.
 
@@ -173,7 +181,7 @@ Em resumo, o Node transforma a API do NI em blocos visuais e intuitivos no n8n, 
 ### Operações Disponíveis
 
 ### Criar Nova Integração
-Cria uma nova integração conectando sua plataforma ao sistema.
+- Cria uma nova integração conectando sua plataforma ao sistema.
 
 #### Campos obrigatórios:
 - Nome: Dê um nome amigável para identificar a integração (ex: "Minha Loja Shopify").
