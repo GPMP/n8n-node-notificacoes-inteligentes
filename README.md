@@ -84,7 +84,7 @@ Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** par
 3. Acesse **Configurações**.
 4. Procure a seção **Chave de API**.
 5. Clique em **Gerar nova chave**.
-[Generate Key Example](readme.img/generate_key.png)
+<img src="readme.img/generate_key.png" width="600" alt="Screenshot da aplicação">
 
 6. Uma caixa de diálogo será exibida:
 
