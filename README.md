@@ -169,7 +169,7 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
      * Descrição do Erro: Uma mensagem legível que explica a natureza do problema.
      * Código de Erro HTTP: O código de status padrão, permitindo uma depuração técnica eficiente e a construção de lógicas condicionais robustas dentro do fluxo do n8n.
 
-	 * Quando relacionado a alguma regra própria da API, na maioria dos casos ela retorna o motivo do erro, deixando ainda mais claro. 
+	 * Quando relacionado a alguma regra própria da API, na maioria dos casos ela retorna o motivo do erro detalhado, deixando ainda mais claro. 
 
    <img src="readme.img/detailed_message_error" width="800" alt="Screenshot da aplicação">
 
@@ -177,10 +177,17 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
    <img src="readme.img/error_message.png" width="800" alt="Screenshot da aplicação">
 
-   ### Dados adicionais: 
-	 Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
+*  ### Dados adicionais: 
+	 * Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
+   * Em campos de busca por exemplo, caso plausível, existe a opção de receber dados adicionais na requisição. 
 
-	 * Em campos de busca por exemplo, caso plausível, existe a opção de receber dados adicionais na requisição. 
+	 * Filtros (Filters) permitem a filtragem de dados a serem recebidos. Pode-se filtrar por um ou mais de um filtro ao mesmo tempo. 
+
+	 <img src="readme.img/filters_example.png" width="800" alt="Screenshot da aplicação">
+
+   * Já a Inclusão de Relacionamentos (Include Relationships) permite adicionar mais dados a serem recebidos pela API. Também pode ser usado mais de uma opção pra fazer a busca.
+
+	 	 <img src="readme.img/include_example.png" width="800" alt="Screenshot da aplicação">
 
 
 

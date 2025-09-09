@@ -19,7 +19,7 @@ export const listsFields: INodeProperties[] = [
 
   // getAllLists — append (has_leads)
   {
-    displayName: 'Additional Properties',
+    displayName: 'Additional Relationships',
     name: 'append',
     type: 'multiOptions',
     placeholder: 'Choose',
@@ -81,12 +81,9 @@ export const listsFields: INodeProperties[] = [
     displayOptions: { show: { resource: ['leadslist'], operation: ['addLeads', 'removeLeads'] } },
     routing: {
       request: {
-        qs: {
-          body: {
-            leads:
-              '={{ String($parameter.leadIds).split(",").map(i => parseInt(i.trim(), 10)).filter(id => Number.isFinite(id) && id > 0) }}',
-          },
-        },
+				body: {
+            leads:'={{ String($value).split(",").map(i => parseInt(i.trim(), 10)).filter(id => Number.isFinite(id) && id > 0) }}',
+          }
       },
     },
   },
