@@ -1,643 +1,705 @@
 # Notificações Inteligentes
 
-## O que é a Notificações Inteligentes?
+## What is Notificações Inteligentes?
 
-A [Notificações Inteligentes](https://notificacoesinteligentes.com/) é uma empresa fundada em 2015, focada em transformar o relacionamento entre empresas e clientes por meio da automação de mensagens, especialmente pelo WhatsApp e outras ferramentas inteligentes.
+[Notificações Inteligentes](https://notificacoesinteligentes.com/) is a company founded in 2015, focused on transforming the relationship between businesses and customers through message automation, especially via WhatsApp and other intelligent tools.
 
-Com quase 10 anos de mercado, faz parte do Grupo GPM Participações e Tecnologias Ltda, oferecendo soluções robustas de comunicação automática para milhares de clientes em todo o Brasil.
+With almost 10 years in the market, it is part of Grupo GPM Participações e Tecnologias Ltda, offering robust automated communication solutions for thousands of clients across Brazil.
 
-## Missão, visão e valores
+## Mission, Vision, and Values
 
-A missão da Notificações Inteligentes é empoderar empresas com tecnologia acessível e inteligente, ajudando-as a vender mais, atender melhor e crescer com eficiência. A empresa acredita na inovação prática, que gera valor real desde o primeiro contato com o cliente.
+The mission of Notificações Inteligentes is to empower companies with accessible and intelligent technology, helping them sell more, provide better service, and grow efficiently. The company believes in practical innovation that generates real value from the first customer contact.
 
-Os valores estão centrados em:
-* Soluções eficazes e intuitivas
-* Foco no crescimento sustentável dos negócios dos clientes
-* Atendimento de excelência e inovação contínua
-
----
-
-## Como a plataforma funciona e qual sua utilidade
-
-A Notificações Inteligentes utiliza tecnologia de automação para transformar dados em alertas estratégicos, antecipar riscos, automatizar processos e garantir que nenhuma venda seja perdida por falta de comunicação.
-
-Os principais produtos e recursos incluem:
-
-* [Chatbot GPT](https://notificacoesinteligentes.com/funcionalidades/chatbot-gpt): Chatbots inteligentes que utilizam IA para interações automatizadas.
-* [Workflows automatizados](https://notificacoesinteligentes.com/funcionalidades/workflow): Automatize fluxos e envie mensagens no momento certo para engajar leads.
-* [Recuperadores Inteligentes](https://notificacoesinteligentes.com/funcionalidades/recuperadores-inteligentes): Recupere vendas perdidas com lembretes automáticos.
-* [Plataformas de Anúncio](https://notificacoesinteligentes.com/funcionalidades/plataformas-de-anuncio): Otimize o envio de conversões e maximize o desempenho dos anúncios.
-* [Central de Atendimento](https://notificacoesinteligentes.com/funcionalidades/central-de-atendimento): Centralize atendimentos, automatize respostas e acompanhe métricas.
-* [Chatbot](https://notificacoesinteligentes.com/funcionalidades/chatbot): Atenda 24/7 com chatbots, capture leads e escale seu suporte.
-* [Gestão Inteligente de Leads](https://notificacoesinteligentes.com/funcionalidades/gestao-de-leads): Armazene, gerencie e acompanhe leads na nuvem com praticidade.
-* [Redirecionadores Inteligentes](https://notificacoesinteligentes.com/funcionalidades/redirecionadores-inteligentes): Redirecione leads para múltiplos WhatsApps ativos e rastreie a origem.
-* [Notificações Inteligentes](https://notificacoesinteligentes.com/funcionalidades/notificacoes-inteligentes): Envie notificações automáticas e impulsione o engajamento.
-* [Campanhas](https://notificacoesinteligentes.com/funcionalidades/campanhas): Programe campanhas, segmente contatos e aumento suas conversões.
-* [Gerenciamento de Pipelines](https://notificacoesinteligentes.com/funcionalidades/pipelines): Gerencie seu funil de vendas e acompanhe negociações em tempo real.
-* [Criação de Links (URL Builder)](https://notificacoesinteligentes.com/funcionalidades/url-builder): Crie URL's rastreáveis e aprimore suas estratégias de marketing.
-
-A plataforma processa milhares de mensagens diariamente e já é referência nacional no segmento de comunicação automatizada, com mais de 15 mil empresas atendidas, que utilizam a solução para agilizar processos, melhorar o atendimento e aumentar a eficiência operacional.
+The values are centered on:
+*   **Effective and intuitive solutions**
+*   **Focus on sustainable growth of client businesses**
+*   **Excellence in service and continuous innovation**
 
 ---
 
-## Por que a Notificações Inteligentes é útil?
+## How the Platform Works and Its Usefulness
 
-* Automatiza e escala o relacionamento com clientes, evitando perdas de vendas por falta de comunicação.
-* Aumenta a eficiência e a agilidade dos times de vendas, suporte e marketing.
-* Facilita a personalização e o monitoramento de interações, permitindo decisões mais rápidas e seguras.
-* Oferece uma variedade de integrações com as principais plataformas do mercado, facilitando a implantação em qualquer negócio.
-* Atua de ponta a ponta: do primeiro contato até o pós-venda, incluindo campanhas, notificações, atendimento automatizado e mais.
-* É reconhecida nacionalmente, com alto volume de clientes e casos de sucesso.
+Notificações Inteligentes uses automation technology to transform data into strategic alerts, anticipate risks, automate processes, and ensure no sale is lost due to lack of communication.
 
----
+The main products and features include:
 
-## Resumo em uma frase
+*   [**GPT Chatbot**](https://notificacoesinteligentes.com/funcionalidades/chatbot-gpt): Intelligent chatbots using AI for automated interactions.
+*   [**Automated Workflows**](https://notificacoesinteligentes.com/funcionalidades/workflow): Automate flows and send messages at the right time to engage leads.
+*   [**Intelligent Recovery Tools**](https://notificacoesinteligentes.com/funcionalidades/recuperadores-inteligentes): Recover lost sales with automatic reminders.
+*   [**Ad Platforms**](https://notificacoesinteligentes.com/funcionalidades/plataformas-de-anuncio): Optimize conversion sending and maximize ad performance.
+*   [**Service Center**](https://notificacoesinteligentes.com/funcionalidades/central-de-atendimento): Centralize customer service, automate responses, and track metrics.
+*   [**Chatbot**](https://notificacoesinteligentes.com/funcionalidades/chatbot): Provide 24/7 service with chatbots, capture leads, and scale your support.
+*   [**Intelligent Lead Management**](https://notificacoesinteligentes.com/funcionalidades/gestao-de-leads): Store, manage, and track leads in the cloud conveniently.
+*   [**Intelligent Redirectors**](https://notificacoesinteligentes.com/funcionalidades/redirecionadores-inteligentes): Redirect leads to multiple active WhatsApp numbers and track the origin.
+*   [**Intelligent Notifications**](https://notificacoesinteligentes.com/funcionalidades/notificacoes-inteligentes): Send automatic notifications and boost engagement.
+*   [**Campaigns**](https://notificacoesinteligentes.com/funcionalidades/campanhas): Schedule campaigns, segment contacts, and increase your conversions.
+*   [**Pipeline Management**](https://notificacoesinteligentes.com/funcionalidades/pipelines): Manage your sales funnel and track negotiations in real-time.
+*   [**Link Creation (URL Builder)**](https://notificacoesinteligentes.com/funcionalidades/url-builder): Create trackable URLs and enhance your marketing strategies.
 
-A Notificações Inteligentes é uma plataforma líder em automação de mensagens e relacionamento via WhatsApp, que ajuda empresas de todos os portes a vender mais, atender melhor e crescer com tecnologia prática e inteligente.
-
----
-# GUIA DE AUTENTICAÇÃO DO NODE DO NI
-
-Bem-vindo ao **Custom Node da Notificações Inteligentes**!
-Este guia irá te ajudar a **gerar e configurar sua API Key (Bearer Token)** para autenticar e utilizar todas as funcionalidades do seu Custom Node de forma segura.
-
-## Acessando o Painel de Notificações Inteligentes
-
-1. Abra seu navegador e acesse o site [Notificações Inteligentes](https://notificacoesinteligentes.com).
-2. Clique em **Entrar** e faça login com a sua conta.
-
-> Certifique-se de usar a conta correta que tem acesso às **Organizações** que deseja gerenciar via API.
+The platform processes thousands of messages daily and is already a national reference in the automated communication segment, with over 15,000 companies served, using the solution to streamline processes, improve customer service, and increase operational efficiency.
 
 ---
 
-## Gerando a API Key (Bearer Token)
+## Why is Notificações Inteligentes Useful?
 
-1. Após login, no menu superior, clique em **Organizações**.
-2. Selecione a organização desejada.
-3. Acesse **Configurações**.
-4. Procure a seção **Chave de API**.
-5. Clique em **Gerar nova chave**.
-
-<img src="readme.img/generate_key.png" width="800" alt="Screenshot da aplicação">
-
-6. Uma caixa de diálogo será exibida:
-
-<img src="readme.img/token.png" width="800" alt="Screenshot da aplicação">
-
-   * **Marque a caixinha** confirmando que você guardou a chave em um local seguro.
-   * Clique em **Concluir**.
-
-> A chave gerada será usada como **Bearer Token** para autenticação do Custom Node.
-> **Atenção:** Guarde essa chave com segurança! Não compartilhe publicamente.
+*   **Automates and scales** customer relationships, preventing lost sales due to lack of communication.
+*   **Increases efficiency and agility** for sales, support, and marketing teams.
+*   Facilitates **personalization and monitoring of interactions**, enabling faster and safer decisions.
+*   Offers a **variety of integrations** with major market platforms, facilitating implementation in any business.
+*   Operates **end-to-end**: from first contact to post-sale, including campaigns, notifications, automated service, and more.
+*   Is **nationally recognized**, with a high volume of clients and success cases.
 
 ---
 
-## Configurando o Custom Node
+## Summary in One Sentence
 
-1. No seu ambiente de integração (n8n), abra o **Custom Node**.
-2. Localize o campo **Create new Credential / Bearer Token**.
+Notificações Inteligentes is a leading platform in message automation and relationship management via WhatsApp, helping businesses of all sizes sell more, serve better, and grow with practical and intelligent technology.
 
-<img src="readme.img/credential_field.png" width="800" alt="Screenshot da aplicação">
+---
+# NI NODE AUTHENTICATION GUIDE
 
-3. Cole a chave gerada no site da Notificações Inteligentes.
-4. Salve as configurações.
+Welcome to the **Notificações Inteligentes Custom Node**!
+This guide will help you **generate and configure your API Key (Bearer Token)** to authenticate and securely use all functionalities of your Custom Node.
 
-<img src="readme.img/success_example.png" width="800" alt="Screenshot da aplicação">
+## Accessing the Notificações Inteligentes Panel
 
-5. Caso houver algum problema com a chave API, uma mensagem de erro aparecerá. 
+1.  Open your browser and go to the [Notificações Inteligentes](https://notificacoesinteligentes.com) website.
+2.  Click **Entrar (Login)** and log in with your account.
 
-<img src="readme.img/error_example.png" width="800" alt="Screenshot da aplicação">
-
-> Seu Custom Node está agora pronto para se comunicar de forma segura com a API.
-
-6. Caso tiver mais de uma organização, é possível adicionar mais de uma chave e organizar as credenciais conforme cada organização. Pra facilitar a identificação basta renomear cada credencial.
-
-<img src="readme.img/credential_rename.png" width="800" alt="Screenshot da aplicação">
+> Ensure you use the correct account that has access to the **Organizations** you want to manage via API.
 
 ---
 
-## Testando a Conexão
+## Generating the API Key (Bearer Token)
 
-1. Crie uma ação de teste no Custom Node, como **Get All Integrations**.
-2. Execute a ação.
-3. Se tudo estiver correto, você verá os dados retornados da API.
+1.  After logging in, click **Organizações (Organizations)** in the top menu.
+2.  Select the desired organization.
+3.  Access **Configurações (Settings)**.
+4.  Look for the **Chave de API (API Key)** section.
+5.  Click **Gerar nova chave (Generate new key)**.
 
-<img src="readme.img/testing_token.png" width="800" alt="Screenshot da aplicação">
+<img src="readme.img/generate_key.png" width="800" alt="Application Screenshot - Generate Key">
 
-> Caso ocorra algum erro de autenticação, verifique se:
-> * O **Bearer Token** foi copiado corretamente.
-> * A chave não expirou.
-> * Sua conta tem permissão para acessar a organização escolhida.
+6.  A dialog box will be displayed:
 
----
+<img src="readme.img/token.png" width="800" alt="Application Screenshot - Token">
 
-## ✅ Pronto!
+   *   **Check the box** confirming you have saved the key in a secure location.
+   *   Click **Concluir (Finish)**.
 
-Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou consultar variáveis customizadas com segurança, utilizando sua **API Key (Bearer Token)**.
-
----
-
-## **Ideia do Node: Como funciona e o que esperar**
-
-* O **Custom Node do NI (Notificações Inteligentes)** é uma ferramenta que permite integrar e automatizar algumas das funcionalidades da sua conta NI diretamente nos seus fluxos de trabalho (workflows).
-
-* A **ideia central** é que você pode manipular os dados da sua plataforma NI (como Integrações, Leads, Listas, Eventos e Variáveis) usando operações padronizadas (CRUD: Criar, Buscar, Atualizar e Deletar). A chave para essa manipulação são os **Identificadores Únicos (IDs)**.
-
-### Principais Conceitos:
-
-  * **Base de Operação:** Quase todas as operações no Node giram em torno de um **ID**.
-    - Para gerenciar uma **Integração**, você precisa do seu `ID`.
-    - Para editar um **Lead**, você precisa do `ID do Lead`.
-    - Para adicionar leads a uma **Lista**, você precisa do `ID da Lista` e dos `IDs dos Leads`.
-    - E assim por diante para Variáveis e Grupos.
-
-*  **Fluxo de Trabalho Típico:**
-   * **Buscar/Buscar Todos:** Você frequentemente começará usando uma operação como "Buscar Todas as Integrações" ou "Buscar Todos os Leads" para obter uma lista de itens e seus respectivos **IDs**.
-   * **Usar o ID:** Em seguida, você utilizará esse **ID** em uma operação subsequente no mesmo fluxo (como "Editar Lead", "Mudar o Nome de uma Integração" ou "Adicionar Leads à Lista") para realizar a ação desejada no item específico.
-
-*  **Tratamento de Erros e Confirmações:**
-
-   * **Confirmação de Sucesso:** Todas as operações de criação, edição e exclusão são validadas pela plataforma. Ao serem bem-sucedidas, retornam uma mensagem de  confirmação explícita, garantindo ao usuário que a ação foi concluída conforme esperado.
-
-   <img src="readme.img/success_message.png" width="800" alt="Screenshot da aplicação">
-
-	 <img src="readme.img/update_message.png" width="800" alt="Screenshot da aplicação">
-
-	 <img src="readme.img/create_message.png" width="800" alt="Screenshot da aplicação">
-
-   * **Tratamento de Erros:** Em caso de falha, o node fornece respostas de erro detalhadas e estruturadas, incluindo:
-     * Descrição do Erro: Uma mensagem legível que explica a natureza do problema.
-     * Código de Erro HTTP: O código de status padrão, permitindo uma depuração técnica eficiente e a construção de lógicas condicionais robustas dentro do fluxo do n8n.
-
-	 * Quando relacionado a alguma regra própria da API, na maioria dos casos ela retorna o motivo do erro detalhado, deixando ainda mais claro. 
-
-   <img src="readme.img/detailed_message_error.png" width="800" alt="Screenshot da aplicação">
-
-	 * Em todos os erros são retornados o código de erro. No caso de exemplo abaixo, retornou 404 (Not Found) pois não encontrou nenhum ID relacionado ao que tentamos apagar na conta.
-
-   <img src="readme.img/error_message.png" width="800" alt="Screenshot da aplicação">
-
-*  **Dados adicionais:** 
-	 * Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
-   * Em campos de busca por exemplo, caso plausível, existe a opção de receber dados adicionais na requisição. 
-
-	 * Filtros (Filters) permitem a filtragem de dados a serem recebidos. Pode-se filtrar por um ou mais de um filtro ao mesmo tempo. 
-
-	 <img src="readme.img/filters_example.png" width="800" alt="Screenshot da aplicação">
-
-   * Já a Inclusão de Relacionamentos (Include Relationships) permite adicionar mais dados a serem recebidos pela API. Também pode ser usado mais de uma opção pra fazer a busca.
-
-	 	 <img src="readme.img/include_example.png" width="800" alt="Screenshot da aplicação">
-
-
-
-
-Em resumo, o Node transforma a API do NI em blocos visuais e intuitivos no n8n, onde a principal moeda de operação são os **IDs**, permitindo que você construa automações complexas e personalizadas para gerenciar sua comunicação e base de contatos de forma eficiente.
+> The generated key will be used as the **Bearer Token** for Custom Node authentication.
+> **Attention:** Keep this key secure! Do not share it publicly.
 
 ---
 
+## Configuring the Custom Node
 
+1.  In your integration environment (n8n), open the **Custom Node**.
+2.  Locate the **Create new Credential / Bearer Token** field.
 
-# GUIA DAS FUNÇÕES DO NODE DO NI
+<img src="readme.img/credential_field.png" width="800" alt="Application Screenshot - Credential Field">
 
-## Guia de Uso - Integração (n8n)
+3.  Paste the key generated on the Notificações Inteligentes website.
+4.  Save the settings.
 
-* O recurso Integração permite criar, buscar, atualizar e listar integrações conectadas à sua conta, diretamente pelo n8n.
+<img src="readme.img/success_example.png" width="800" alt="Application Screenshot - Success">
 
-### Operações Disponíveis
-
-### Criar Nova Integração
-- Cria uma nova integração conectando sua plataforma ao sistema.
-
-#### Campos obrigatórios:
-- Nome: Dê um nome amigável para identificar a integração (ex: "Minha Loja Shopify").
-- Plataforma: Especifique a plataforma (ex: shopify-next, hotmart-v2, wooocommerce, etc). Veja na descrição do campo a lista de plataformas suportadas.
-
-#### Como usar
-Selecione a operação "Criar Nova Integração", preencha nome e plataforma, e execute.
-A integração será criada e listada em seu painel.
-
-#### Buscar Todas Integrações
-Lista todas as integrações já cadastradas na sua conta.
-
-#### Nenhum campo precisa ser preenchido.
-
-Retorna uma lista com todos os nomes e plataformas cadastrados.
-
-#### Como usar:
-Selecione "Buscar Todas Integrações" e execute.
-Você verá a lista completa de integrações.
-
-### Buscar uma Integração
-Permite consultar os dados detalhados de uma integração específica.
-
-#### Campos obrigatórios:
-- ID: O identificador único da integração que você quer consultar (você pode copiar esse ID ao listar todas as integrações).
-
-#### Parâmetros Adicionais (opcional):
-- Você pode escolher incluir campos extras na resposta, como "Eventos Disponíveis", "Setup Fields", ou "Checklist".
-- Basta marcar os que deseja ver detalhados.
-
-#### Como usar:
-Selecione "Buscar uma Integração", informe o ID, selecione (se quiser) algum parâmetro adicional, e execute.
-
-#### Mudar o Nome de uma Integração
-Atualiza o nome de uma integração existente.
-#### Campos obrigatórios:
-- ID: O identificador da integração que você quer renomear.
-- Novo Nome: O novo nome para exibir no painel.
-#### Como usar:
-Selecione "Mudar o Nome de uma Integração", informe o ID e o novo nome, e execute.
-
-#### Campos Especiais
-- **Nome:** Nome da integração (até 100 caracteres).
-- **Plataforma:** Plataforma da integração (consulte a lista na descrição do campo).
-- **ID:** Identificador único da integração, normalmente fornecido ao criar ou ao listar integrações.
-- **Parâmetros Adicionais:** Marque para incluir informações extras na busca da integração.
-
-#### Dicas
-- Use "Buscar Todas Integrações" para descobrir o ID da integração que você deseja editar ou consultar.
-- Sempre verifique os campos obrigatórios (marcados com *) antes de executar.
-- Para plataformas, consulte os exemplos na descrição do campo para evitar erros de digitação.
-
-[Informações adicionais acerca das Integrações no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/como-conectar-mrlog2/)
-
-## Guia de Uso - Leads (n8n)
-
-* O recurso Leads permite cadastrar, buscar, editar, apagar e gerenciar listas de leads (contatos) em sua plataforma diretamente pelo n8n, com suporte a variáveis customizadas, tags e filtros avançados.
-
-### Operações Disponíveis
-
-#### Criar Lead
-Cria um novo lead (contato) no sistema.
-**Campos obrigatórios:**
-- Nome: Nome completo do lead.
-- Telefone: Número de telefone, incluindo DDD.
-- E-mail: Endereço de e-mail do lead.
-**Campos opcionais:**
-- Notas: Observações adicionais sobre o lead.
-- Variáveis Customizadas: Permite adicionar variáveis extras personalizadas para cada lead (ex: CPF, data de nascimento, etc).
-- Tags: Adicione palavras-chave para agrupar ou categorizar leads (ex: "cliente VIP", "prospecto").
-**Como usar:**
-Selecione "Criar Lead", preencha os campos obrigatórios e, se desejar, inclua notas, tags ou variáveis customizadas. Execute para cadastrar o lead.
-
-#### Buscar Todos os Leads
-Lista todos os leads cadastrados no sistema.
-**Campos opcionais:**
-- Filtros: Permite filtrar por nome, telefone, e-mail ou tag.
-- Incluir Relacionamentos: Marque para trazer dados relacionados, como listas, tags, fonte das listas ou usuários associados.
-**Como usar:**
-Selecione "Buscar Todos os Leads", defina os filtros desejados (ou deixe em branco para listar todos) e execute.
-
-#### Buscar Lead por ID
-Retorna os dados completos de um lead específico a partir do seu identificador único.
-**Campos obrigatórios:**
-- ID do Lead: Insira o ID do lead desejado (pode ser obtido ao listar todos).
-**Campos opcionais:**
-- Incluir Relacionamentos: Escolha trazer listas, tags ou usuários relacionados.
-**Como usar:**
-Selecione "Buscar Lead por ID", informe o ID do lead e, se quiser, marque os relacionamentos a incluir. Execute para ver detalhes completos.
-
-#### Editar Lead
-Permite atualizar os dados de um lead existente.
-**Campos obrigatórios:**
-- ID do Lead: Identificador do lead a ser editado.
-- Nome: Nome atualizado do lead.
-- E-mail: E-mail atualizado do lead.
-**Campos opcionais:**
-- Notas: Atualize ou adicione observações.
-- Variáveis Customizadas: Altere ou adicione variáveis personalizadas.
-**Como usar:**
-Selecione "Editar Lead", informe o ID, atualize os campos desejados e execute.
-
-#### Apagar Lead
-Remove um lead de forma permanente do sistema.
-**Campo obrigatório:**
-- ID do Lead: Identificador do lead a ser removido.
-**Como usar:**
-Selecione "Apagar Lead", informe o ID do lead e execute.
-Uma mensagem de confirmação será exibida se a operação for bem-sucedida.
-
-#### Adicionar Listas a um Lead
-Associa uma ou mais listas ao lead informado.
-**Campos obrigatórios:**
-- ID do Lead: Identificador do lead.
-- ID(s) da(s) Lista(s): IDs das listas para associar (ex: 1234, 5678).
-**Como usar:**
-Selecione "Adicionar Listas a um Lead", informe o ID do lead e as listas (separadas por vírgula). Execute para associar.
-
-#### Remover Listas de um Lead
-Remove uma ou mais listas associadas ao lead.
-**Campos obrigatórios:**
-- ID do Lead: Identificador do lead.
-- ID(s) da(s) Lista(s): IDs das listas para remover (ex: 1234, 5678).
-**Como usar:**
-Selecione "Remover Listas de um Lead", informe o ID do lead e das listas. Execute para remover.
-
-### Campos Especiais
-- **Variáveis Customizadas:** Permite adicionar pares slug/valor ao lead (ex: slug="cpf", valor="123.456.789-00").
-- **Tags:** Palavras-chave para agrupar leads, inseridas como lista.
-- **Filtros:** Campos de busca para filtrar leads por nome, telefone, e-mail ou tag.
-- **Incluir Relacionamentos:** Escolha trazer junto listas, tags, usuários e outras informações conectadas ao lead.
-- **ID(s) da(s) Lista(s):** IDs de listas separados por vírgula, usados para adicionar ou remover múltiplas listas de uma vez.
-
-### Dicas
-- Use "Buscar Todos os Leads" para encontrar o ID de um lead.
-- Para campos como listas, separe os IDs por vírgula e não use espaços extras.
-- O sistema exige campos obrigatórios, mas aproveite os campos opcionais para detalhar melhor seu lead e facilitar automações.
-- Variáveis customizadas são ideais para dados específicos do seu negócio.
-- Sempre revise os dados antes de executar ações de deleção, pois não são reversíveis.
-
-[Informações adicionais acerca de Leads no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/)
-
-## Guia de Uso - Listas de Leads (n8n)
-
-* O recurso Listas de Leads permite criar, buscar, filtrar, editar e gerenciar grupos de contatos no seu sistema de leads diretamente pelo n8n. Com esse recurso, você pode automatizar o agrupamento de leads, consultar dados detalhados e realizar ações em lote.
-
-### Operações Disponíveis
-
-#### Buscar Todas as Listas
-Retorna todas as listas de contatos cadastradas no sistema, permitindo filtros avançados.
-**Campos opcionais:**
-- Incluir Relacionamentos: Escolha incluir na resposta detalhes como fonte (source) ou a contagem de leads.
-- Mais Propriedades: Permite filtrar listas que "contêm leads".
-- Filtros: Permite filtrar listas por nome ou tipo.
-**Como usar:**
-Selecione "Buscar Todas as Listas", defina filtros e relacionamentos desejados e execute para listar todas as listas disponíveis.
-
-#### Criar Lista
-Cria uma nova lista de contatos/leads.
-**Campos obrigatórios:**
-- Nome da Lista: Defina o nome da nova lista.
-**Campos opcionais:**
-- Tags: Adicione palavras-chave à lista para facilitar o agrupamento.
-- O tipo é sempre criado como "dinâmico".
-**Como usar:**
-Selecione "Criar Lista", preencha o nome, adicione tags (opcional) e execute para criar a lista.
-
-#### Buscar Lista por ID
-Consulta os dados completos de uma lista específica a partir do seu identificador único.
-**Campo obrigatório:**
-- ID da Lista: Insira o identificador da lista que deseja consultar.
-**Campos opcionais:**
-- Incluir Detalhes da Fonte: Marque para trazer detalhes da origem da lista.
-**Como usar:**
-Selecione "Buscar Lista por ID", preencha o ID e marque detalhes extras caso deseje.
-
-#### Listar Leads da Lista
-Lista todos os leads pertencentes a uma lista específica.
-**Campo obrigatório:**
-- ID da Lista: Identificador da lista de onde deseja ver os leads.
-**Campos opcionais:**
-- Incluir Relacionamentos: Marque para incluir detalhes como listas relacionadas ou fonte das listas.
-- Filtros: Permite filtrar os leads por nome, telefone ou e-mail dentro dessa lista.
-**Como usar:**
-Selecione "Listar Leads da Lista", informe o ID da lista, defina filtros ou relacionamentos e execute para ver todos os leads dessa lista.
-
-#### Adicionar Leads à Lista
-Adiciona um ou mais leads já cadastrados a uma lista específica.
-**Campos obrigatórios:**
-- ID da Lista: Identificador da lista que vai receber os leads.
-- ID(s) do(s) Lead(s): IDs dos leads a serem adicionados (separe por vírgula, ex: 12,34,56).
-**Como usar:**
-Selecione "Adicionar Leads à Lista", informe o ID da lista e os IDs dos leads, separados por vírgula, e execute.
-
-#### Remover Leads da Lista
-Remove um ou mais leads de uma lista específica.
-**Campos obrigatórios:**
-- ID da Lista: Identificador da lista.
-- ID(s) do(s) Lead(s): IDs dos leads que deseja remover da lista (separe por vírgula).
-**Como usar:**
-Selecione "Remover Leads da Lista", preencha o ID da lista e os IDs dos leads a remover, e execute.
-
-### Campos Especiais
-- **Incluir Relacionamentos:** Permite trazer detalhes adicionais sobre a lista ou os leads dentro dela, como origem e quantidade.
-- **Mais Propriedades:** Use para filtrar listas que contenham leads.
-- **Filtros (das listas):** Filtre pelo nome ou tipo da lista.
-- **Filtros (dos leads da lista):** Filtre leads de uma lista específica por nome, telefone ou e-mail.
-- **Tags:** Palavras-chave usadas para organizar e classificar listas.
-- **ID da Lista:** Código único para cada lista de contatos.
-- **ID(s) do(s) Lead(s):** Um ou mais códigos de leads a serem adicionados ou removidos de listas (sempre separados por vírgula).
-
-### Dicas
-- Use "Buscar Todas as Listas" para encontrar o ID de uma lista rapidamente.
-- Para adicionar ou remover vários leads de uma vez, separe sempre os IDs por vírgula (ex: 101,102,205).
-- O uso de tags facilita muito o agrupamento e automações futuras.
-- Filtros permitem buscas e ações altamente segmentadas, otimizando o gerenciamento de grandes bases de leads.
-- O recurso "Listar Leads da Lista" é ideal para consultar leads de uma campanha ou segmento específico.
-
-[Informações adicionais acerca de Listas de Leads no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/listas-de-leads-1tdvrll/)
-
-## Guia de Uso - Variável Customizada (n8n)
-
-* O recurso Variável Customizada permite criar, buscar, atualizar e apagar variáveis customizadas associadas à sua organização, facilitando a configuração dinâmica e personalizada de integrações diretamente no n8n.
-
-### Operações Disponíveis
-
-#### Criar Variável Customizada
-Cria uma nova variável customizada para uso em integrações ou fluxos.
-**Campos obrigatórios:**
-- Nome: Defina um nome para identificar sua variável.
-- Descrição: Escreva uma breve descrição sobre o uso ou finalidade da variável.
-- Tipo de Variável: Escolha o tipo de dado: Email, Texto, CNPJ, CPF, Inteiro, Numérico, Múltipla Seleção ou Lista de Opções.
-**Como usar:**
-Selecione a operação "Criar Variável Customizada", preencha nome, descrição e tipo, e execute.
-A variável ficará disponível para outras operações e integrações.
-
-#### Buscar Todas as Variáveis Customizadas
-Lista todas as variáveis customizadas já cadastradas na sua organização, com opção de filtros avançados.
-**Campos opcionais:**
-- Parâmetros Adicionais: Marque se deseja incluir dados extras como Organização, Autor, Última Edição ou Grupo de Variáveis.
-- Filtros:
-  - Slug: Busque variáveis por slug (identificador único da variável).
-  - Tipo: Filtre por tipo de variável.
-  - Nome do Grupo de Variáveis: Liste apenas as variáveis de um grupo específico.
-**Como usar:**
-Selecione "Buscar Todas as Variáveis Customizadas", configure os filtros desejados (ou deixe em branco para ver todas) e execute.
-
-#### Buscar Variável Customizada por ID
-Consulta detalhes de uma variável customizada específica informando seu ID.
-**Campos obrigatórios:**
-- ID da Variável Customizada: Insira o identificador único da variável.
-**Campos opcionais:**
-- Parâmetros Adicionais: Inclua dados extras (Organização, Autor, etc).
-**Como usar:**
-Selecione "Buscar Variável Customizada por ID", informe o ID e, se desejar, marque parâmetros adicionais. Execute para obter detalhes.
-
-#### Editar Variável Customizada
-Altere propriedades de uma variável customizada existente.
-**Campos obrigatórios:**
-- ID da Variável Customizada: Identificador da variável a ser editada.
-- Descrição: Nova descrição.
-- (Outros campos, caso implementados no backend, como grupo, opções, etc.)
-**Como usar:**
-Selecione "Editar Variável Customizada", informe o ID, preencha os novos dados e execute.
-
-#### Apagar Variável Customizada
-Remove uma variável customizada de forma permanente do sistema.
-**Campos obrigatórios:**
-- ID da Variável Customizada: Identificador da variável a ser removida.
-**Como usar:**
-Selecione "Apagar Variável Customizada", informe o ID e execute.
-Se a exclusão for bem sucedida, receberá uma confirmação de sucesso.
-
-### Campos Especiais
-- **Nome:** Nome de identificação da variável customizada.
-- **ID da Variável Customizada:** Identificador único da variável (pode ser obtido ao listar todas as variáveis).
-- **Descrição:** Texto explicando a finalidade ou uso da variável.
-- **Tipo de Variável:** Define o formato do dado (email, texto, CPF, etc).
-- **Parámetros Adicionais:** Permite incluir dados extras na busca (Organização, Autor, Última Edição, Grupo de Variáveis).
-- **Grupo de Variáveis:** Filtros e agrupamento por grupo, útil para organização em larga escala.
-- **Filtros:** Refine sua busca por slug, tipo ou grupo.
-- **Slug:** Identificador único da variável (usado em automações e integrações).
-
-### Dicas
-- Para descobrir o ID de uma variável, use a operação "Buscar Todas as Variáveis Customizadas".
-- Preencha o campo Descrição de forma clara para facilitar a manutenção e uso futuro.
-- Use tipos de variável apropriados para garantir validação e uso correto nos seus fluxos (exemplo: para CPF, use o tipo "CPF").
-- Os campos obrigatórios são sinalizados pelo sistema.
-- Variáveis apagadas não podem ser recuperadas.
-
-[Informações adicionais acerca das Variáveis Customizadas no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
-
-## Guia de Uso - Grupos de Variáveis Customizadas (n8n)
-
-* O recurso Grupos de Variáveis permite organizar variáveis customizadas em grupos, facilitando a gestão, busca, atualização e automação de dados estruturados em sua plataforma via n8n.
-
-### Operações Disponíveis
-
-#### Criar Grupo
-Cria um novo grupo para agrupar variáveis customizadas.
-**Campo obrigatório:**
-- Nome: O nome do novo grupo de variáveis.
-**Como usar:**
-Selecione "Criar Grupo", informe o nome do grupo e execute para criar.
-
-#### Buscar Todos os Grupos
-Retorna todos os grupos de variáveis cadastrados no sistema.
-**Campos opcionais:**
-- Incluir Relacionamentos: Marque se deseja incluir dados extras como Organização, Autor ou Última Edição.
-- Filtrar: Permite filtrar grupos pelo nome.
-**Como usar:**
-Selecione "Buscar Todos os Grupos", marque relacionamentos ou defina filtros se desejar, e execute.
-
-#### Buscar Grupo por ID
-Consulta os dados completos de um grupo de variáveis específico pelo seu identificador único.
-**Campo obrigatório:**
-- ID do Grupo: Insira o identificador do grupo desejado.
-**Campo opcional:**
-- Incluir Relacionamentos: Traga informações extras como organização ou autor.
-**Como usar:**
-Selecione "Buscar Grupo por ID", informe o ID do grupo, marque os relacionamentos desejados e execute.
-
-#### Editar Nome do Grupo
-Permite alterar o nome de um grupo já existente.
-**Campos obrigatórios:**
-- ID do Grupo: Identificador do grupo a ser alterado.
-- Novo Nome do Grupo: O novo nome a ser atribuído ao grupo.
-**Como usar:**
-Selecione "Editar Nome do Grupo", informe o ID, o novo nome e execute.
-
-#### Apagar Grupo
-Remove um grupo de variáveis do sistema permanentemente.
-**Campo obrigatório:**
-- ID do Grupo: Identificador do grupo a ser removido.
-**Como usar:**
-Selecione "Apagar Grupo", informe o ID do grupo e execute.
-Se a operação for bem-sucedida, uma mensagem de confirmação será exibida.
-
-### Campos Especiais
-- **Nome:** Nome do grupo de variáveis, usado na criação.
-- **ID do Grupo:** Identificador único de cada grupo, utilizado em buscas, edições e remoções.
-- **Novo Nome do Grupo:** Usado para alterar o nome de um grupo existente.
-- **Incluir Relacionamentos:** Permite trazer informações adicionais como Organização, Autor ou Última Edição ao buscar grupos.
-- **Filtrar:** Filtro para buscar grupos pelo nome.
-
-### Dicas
-- Use "Buscar Todos os Grupos" para descobrir o ID de um grupo antes de editar ou remover.
-- Aproveite a função de relacionamentos para obter contexto sobre quem criou, editou ou pertence à organização do grupo.
-- Sempre revise nomes antes de editar ou apagar, pois ações de deleção não podem ser desfeitas.
-
-[Informações adicionais acerca das Variáveis Customizadas no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
-
-## Guia de Uso - Eventos (n8n)
-
-* O recurso Eventos permite criar e enviar diferentes tipos de eventos para integrações, como: carrinho abandonado, boletos, pagamentos, cancelamentos, entregas, NPS, acesso de membros e redefinição de senha, entre outros. Ideal para automações e notificações inteligentes no seu fluxo.
-
-### Operações Disponíveis
-
-#### Criar Evento de Carrinho Abandonado
-Envia um evento para notificar sobre um carrinho de compras que foi abandonado.
-**Campos obrigatórios:**
-- Dados do cliente (nome, telefone, etc.)
-- Dados do carrinho/checkout (URL, ID)
-- Produtos do pedido (nome, quantidade, valor)
-
-#### Criar Evento de Boleto Impresso
-Notifica que um boleto foi gerado e impresso para o cliente.
-**Campos obrigatórios:**
-- Dados do cliente
-- Dados do endereço
-- Dados do pedido (produtos, valor total, desconto, boleto, status)
-- Produtos do pedido
-
-#### Criar Evento de Pedido Cancelado, Pago, Estornado, Entregue, Despachado, Processando, Saiu para Entrega, Progresso Atualizado, Aguardando Retirada, ou Aguardando Pagamento
-Cada evento registra um status diferente do pedido, sempre incluindo:
-**Campos obrigatórios:**
-- Dados do cliente
-- Dados do endereço e entrega
-- Dados do pedido (ID, valores, status, descontos, produtos)
-- Detalhes de pagamento (boleto, pix, etc.) conforme o tipo de evento
-
-#### Criar Evento de Acesso Concedido
-Envia dados de acesso para membros.
-**Campos obrigatórios:**
-- Dados do cliente
-- URL da página de membros, login e senha temporária
-- Produtos associados ao acesso
-
-#### Criar Evento de Redefinição de Senha
-Notifica o cliente com o link para redefinir sua senha.
-**Campos obrigatórios:**
-- Dados do cliente
-- URL de redefinição de senha
-
-#### Criar Evento de NPS (Pesquisa de Satisfação)
-Envolve dois eventos separados:
-
-##### Criar Evento de Resposta NPS
-Registra a nota (score), comentário e data da resposta de satisfação do cliente após ele responder uma pesquisa NPS.
-**Campos obrigatórios:**
-- Dados do cliente
-- Nota dada pelo cliente (score)
-- (Opcional: comentário e data da resposta)
-
-##### Criar Evento de Pesquisa NPS
-Envia um evento para disparar o link de pesquisa NPS ao cliente.
-**Campos obrigatórios:**
-- Dados do cliente
-- URL da pesquisa (surveryurl)
-
-### Campos Comuns Importantes
-- **Dados do Cliente:** Sempre inclua primeiro nome, telefone, e-mail, CPF/CNPJ, moeda, gênero, data de nascimento, IP.
-- **Produtos:** Nome, quantidade e valor dos produtos (pode adicionar vários).
-- **Endereço:** Cidade, país, bairro, número, CEP, estado, rua, complemento.
-- **Pedido:** ID, valores (total, desconto, products_total), status.
-- **Entrega:** Valor do frete, descrição, código de rastreio, URL de rastreio, data estimada de entrega, mensagem.
-- **Pagamento (boleto/Pix):** Links, códigos, valores e datas específicas.
-- **NPS:** Nota, comentário, data de resposta ou URL da pesquisa.
-- **Acesso de Membro:** URLs, login, senha e produtos de acesso.
-- **Redefinição de Senha:** URL para redefinir.
-
-### Dicas
-- Preencha sempre todos os campos obrigatórios de cada operação, respeitando formatos sugeridos (ex: datas, moeda).
-- Para listas de produtos ou endereços, utilize a opção "Adicionar dados do(s) produto(s)" ou "Parâmetros Adicionais".
-- O sistema faz validação: campos obrigatórios em branco bloqueiam a execução!
-- No caso de eventos PIX, marque a opção correta de método de pagamento para mostrar campos específicos.
-- Campos agrupados (como "checkout", "addressparameter", "deliveryparameter") devem ser abertos para inserir dados detalhados.
-- Utilize o evento correspondente ao status real do pedido/ação.
-
-[Informações adicionais acerca de Eventos no NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/eventos-1n02369/)
-
-
-#### Caso não tenha encontrado o que procura, dê uma olhada em nossa [Central de Ajuda](https://ajuda.notificacoesinteligentes.com/pt-br/).
+5.  If there is any problem with the API key, an error message will appear.
+
+<img src="readme.img/error_example.png" width="800" alt="Application Screenshot - Error">
+
+> Your Custom Node is now ready to communicate securely with the API.
+
+6.  If you have more than one organization, you can add more keys and organize the credentials according to each organization. To make identification easier, simply rename each credential.
+
+<img src="readme.img/credential_rename.png" width="800" alt="Application Screenshot - Rename Credential">
+
+---
+
+## Testing the Connection
+
+1.  Create a test action in the Custom Node, such as **Get All Integrations**.
+2.  Execute the action.
+3.  If everything is correct, you will see the data returned from the API.
+
+<img src="readme.img/testing_token.png" width="800" alt="Application Screenshot - Testing Token">
+
+> If any authentication error occurs, check if:
+> *   The **Bearer Token** was copied correctly.
+> *   The key has not expired.
+> *   Your account has permission to access the chosen organization.
+
+---
+
+## ✅ Ready!
+
+You can now use your **Custom Node** to create, edit, delete, or query custom variables securely using your **API Key (Bearer Token)**.
+
+---
+
+## **Node Idea: How it Works and What to Expect**
+
+*   The **NI (Notificações Inteligentes) Custom Node** is a tool that allows you to integrate and automate some functionalities of your NI account directly into your workflows.
+*   The **central idea** is that you can manipulate data from your NI platform (such as Integrations, Leads, Lists, Events, and Variables) using standardized operations (CRUD: Create, Read, Update, Delete). The key to this manipulation are **Unique Identifiers (IDs)**.
+
+### Main Concepts:
+
+*   **Operation Base:** Almost all operations in the Node revolve around an **ID**.
+    *   To manage an **Integration**, you need its `ID`.
+    *   To edit a **Lead**, you need the `Lead ID`.
+    *   To add leads to a **List**, you need the `List ID` and the `Lead IDs`.
+    *   And so on for Variables and Groups.
+
+*   **Typical Workflow:**
+    *   **Search/Search All:** You will often start by using an operation like "Get All Integrations" or "Get All Leads" to get a list of items and their respective **IDs**.
+    *   **Use the ID:** Then, you will use this **ID** in a subsequent operation in the same flow (like "Edit Lead", "Rename an Integration", or "Add Leads to List") to perform the desired action on the specific item.
+
+*   **Error Handling and Confirmations:**
+
+    *   **Success Confirmation:** All creation, editing, and deletion operations are validated by the platform. When successful, they return an explicit confirmation message, ensuring the user that the action was completed as expected.
+
+    <img src="readme.img/success_message.png" width="800" alt="Application Screenshot - Success Message">
+    <img src="readme.img/update_message.png" width="800" alt="Application Screenshot - Update Message">
+    <img src="readme.img/create_message.png" width="800" alt="Application Screenshot - Create Message">
+
+    *   **Error Handling:** In case of failure, the node provides detailed and structured error responses, including:
+        *   **Error Description:** A readable message explaining the nature of the problem.
+        *   **HTTP Error Code:** The standard status code, allowing efficient technical debugging and the construction of robust conditional logic within the n8n flow.
+    *   When related to an API-specific rule, in most cases it returns the detailed reason for the error, making it even clearer.
+
+    <img src="readme.img/detailed_message_error.png" width="800" alt="Application Screenshot - Detailed Error">
+
+    *   All errors return the error code. In the example below, it returned 404 (Not Found) because it didn't find any ID related to what we tried to delete in the account.
+
+    <img src="readme.img/error_message.png" width="800" alt="Application Screenshot - Error Message">
+
+*   **Additional Data:**
+    *   Besides IDs, the Node allows working with a range of complementary (optional) data to enrich your automations, such as **Tags**, **Custom Variables**, **Filters**, and **Relationships**.
+    *   In search fields, for example, where plausible, there is an option to receive additional data in the request.
+    *   **Filters** allow filtering of data to be received. You can filter by one or more filters at the same time.
+
+    <img src="readme.img/filters_example.png" width="800" alt="Application Screenshot - Filters Example">
+
+    *   **Include Relationships** allows adding more data to be received by the API. More than one option can also be used for the search.
+
+    <img src="readme.img/include_example.png" width="800" alt="Application Screenshot - Include Example">
+
+In summary, the Node transforms the NI API into visual and intuitive blocks in n8n, where the main currency of operation are **IDs**, allowing you to build complex and personalized automations to manage your communication and contact base efficiently.
+
+---
+
+# NI NODE FUNCTIONS GUIDE
+
+## Usage Guide - Integration (n8n)
+
+The Integration resource allows you to create, search, update, and list integrations connected to your account directly from n8n.
+
+### Available Operations
+
+#### Create New Integration
+Creates a new integration connecting your platform to the system.
+
+**Required Fields:**
+-   **Name:** Give a friendly name to identify the integration (e.g., "My Shopify Store").
+-   **Platform:** Specify the platform (e.g., shopify-next, hotmart-v2, wooocommerce, etc). See the list of supported platforms in the field description. **Note:** Only integrations created with the `api-next` platform can add or remove leads from your lead list via the API.
+
+**How to use:**
+Select the "Create New Integration" operation, fill in the name and platform, and execute.
+The integration will be created and listed in your panel.
+
+#### Get All Integrations
+Lists all integrations already registered in your account.
+
+**No fields need to be filled in.**
+
+Returns a list with all registered names and platforms.
+
+**How to use:**
+Select "Get All Integrations" and execute.
+You will see the complete list of integrations.
+
+#### Get an Integration
+Allows querying the detailed data of a specific integration.
+
+**Required Fields:**
+-   **ID:** The unique identifier of the integration you want to query (you can copy this ID when listing all integrations).
+
+**Additional Parameters (optional):**
+-   You can choose to include extra fields in the response, such as "Available Events", "Setup Fields", or "Checklist".
+-   Just mark the ones you want detailed.
+
+**How to use:**
+Select "Get an Integration", enter the ID, select (if desired) any additional parameters, and execute.
+
+#### Rename an Integration
+Updates the name of an existing integration.
+
+**Required Fields:**
+-   **ID:** The identifier of the integration you want to rename.
+-   **New Name:** The new name to display in the panel.
+
+**How to use:**
+Select "Rename an Integration", enter the ID and the new name, and execute.
+
+#### Special Fields
+-   **Name:** Integration name (up to 100 characters).
+-   **Platform:** Integration platform (consult the list in the field description).
+-   **ID:** Unique integration identifier, usually provided when creating or listing integrations.
+-   **Additional Parameters:** Check to include extra information in the integration search.
+
+#### Tips
+-   Use "Get All Integrations" to find the ID of the integration you want to edit or query.
+-   Always check the required fields (marked with `*`) before executing.
+-   For platforms, consult the examples in the field description to avoid typing errors.
+
+[Additional information about Integrations in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/como-conectar-mrlog2/)
+
+---
+
+## Usage Guide - Leads (n8n)
+
+The Leads resource allows you to register, search, edit, delete, and manage lists of leads (contacts) on your platform directly from n8n, with support for custom variables, tags, and advanced filters.
+
+### Available Operations
+
+#### Create Lead
+Creates a new lead (contact) in the system.
+
+**Required Fields:**
+-   **Name:** Full name of the lead.
+-   **Phone:** Phone number, including area code.
+-   **Email:** Lead's email address.
+
+**Optional Fields:**
+-   **Notes:** Additional observations about the lead.
+-   **Custom Variables:** Allows adding extra personalized variables for each lead (e.g., CPF, date of birth, etc.).
+-   **Tags:** Add keywords to group or categorize leads (e.g., "VIP client", "prospect").
+
+**How to use:**
+Select "Create Lead", fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to register the lead.
+
+#### Get All Leads
+Lists all leads registered in the system.
+
+**Optional Fields:**
+-   **Filters:** Allows filtering by name, phone, email, or tag.
+-   **Include Relationships:** Check to bring related data, such as lists, tags, list sources, or associated users.
+
+**How to use:**
+Select "Get All Leads", define the desired filters (or leave blank to list all) and execute.
+
+#### Get Lead by ID
+Returns the complete data of a specific lead from its unique identifier.
+
+**Required Fields:**
+-   **Lead ID:** Enter the ID of the desired lead (can be obtained by listing all).
+
+**Optional Fields:**
+-   **Include Relationships:** Choose to bring related lists, tags, or users.
+
+**How to use:**
+Select "Get Lead by ID", enter the Lead ID, and if desired, mark the relationships to include. Execute to see complete details.
+
+#### Edit Lead
+Allows updating the data of an existing lead.
+
+**Required Fields:**
+-   **Lead ID:** Identifier of the lead to be edited.
+-   **Name:** Updated lead name.
+-   **Email:** Updated lead email.
+
+**Optional Fields:**
+-   **Notes:** Update or add observations.
+-   **Custom Variables:** Change or add custom variables.
+
+**How to use:**
+Select "Edit Lead", enter the ID, update the desired fields, and execute.
+
+#### Delete Lead
+Permanently removes a lead from the system.
+
+**Required Field:**
+-   **Lead ID:** Identifier of the lead to be removed.
+
+**How to use:**
+Select "Delete Lead", enter the Lead ID, and execute.
+A confirmation message will be displayed if the operation is successful.
+
+#### Add Lists to a Lead
+Associates one or more lists with the specified lead.
+
+**Required Fields:**
+-   **Lead ID:** Lead identifier.
+-   **List ID(s):** IDs of the lists to associate (e.g., 1234, 5678).
+
+**How to use:**
+Select "Add Lists to a Lead", enter the Lead ID and the lists (separated by commas). Execute to associate.
+
+#### Remove Lists from a Lead
+Removes one or more lists associated with the lead.
+
+**Required Fields:**
+-   **Lead ID:** Lead identifier.
+-   **List ID(s):** IDs of the lists to remove (e.g., 1234, 5678).
+
+**How to use:**
+Select "Remove Lists from a Lead", enter the Lead ID and the list IDs. Execute to remove.
+
+### Special Fields
+-   **Custom Variables:** Allows adding slug/value pairs to the lead (e.g., slug="cpf", value="123.456.789-00").
+-   **Tags:** Keywords for grouping leads, entered as a list.
+-   **Filters:** Search fields to filter leads by name, phone, email, or tag.
+-   **Include Relationships:** Choose to bring along lists, tags, users, and other information connected to the lead.
+-   **List ID(s):** List IDs separated by commas, used to add or remove multiple lists at once.
+
+### Tips
+-   Use "Get All Leads" to find a lead's ID.
+-   For fields like lists, separate IDs by commas and do not use extra spaces.
+-   The system requires mandatory fields, but take advantage of optional fields to better detail your lead and facilitate automations.
+-   Custom variables are ideal for your business-specific data.
+-   Always review data before performing deletion actions, as they are irreversible.
+
+[Additional information about Leads in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/)
+
+---
+
+## Usage Guide - Lead Lists (n8n)
+
+The Lead Lists resource allows you to create, search, filter, edit, and manage groups of contacts in your lead system directly from n8n. With this resource, you can automate lead grouping, query detailed data, and perform batch actions.
+
+### Available Operations
+
+#### Get All Lists
+Returns all contact lists registered in the system, allowing advanced filters.
+
+**Optional Fields:**
+-   **Include Relationships:** Choose to include details like source or lead count in the response.
+-   **More Properties:** Allows filtering lists that "contain leads".
+-   **Filters:** Allows filtering lists by name or type.
+
+**How to use:**
+Select "Get All Lists", define desired filters and relationships, and execute to list all available lists.
+
+#### Create List
+Creates a new list of contacts/leads.
+
+**Required Fields:**
+-   **List Name:** Define the name of the new list.
+
+**Optional Fields:**
+-   **Tags:** Add keywords to the list to facilitate grouping.
+-   The type is always created as "dynamic".
+
+**How to use:**
+Select "Create List", fill in the name, add tags (optional), and execute to create the list.
+
+#### Get List by ID
+Queries the complete data of a specific list from its unique identifier.
+
+**Required Field:**
+-   **List ID:** Enter the identifier of the list you want to query.
+
+**Optional Fields:**
+-   **Include Source Details:** Check to bring details of the list's origin.
+
+**How to use:**
+Select "Get List by ID", fill in the ID, and check extra details if desired.
+
+#### List Leads in List
+Lists all leads belonging to a specific list.
+
+**Required Field:**
+-   **List ID:** Identifier of the list from which you want to see the leads.
+
+**Optional Fields:**
+-   **Include Relationships:** Check to include details like related lists or list sources.
+-   **Filters:** Allows filtering the leads by name, phone, or email within this list.
+
+**How to use:**
+Select "List Leads in List", enter the List ID, define filters or relationships, and execute to see all leads in that list.
+
+#### Add Leads to List
+Adds one or more already registered leads to a specific list.
+
+**Required Fields:**
+-   **List ID:** Identifier of the list that will receive the leads.
+-   **Lead ID(s):** IDs of the leads to be added (separate by comma, e.g., 12,34,56).
+
+**How to use:**
+Select "Add Leads to List", enter the List ID and the Lead IDs, separated by commas, and execute.
+
+#### Remove Leads from List
+Removes one or more leads from a specific list.
+
+**Required Fields:**
+-   **List ID:** List identifier.
+-   **Lead ID(s):** IDs of the leads you want to remove from the list (separate by comma).
+
+**How to use:**
+Select "Remove Leads from List", fill in the List ID and the Lead IDs to remove, and execute.
+
+### Special Fields
+-   **Include Relationships:** Allows bringing additional details about the list or the leads within it, such as origin and quantity.
+-   **More Properties:** Use to filter lists that contain leads.
+-   **Filters (for lists):** Filter by list name or type.
+-   **Filters (for leads in the list):** Filter leads of a specific list by name, phone, or email.
+-   **Tags:** Keywords used to organize and classify lists.
+-   **List ID:** Unique code for each contact list.
+-   **Lead ID(s):** One or more lead codes to be added or removed from lists (always separated by commas).
+
+### Tips
+-   Use "Get All Lists" to quickly find a list's ID.
+-   To add or remove multiple leads at once, always separate IDs by commas (e.g., 101,102,205).
+-   Using tags greatly facilitates grouping and future automations.
+-   Filters allow highly segmented searches and actions, optimizing the management of large lead bases.
+-   The "List Leads in List" resource is ideal for consulting leads from a specific campaign or segment.
+
+[Additional information about Lead Lists in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/listas-de-leads-1tdvrll/)
+
+---
+
+## Usage Guide - Custom Variable (n8n)
+
+The Custom Variable resource allows you to create, search, update, and delete custom variables associated with your organization, facilitating dynamic and personalized configuration of integrations directly in n8n.
+
+### Available Operations
+
+#### Create Custom Variable
+Creates a new custom variable for use in integrations or flows.
+
+**Required Fields:**
+-   **Name:** Define a name to identify your variable.
+-   **Description:** Write a brief description about the use or purpose of the variable.
+-   **Variable Type:** Choose the data type: Email, Text, CNPJ, CPF, Integer, Numeric, Multiple Selection, or Option List.
+
+**How to use:**
+Select the "Create Custom Variable" operation, fill in name, description, and type, and execute.
+The variable will be available for other operations and integrations.
+
+#### Get All Custom Variables
+Lists all custom variables already registered in your organization, with the option for advanced filters.
+
+**Optional Fields:**
+-   **Additional Parameters:** Check if you want to include extra data such as Organization, Author, Last Edit, or Variable Group.
+-   **Filters:**
+    -   **Slug:** Search variables by slug (unique variable identifier).
+    -   **Type:** Filter by variable type.
+    -   **Variable Group Name:** List only variables from a specific group.
+
+**How to use:**
+Select "Get All Custom Variables", configure the desired filters (or leave blank to see all), and execute.
+
+#### Get Custom Variable by ID
+Queries details of a specific custom variable by entering its ID.
+
+**Required Fields:**
+-   **Custom Variable ID:** Enter the unique identifier of the variable.
+
+**Optional Fields:**
+-   **Additional Parameters:** Include extra data (Organization, Author, etc.).
+
+**How to use:**
+Select "Get Custom Variable by ID", enter the ID, and if desired, mark additional parameters. Execute to get details.
+
+#### Edit Custom Variable
+Changes properties of an existing custom variable.
+
+**Required Fields:**
+-   **Custom Variable ID:** Identifier of the variable to be edited.
+-   **Description:** New description.
+-   (Other fields, if implemented in the backend, like group, options, etc.)
+
+**How to use:**
+Select "Edit Custom Variable", enter the ID, fill in the new data, and execute.
+
+#### Delete Custom Variable
+Permanently removes a custom variable from the system.
+
+**Required Fields:**
+-   **Custom Variable ID:** Identifier of the variable to be removed.
+
+**How to use:**
+Select "Delete Custom Variable", enter the ID, and execute.
+If the deletion is successful, you will receive a success confirmation.
+
+### Special Fields
+-   **Name:** Identification name of the custom variable.
+-   **Custom Variable ID:** Unique identifier of the variable (can be obtained by listing all variables).
+-   **Description:** Text explaining the purpose or use of the variable.
+-   **Variable Type:** Defines the data format (email, text, CPF, etc.).
+-   **Additional Parameters:** Allows including extra data in the search (Organization, Author, Last Edit, Variable Group).
+-   **Variable Group:** Filters and grouping by group, useful for large-scale organization.
+-   **Filters:** Refine your search by slug, type, or group.
+-   **Slug:** Unique identifier of the variable (used in automations and integrations).
+
+### Tips
+-   Use "Get All Custom Variables" to discover a variable's ID.
+-   Fill in the Description field clearly to facilitate maintenance and future use.
+-   Use appropriate variable types to ensure validation and correct use in your flows (e.g., for CPF, use the "CPF" type).
+-   Required fields are signaled by the system.
+-   Deleted variables cannot be recovered.
+
+[Additional information about Custom Variables in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
+
+---
+
+## Usage Guide - Custom Variable Groups (n8n)
+
+The Custom Variable Groups resource allows organizing custom variables into groups, facilitating the management, search, update, and automation of structured data on your platform via n8n.
+
+### Available Operations
+
+#### Create Group
+Creates a new group to cluster custom variables.
+
+**Required Field:**
+-   **Name:** The name of the new variable group.
+
+**How to use:**
+Select "Create Group", enter the group name, and execute to create.
+
+#### Get All Groups
+Returns all variable groups registered in the system.
+
+**Optional Fields:**
+-   **Include Relationships:** Check if you want to include extra data such as Organization, Author, or Last Edit.
+-   **Filter:** Allows filtering groups by name.
+
+**How to use:**
+Select "Get All Groups", mark relationships or define filters if desired, and execute.
+
+#### Get Group by ID
+Queries the complete data of a specific variable group by its unique identifier.
+
+**Required Field:**
+-   **Group ID:** Enter the identifier of the desired group.
+
+**Optional Field:**
+-   **Include Relationships:** Bring extra information like organization or author.
+
+**How to use:**
+Select "Get Group by ID", enter the Group ID, mark the desired relationships, and execute.
+
+#### Edit Group Name
+Allows changing the name of an existing group.
+
+**Required Fields:**
+-   **Group ID:** Identifier of the group to be changed.
+-   **New Group Name:** The new name to be assigned to the group.
+
+**How to use:**
+Select "Edit Group Name", enter the ID, the new name, and execute.
+
+#### Delete Group
+Permanently removes a variable group from the system.
+
+**Required Field:**
+-   **Group ID:** Identifier of the group to be removed.
+
+**How to use:**
+Select "Delete Group", enter the Group ID, and execute.
+If the operation is successful, a confirmation message will be displayed.
+
+### Special Fields
+-   **Name:** Name of the variable group, used in creation.
+-   **Group ID:** Unique identifier for each group, used in searches, edits, and removals.
+-   **New Group Name:** Used to change the name of an existing group.
+-   **Include Relationships:** Allows bringing additional information like Organization, Author, or Last Edit when searching for groups.
+-   **Filter:** Filter to search groups by name.
+
+### Tips
+-   Use "Get All Groups" to discover a group's ID before editing or removing.
+-   Take advantage of the relationship function to get context about who created, edited, or belongs to the group's organization.
+-   Always review names before editing or deleting, as deletion actions cannot be undone.
+
+[Additional information about Custom Variables in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/variaveis-customizadas-qao16v/)
+
+---
+
+## Usage Guide - Events (n8n)
+
+The Events resource allows creating and sending different types of events to integrations, such as: abandoned cart, invoices, payments, cancellations, deliveries, NPS, member access, and password reset, among others. Ideal for automations and intelligent notifications in your flow.
+
+### Available Operations
+
+#### Create Abandoned Cart Event
+Sends an event to notify about an abandoned shopping cart.
+
+**Required Fields:**
+-   Customer data (name, phone, etc.)
+-   Cart/checkout data (URL, ID)
+-   Order products (name, quantity, value)
+
+#### Create Printed Invoice Event
+Notifies that an invoice was generated and printed for the customer.
+
+**Required Fields:**
+-   Customer data
+-   Address data
+-   Order data (products, total value, discount, invoice, status)
+-   Order products
+
+#### Create Event for Canceled, Paid, Refunded, Delivered, Dispatched, Processing, Out for Delivery, Status Updated, Awaiting Pickup, or Awaiting Payment Order
+Each event records a different order status, always including:
+
+**Required Fields:**
+-   Customer data
+-   Address and delivery data
+-   Order data (ID, values, status, discounts, products)
+-   Payment details (invoice, pix, etc.) according to the event type
+
+#### Create Member Access Granted Event
+Sends access data for members.
+
+**Required Fields:**
+-   Customer data
+-   Member page URL, login, and temporary password
+-   Products associated with the access
+
+#### Create Password Reset Event
+Notifies the customer with the link to reset their password.
+
+**Required Fields:**
+-   Customer data
+-   Password reset URL
+
+#### Create NPS (Satisfaction Survey) Event
+Involves two separate events:
+
+##### Create NPS Response Event
+Records the score, comment, and date of the customer's satisfaction response after they answer an NPS survey.
+
+**Required Fields:**
+-   Customer data
+-   Score given by the customer
+-   (Optional: comment and response date)
+
+##### Create NPS Survey Event
+Sends an event to trigger the NPS survey link to the customer.
+
+**Required Fields:**
+-   Customer data
+-   Survey URL (surveyurl)
+
+### Important Common Fields
+-   **Customer Data:** Always include first name, phone, email, CPF/CNPJ, currency, gender, date of birth, IP.
+-   **Products:** Name, quantity, and value of products (can add several).
+-   **Address:** City, country, neighborhood, number, ZIP code, state, street, complement.
+-   **Order:** ID, values (total, discount, products_total), status.
+-   **Delivery:** Shipping cost, description, tracking code, tracking URL, estimated delivery date, message.
+-   **Payment (invoice/Pix):** Links, codes, values, and specific dates.
+-   **NPS:** Score, comment, response date, or survey URL.
+-   **Member Access:** URLs, login, password, and access products.
+-   **Password Reset:** URL to reset.
+
+### Tips
+-   Always fill in all required fields for each operation, respecting suggested formats (e.g., dates, currency).
+-   For product or address lists, use the "Add product data" or "Additional Parameters" option.
+-   The system validates: blank required fields block execution!
+-   In the case of PIX events, check the correct payment method option to show specific fields.
+-   Grouped fields (like "checkout", "addressparameter", "deliveryparameter") must be expanded to enter detailed data.
+-   Use the event corresponding to the actual order/action status.
+
+[Additional information about Events in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/eventos-1n02369/)
+
+#### If you haven't found what you're looking for, take a look at our [Help Center](https://ajuda.notificacoesinteligentes.com/pt-br/).
