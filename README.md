@@ -171,13 +171,13 @@ Agora você pode utilizar seu **Custom Node** para criar, editar, excluir ou con
 
 	 * Quando relacionado a alguma regra própria da API, na maioria dos casos ela retorna o motivo do erro detalhado, deixando ainda mais claro. 
 
-   <img src="readme.img/detailed_message_error" width="800" alt="Screenshot da aplicação">
+   <img src="readme.img/detailed_message_error.png" width="800" alt="Screenshot da aplicação">
 
 	 * Em todos os erros são retornados o código de erro. No caso de exemplo abaixo, retornou 404 (Not Found) pois não encontrou nenhum ID relacionado ao que tentamos apagar na conta.
 
    <img src="readme.img/error_message.png" width="800" alt="Screenshot da aplicação">
 
-*  ### Dados adicionais: 
+*  **Dados adicionais:** 
 	 * Além dos IDs, o Node permite trabalhar com uma gama de dados complementares (opcionais) para enriquecer suas automações, como **Tags**, **Variáveis Customizadas**, **Filtros** e **Relacionamentos**.
    * Em campos de busca por exemplo, caso plausível, existe a opção de receber dados adicionais na requisição. 
 
