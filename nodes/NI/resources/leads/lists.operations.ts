@@ -80,7 +80,7 @@ export const listsOperations: INodeProperties[] = [
       },
 
       {
-        name: 'Delete List by ID',
+        name: 'Delete List',
         value: 'deleteList',
         action: 'Delete list',
         description: 'Remove a specific contact list by ID',

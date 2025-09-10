@@ -90,7 +90,7 @@ export const variablegroupsoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Update Group Name',
+        name: 'Edit Group Name',
         value: 'updategroup',
         action: 'Edit group',
         description: 'Change the name of an existing variable group',

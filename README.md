@@ -218,7 +218,7 @@ Returns a list with all registered names and platforms.
 Select "Get All Integrations" and execute.
 You will see the complete list of integrations.
 
-#### Get an Integration
+#### Get Integration
 Allows querying the detailed data of a specific integration.
 
 **Required Fields:**
@@ -231,7 +231,7 @@ Allows querying the detailed data of a specific integration.
 **How to use:**
 Select "Get an Integration", enter the ID, select (if desired) any additional parameters, and execute.
 
-#### Rename an Integration
+#### Edit Integration Name
 Updates the name of an existing integration.
 
 **Required Fields:**
@@ -239,7 +239,17 @@ Updates the name of an existing integration.
 -   **New Name:** The new name to display in the panel.
 
 **How to use:**
-Select "Rename an Integration", enter the ID and the new name, and execute.
+Select "Edit Integration Name", enter the ID and the new name, and execute.
+
+#### Delete Integration
+Permanently removes a Integration from the system.
+
+**Required Field:**
+-   **Lead ID:** Identifier of the integration to be removed.
+
+**How to use:**
+Select "Delete Integration", enter the Lead ID, and execute.
+A confirmation message will be displayed if the operation is successful.
 
 #### Special Fields
 -   **Name:** Integration name (up to 100 characters).
@@ -306,11 +316,11 @@ Allows updating the data of an existing lead.
 **Required Fields:**
 -   **Lead ID:** Identifier of the lead to be edited.
 -   **Name:** Updated lead name.
--   **Email:** Updated lead email.
 
 **Optional Fields:**
 -   **Notes:** Update or add observations.
 -   **Custom Variables:** Change or add custom variables.
+-   **Email:** Updated lead email.
 
 **How to use:**
 Select "Edit Lead", enter the ID, update the desired fields, and execute.
@@ -374,7 +384,7 @@ Returns all contact lists registered in the system, allowing advanced filters.
 
 **Optional Fields:**
 -   **Include Relationships:** Choose to include details like source or lead count in the response.
--   **More Properties:** Allows filtering lists that "contain leads".
+-   **Additional Properties:** Allows filtering lists that "contain leads".
 -   **Filters:** Allows filtering lists by name or type.
 
 **How to use:**
@@ -438,6 +448,20 @@ Removes one or more leads from a specific list.
 **How to use:**
 Select "Remove Leads from List", fill in the List ID and the Lead IDs to remove, and execute.
 
+#### Delete List
+Permanently removes a list from the system.
+
+**Required Field:**
+-   **Lead ID:** Identifier of the list to be removed.
+
+**Note:** System-generated lists cannot be deleted via the API. Only lists of the dynamic type — that is, lists created separately — can be deleted.
+
+**How to use:**
+Select "Delete List", enter the List ID, and execute.
+A confirmation message will be displayed if the operation is successful.
+
+
+
 ### Special Fields
 -   **Include Relationships:** Allows bringing additional details about the list or the leads within it, such as origin and quantity.
 -   **More Properties:** Use to filter lists that contain leads.
@@ -468,9 +492,11 @@ The Custom Variable resource allows you to create, search, update, and delete cu
 Creates a new custom variable for use in integrations or flows.
 
 **Required Fields:**
--   **Name:** Define a name to identify your variable.
 -   **Description:** Write a brief description about the use or purpose of the variable.
 -   **Variable Type:** Choose the data type: Email, Text, CNPJ, CPF, Integer, Numeric, Multiple Selection, or Option List.
+
+**Optional Fields:**
+- **Name:** Define a name to identify your variable.
 
 **How to use:**
 Select the "Create Custom Variable" operation, fill in name, description, and type, and execute.
@@ -626,27 +652,33 @@ The Events resource allows creating and sending different types of events to int
 Sends an event to notify about an abandoned shopping cart.
 
 **Required Fields:**
--   Customer data (name, phone, etc.)
--   Cart/checkout data (URL, ID)
+-   Integration ID
+-   Customer data (name, phone)
 -   Order products (name, quantity, value)
 
-#### Create Printed Invoice Event
+**Optional Field:**
+-   Cart/checkout data (URL, ID)
+
+#### Create Printed Billet Event
 Notifies that an invoice was generated and printed for the customer.
 
 **Required Fields:**
--   Customer data
+- Customer data (name, phone)
+- Order data (ID, values, status, discounts, products)
+
+**Optional Field:**
 -   Address data
--   Order data (products, total value, discount, invoice, status)
--   Order products
 
 #### Create Event for Canceled, Paid, Refunded, Delivered, Dispatched, Processing, Out for Delivery, Status Updated, Awaiting Pickup, or Awaiting Payment Order
 Each event records a different order status, always including:
 
 **Required Fields:**
 -   Customer data
--   Address and delivery data
 -   Order data (ID, values, status, discounts, products)
--   Payment details (invoice, pix, etc.) according to the event type
+-   Payment details (billet, pix, etc.) according to the event type
+
+**Optional Field:**
+-   Address and delivery data
 
 #### Create Member Access Granted Event
 Sends access data for members.

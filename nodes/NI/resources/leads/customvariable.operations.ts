@@ -87,7 +87,7 @@ export const customvariableoperations: INodeProperties[] = [
         },
       },
       {
-        name: 'Update Custom Variable',
+        name: 'Edit Custom Variable',
         value: 'updatecustomvariable',
         action: 'Update variable',
         description: 'Updates the properties of an existing custom variable',
