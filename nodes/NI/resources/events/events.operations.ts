@@ -77,10 +77,10 @@ export const eventsOperations: INodeProperties[] = [
         },
       },
       {
-         name: 'Boleto Printed',
+         name: 'Billet Printed',
         value: 'createnewticket',
-        action: 'Create boleto printed event',
-        description: 'Create an event indicating a boleto was printed in the integration',
+        action: 'Create a billet printed event',
+        description: 'Create an event indicating a billet was printed in the integration',
         routing: {
           request: {
             method: 'POST',
@@ -493,7 +493,7 @@ export const eventsOperations: INodeProperties[] = [
         },
       },
 			{
-      name:  'Create Password Reset Event',
+      name:  'Password Reset Event',
       value: 'changepasswordevent',
       action: 'Create a password reset event in the integration',
       description: 'Logs a user password reset request or completion',

@@ -177,7 +177,7 @@ export const eventsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['events'],
-        operation: ['createnewevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
+        operation: ['createnewevent','accessevent','createnewticket','canceledorder','orderpaid','refundorder','orderreceived','orderdispatched','orderprocessed','orderout','orderprocessupdated','orderwaiting','orderwaitingcharge']
       }
     },
 		routing:{send: {
@@ -188,58 +188,6 @@ export const eventsFields: INodeProperties[] = [
 		}
   },
 	//===================================================================ACCESS EVENT PRODUCT DATA==============================================================
-	{
-    displayName: 'Products',
-    name: 'products',
-    placeholder: 'Add Product Data',
-    type: 'fixedCollection',
-    required: true,
-    default: {},
-    typeOptions: {
-      multipleValues: true,
-    },
-    options: [
-      {
-        name: 'metadataValues',
-        displayName: 'Metadata',
-        values: [
-          {
-            displayName: 'Product Name',
-            name: 'name',
-            type: 'string',
-            required: true,
-            default:'',
-          },
-          {
-            displayName: 'Product Quantity',
-            name: 'quantity',
-            type: 'number',
-            required: true,
-            default:0,
-          },
-          {
-            displayName: 'Product Value',
-            name: 'value',
-            type: 'number',
-            required: true,
-            default:0,
-          },
-        ],
-      },
-    ],
-    displayOptions: {
-      show: {
-        resource: ['events'],
-        operation: ['accessevent']
-      }
-    },
-		routing:{send: {
-        type: 'body',
-        property: 'access.products',
-        value: '={{$value.metadataValues.map(product => ({ name: product.name, quantity: product.quantity, value: product.value }))}}'
-      }
-		}
-  },
   {
     displayName: 'Products Field Is Required',
     name: 'notice',
@@ -253,58 +201,6 @@ export const eventsFields: INodeProperties[] = [
     }
   },
   // ==========================================================================ORDER OBJECT=======================================================================
-  {
-    displayName: 'Order',
-    name: 'products',
-    placeholder: 'Add Order Data',
-    type: 'fixedCollection',
-    required: true,
-    default: {},
-    typeOptions: {
-      multipleValues: true,
-    },
-    options: [
-      {
-        name: 'metadataValues',
-        displayName: 'Metadata',
-        values: [
-          {
-            displayName: 'Product Name',
-            name: 'name',
-            type: 'string',
-            required: true,
-            default:'',
-          },
-          {
-            displayName: 'Product Quantity',
-            name: 'quantity',
-            type: 'number',
-            required: true,
-            default:0,
-          },
-          {
-            displayName: 'Product Value',
-            name: 'value',
-            type: 'number',
-            required: true,
-            default:0,
-          },
-        ],
-      },
-    ],
-    displayOptions: {
-      show: {
-        resource: ['events'],
-        operation: ['accessevent']
-      }
-    },
-		routing:{send: {
-        type: 'body',
-        property: 'access.products',
-        value: '={{$value.metadataValues.map(product => ({ name: product.name, quantity: product.quantity, value: product.value }))}}'
-      }
-		}
-  },
 	{
     displayName: 'Order ID',
     name: 'orderid',
@@ -380,7 +276,7 @@ export const eventsFields: INodeProperties[] = [
   },
 	// =========================================================================OPCIONAL ORDERS=====================================================================
   {
-    displayName: 'Boleto HTML URL',
+    displayName: 'Billet HTML URL',
     name: 'billet_url',
     type: 'string',
     required: true,
@@ -394,11 +290,11 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_url'}}
   },
   {
-    displayName: 'Boleto PDF URL',
+    displayName: 'Billet PDF URL',
     name: 'billet_pdf',
     type: 'string',
     default: '',
-    description: 'URL to view the boleto in PDF',
+    description: 'URL to view the billet in PDF',
     displayOptions: {
       show: {
         resource: ['events'],
@@ -408,7 +304,7 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_pdf'}}
   },
   {
-    displayName: 'Boleto Digitable Line',
+    displayName: 'Billet Digitable Line',
     name: 'billet_barcode',
     type: 'string',
     required: true,
@@ -422,7 +318,7 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_barcode'}}
   },
   {
-    displayName: 'Boleto Amount',
+    displayName: 'Billet Amount',
     name: 'billet_value',
     type: 'number',
     default: 0,
@@ -435,7 +331,7 @@ export const eventsFields: INodeProperties[] = [
 		routing:{send:{type:'body', property:'order.billet_value'}}
   },
   {
-    displayName: 'Boleto Due Date',
+    displayName: 'Billet Due Date',
     name: 'billet_due_date',
     type: 'dateTime',
     default: '',
@@ -599,7 +495,7 @@ export const eventsFields: INodeProperties[] = [
   },
   //=========================================================================ADDRESS DATA==========================================================================
   {
-    displayName: 'Additional Address Parameters',
+    displayName: 'Address Parameters',
     name: 'addressparameter',
     placeholder: 'Customer Address',
     type: 'fixedCollection',
@@ -682,7 +578,7 @@ export const eventsFields: INodeProperties[] = [
   },
   //=====================================================================DELIVERY DATA===========================================================================
   {
-    displayName: 'Additional Delivery Parameters',
+    displayName: 'Delivery Parameters',
     name: 'deliveryparameter',
     placeholder: 'Delivery',
     type: 'fixedCollection',
@@ -808,7 +704,7 @@ export const eventsFields: INodeProperties[] = [
         operation: ['eventclientsearch']
       }
     },
-		routing:{send:{type:'body',property:'nps.answer.url'}}
+		routing:{send:{type:'body',property:'nps.survery.url'}}
   },
   //===============================================================ACCESS DATA================================================================================
   {

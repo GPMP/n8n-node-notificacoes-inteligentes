@@ -68,4 +68,15 @@ export const integrationsFields: INodeProperties[] = [
     description: 'The new name of the integration in the dashboard (maximum 100 characters)',
     routing: { send: { type: 'body', property: 'name' } },
   },
+	{
+    displayName: 'Include Relationships',
+    name: 'append',
+    type: 'multiOptions',
+    placeholder: 'Choose',
+    options: [{ name: 'Available Events', value: 'available_events' }, { name: 'Checklist', value: 'checklist' }],
+    default: [],
+    description: 'Properties to include in the response',
+    displayOptions: { show: { resource: ['integration'], operation: ['get_integration'] } },
+    routing: { request: { qs: { append: '={{$value}}' } } },
+  },
 ];
