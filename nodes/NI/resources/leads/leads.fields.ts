@@ -273,10 +273,9 @@ export const leadsFields: INodeProperties[] = [
       { name: 'Lists', value: 'lists' },
       { name: 'List Source', value: 'lists.source' },
       { name: 'Tags', value: 'tags' },
-      { name: 'Users', value: 'users' },
     ],
     default: [],
-    description: 'Select which relationships to include in the request (e.g., lists, tags, users)',
+    description: 'Select which relationships to include in the request (e.g., lists, tags)',
     displayOptions: {
       show: {
         resource: ['leads'],
