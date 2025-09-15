@@ -108,7 +108,7 @@ export const leadsOperations: INodeProperties[] = [
                 if (isUpdate) {
                   // UPDATE mode - edit existing lead
                   requestOptions.method = 'PUT';
-                  requestOptions.url = `/leads/${id}`;
+                  requestOptions.url = `/leads/${this.getNodeParameter('id')}`;
 
                   // For update, send all fields or only changed ones as desired
                   requestOptions.body = {

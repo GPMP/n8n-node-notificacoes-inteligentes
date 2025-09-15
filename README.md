@@ -293,7 +293,7 @@ Lists all leads registered in the system.
 
 **Optional Fields:**
 -   **Filters:** Allows filtering by name, phone, email, or tag.
--   **Include Relationships:** Check to bring related data, such as lists, tags, list sources, or associated users.
+-   **Include Relationships:** Check to bring related data, such as lists, tags or list sources.
 
 **How to use:**
 Select "Get All Leads", define the desired filters (or leave blank to list all) and execute.
@@ -305,7 +305,7 @@ Returns the complete data of a specific lead from its unique identifier.
 -   **Lead ID:** Enter the ID of the desired lead (can be obtained by listing all).
 
 **Optional Fields:**
--   **Include Relationships:** Choose to bring related lists, tags, or users.
+-   **Include Relationships:** Choose to bring related lists or tags.
 
 **How to use:**
 Select "Get Lead by ID", enter the Lead ID, and if desired, mark the relationships to include. Execute to see complete details.
