@@ -22,12 +22,13 @@ export const leadsFields: INodeProperties[] = [
     options: [
       { name: 'Create New Lead', value: 'create' },
       { name: 'Edit Existing Lead', value: 'update' },
+			{ name: 'Create/Edit Lead', value: 'create_edit' }
     ],
     default: 'create',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
+        operation: ['create_edit_lead'],
       },
     },
     description: 'Choose whether to create a new lead or edit an existing one',
@@ -36,12 +37,11 @@ export const leadsFields: INodeProperties[] = [
     displayName: 'Lead ID',
     name: 'id',
     type: 'string',
-    required: true,
     default: '',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
+        operation: ['create_edit_lead'],
         operationMode: ['update'],
       },
     },
@@ -56,7 +56,23 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead', 'deletegroup'],
+        operation: ['deletegroup'],
+      },
+    },
+    routing: { send: { type: 'body', property: 'name' } },
+    description: 'Lead’s full name',
+  },
+	{
+    displayName: 'Lead Name',
+    name: 'name',
+    type: 'string',
+    required: true,
+    default: '',
+    displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['create_edit_lead'],
+				operationMode:['create','update','create_edit']
       },
     },
     routing: { send: { type: 'body', property: 'name' } },
@@ -71,8 +87,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
-        operationMode: ['create'],
+        operation: ['create_edit_lead'],
+        operationMode:['create','update','create_edit']
       },
     },
     routing: { send: { type: 'body', property: 'phone' } },
@@ -88,7 +104,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
+        operation: ['create_edit_lead'],
         operationMode: ['create'],
       },
     },
@@ -104,8 +120,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
-        operationMode: ['update'],
+        operation: ['create_edit_lead'],
+        operationMode: ['update', 'create_edit'],
       },
     },
     routing: { send: { type: 'body', property: 'email' } },
@@ -119,7 +135,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
+        operation: ['create_edit_lead'],
+				operationMode:['create','update','create_edit']
       },
     },
     routing: { send: { type: 'body', property: 'notes' } },
@@ -137,7 +154,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead'],
+         operation: ['create_edit_lead'],
+        operationMode:['create','update','create_edit']
       },
     },
     options: [
@@ -183,8 +201,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['manage_lead', 'createList'],
-        operationMode: ['create'],
+        operation: ['create_edit_lead'],
+        operationMode:['create','update','create_edit']
       },
     },
     options: [
@@ -211,6 +229,7 @@ export const leadsFields: INodeProperties[] = [
       },
     },
   },
+
   {
     displayName: 'Filters',
     name: 'filters',
