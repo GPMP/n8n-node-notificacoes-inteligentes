@@ -22,7 +22,7 @@ export const leadsFields: INodeProperties[] = [
     options: [
       { name: 'Create New Lead', value: 'create' },
       { name: 'Edit Existing Lead', value: 'update' },
-			{ name: 'Create/Edit Lead', value: 'create_edit' }
+			{ name: 'Auto Create/Edit Lead', value: 'create_edit' }
     ],
     default: 'create',
     displayOptions: {

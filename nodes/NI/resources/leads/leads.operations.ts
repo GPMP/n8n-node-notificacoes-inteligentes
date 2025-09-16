@@ -14,7 +14,7 @@ export const leadsOperations: INodeProperties[] = [
     },
     options: [
   {
-  name: 'Auto Create/Edit',
+  name: 'Create/Edit',
   value: 'create_edit_lead',
   action: 'Create or edit lead',
   description: 'Create or edit a lead',
