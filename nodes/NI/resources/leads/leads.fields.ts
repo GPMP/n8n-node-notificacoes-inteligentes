@@ -15,24 +15,24 @@ export const leadsFields: INodeProperties[] = [
     },
     description: 'Lead identifier',
   },
-  {
-    displayName: 'Operation Mode',
-    name: 'operationMode',
-    type: 'options',
-    options: [
-      { name: 'Create New Lead', value: 'create' },
-      { name: 'Edit Existing Lead', value: 'update' },
-			{ name: 'Auto Create/Edit Lead', value: 'create_edit' }
-    ],
-    default: 'create',
-    displayOptions: {
-      show: {
-        resource: ['leads'],
-        operation: ['create_edit_lead'],
-      },
-    },
-    description: 'Choose whether to create a new lead or edit an existing one',
-  },
+  // {
+  //   displayName: 'Operation Mode',
+  //   name: 'operationMode',
+  //   type: 'options',
+  //   options: [
+  //     { name: 'Create New Lead', value: 'create' },
+  //     { name: 'Edit Existing Lead', value: 'update' },
+	// 		{ name: 'Auto Create/Edit Lead', value: 'create_edit' }
+  //   ],
+  //   default: 'create',
+  //   displayOptions: {
+  //     show: {
+  //       resource: ['leads'],
+  //       operation: ['create_edit_lead'],
+  //     },
+  //   },
+  //   description: 'Choose whether to create a new lead or edit an existing one',
+  // },
   {
     displayName: 'Lead ID',
     name: 'id',
@@ -41,8 +41,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-        operationMode: ['update'],
+        operation: ['update_lead'],
       },
     },
     description: 'Unique identifier of the lead to edit',
@@ -71,8 +70,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-				operationMode:['create','update','create_edit']
+        operation: ['create_lead','update_lead','create_update_lead'],
       },
     },
     routing: { send: { type: 'body', property: 'name' } },
@@ -87,8 +85,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-        operationMode:['create','update','create_edit']
+        operation: ['create_lead','update_lead','create_update_lead'],
       },
     },
     routing: { send: { type: 'body', property: 'phone' } },
@@ -104,8 +101,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-        operationMode: ['create'],
+        operation: ['create_lead','create_update_lead'],
       },
     },
     routing: { send: { type: 'body', property: 'email' } },
@@ -120,8 +116,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-        operationMode: ['update', 'create_edit'],
+        operation: ['update_lead'],
       },
     },
     routing: { send: { type: 'body', property: 'email' } },
@@ -135,8 +130,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-				operationMode:['create','update','create_edit']
+        operation: ['create_lead','update_lead','create_update_lead']
+
       },
     },
     routing: { send: { type: 'body', property: 'notes' } },
@@ -154,8 +149,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-         operation: ['create_edit_lead'],
-        operationMode:['create','update','create_edit']
+         operation: ['create_lead','update_lead','create_update_lead'],
+
       },
     },
     options: [
@@ -201,8 +196,8 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_edit_lead'],
-        operationMode:['create','update','create_edit']
+        operation: ['create_lead','create_update_lead'],
+
       },
     },
     options: [

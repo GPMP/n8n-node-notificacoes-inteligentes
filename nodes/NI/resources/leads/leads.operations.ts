@@ -13,19 +13,16 @@ export const leadsOperations: INodeProperties[] = [
       },
     },
     options: [
-  {
-  name: 'Create/Edit',
-  value: 'create_edit_lead',
-  action: 'Create or edit lead',
-  description: 'Create or edit a lead',
+{
+  name: 'Create',
+  value: 'create_lead',
+  action: 'Create lead',
+  description: 'Create a new lead',
   routing: {
     send: {
       preSend: [
         async function (this: any, requestOptions) {
-      const mode = (this.getNodeParameter('operationMode', 0) as string) ?? 'create';
-      const leadId = (this.getNodeParameter('id', 0) as string) ?? '';
-	    const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
-
+          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
 
           const body: any = {
             name: this.getNodeParameter('name', 0) as string,
@@ -41,6 +38,156 @@ export const leadsOperations: INodeProperties[] = [
             if (tags.length > 0) body.tags = tags;
           }
 
+
+          const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
+          if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
+            const customVars = customVarsParam.variable.map((v: any) => ({
+              slug: v.slug,
+              value: v.value,
+            }));
+            if (customVars.length > 0) body.custom_variables = customVars;
+          }
+
+          requestOptions.method = 'POST';
+          requestOptions.url = '/leads';
+          requestOptions.body = body;
+
+          return requestOptions;
+        },
+      ],
+    },
+    output: {
+      postReceive: [
+        async function (this: any, items: any[], response: any) {
+          const status = response?.statusCode ?? response?.status ?? 0;
+          const success = status >= 200 && status < 300;
+          const msg = 'Lead created successfully.';
+
+          if (Array.isArray(items) && items.length) {
+            return items.map((i: any) => ({
+              ...i,
+              json: {
+                message: msg,
+                success,
+                ...i.json,
+              },
+              ...(i.binary ? { binary: i.binary } : {}),
+            }));
+          }
+
+          return [{
+            json: {
+              message: msg,
+              success,
+            },
+          }];
+        },
+      ],
+    },
+  },
+},
+
+
+{
+  name: 'Update',
+  value: 'update_lead',
+  action: 'Update lead',
+  description: 'Update an existing lead',
+  routing: {
+    send: {
+      preSend: [
+        async function (this: any, requestOptions) {
+          const leadId = (this.getNodeParameter('id', 0) as string) ?? '';
+          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
+
+          const body: any = {
+            name: this.getNodeParameter('name', 0) as string,
+            phone,
+            email: this.getNodeParameter('email', 0) as string,
+            notes: this.getNodeParameter('notes', 0) as string,
+          };
+
+          // Processar tags
+          const tagsParam = this.getNodeParameter('addtags', 0, undefined) as any;
+          if (tagsParam?.optiontags && Array.isArray(tagsParam.optiontags)) {
+            const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
+            if (tags.length > 0) body.tags = tags;
+          }
+
+          // Processar variáveis customizadas
+          const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
+          if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
+            const customVars = customVarsParam.variable.map((v: any) => ({
+              slug: v.slug,
+              value: v.value,
+            }));
+            if (customVars.length > 0) body.custom_variables = customVars;
+          }
+
+          requestOptions.method = 'PUT';
+          requestOptions.url = `/leads/${leadId}`;
+          requestOptions.body = body;
+
+          return requestOptions;
+        },
+      ],
+    },
+    output: {
+      postReceive: [
+        async function (this: any, items: any[], response: any) {
+          const status = response?.statusCode ?? response?.status ?? 0;
+          const success = status >= 200 && status < 300;
+          const msg = 'Lead updated successfully.';
+
+          if (Array.isArray(items) && items.length) {
+            return items.map((i: any) => ({
+              ...i,
+              json: {
+                message: msg,
+                success,
+                ...i.json,
+              },
+              ...(i.binary ? { binary: i.binary } : {}),
+            }));
+          }
+
+          return [{
+            json: {
+              message: msg,
+              success,
+            },
+          }];
+        },
+      ],
+    },
+  },
+},
+{
+  name: 'Create or Update',
+  value: 'create_update_lead',
+  action: 'Create or update lead',
+  description: 'Create a new lead or update existing one based on phone number',
+  routing: {
+    send: {
+      preSend: [
+        async function (this: any, requestOptions) {
+          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
+
+          const body: any = {
+            name: this.getNodeParameter('name', 0) as string,
+            phone,
+            email: this.getNodeParameter('email', 0) as string,
+            notes: this.getNodeParameter('notes', 0) as string,
+          };
+
+
+          const tagsParam = this.getNodeParameter('addtags', 0, undefined) as any;
+          if (tagsParam?.optiontags && Array.isArray(tagsParam.optiontags)) {
+            const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
+            if (tags.length > 0) body.tags = tags;
+          }
+
+
           const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
           if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
             const customVars = customVarsParam.variable.map((v: any) => ({
@@ -51,76 +198,58 @@ export const leadsOperations: INodeProperties[] = [
           }
 
 
-          if (mode === 'update') {
-            requestOptions.method = 'PUT';
-            requestOptions.url = `/leads/${leadId}`;
-          } else if (mode === 'create'){
-            requestOptions.method = 'POST';
-            requestOptions.url = '/leads';
-
-          }
-					else if (mode === 'create_edit'){
-						const existingLead = await this.helpers.httpRequestWithAuthentication!.call(this, 'niApi', {
+          const existingLead = await this.helpers.httpRequestWithAuthentication!.call(this, 'niApi', {
             method: 'GET',
             baseURL: 'https://api.notificacoesinteligentes.com',
             url: '/leads',
             qs: { 'filter[phone]': phone },
-               });
+          });
 
-						if (existingLead?.data?.length > 0) {
+          if (existingLead?.data?.length > 0) {
 
-              requestOptions.method = 'PUT';
-              requestOptions.url = `/leads/${existingLead.data[0].id}`;
-            } else {
+            requestOptions.method = 'PUT';
+            requestOptions.url = `/leads/${existingLead.data[0].id}`;
+          } else {
 
-              requestOptions.method = 'POST';
-              requestOptions.url = '/leads';
-            }
+            requestOptions.method = 'POST';
+            requestOptions.url = '/leads';
+          }
 
-					}
           requestOptions.body = body;
-
           return requestOptions;
         },
       ],
-
     },
-output: {
-  postReceive: [
-    async function (this: any, items: any[], response: any) {
-      const status = response?.statusCode ?? response?.status ?? 0;
-      const method = String(response?.request?.method ?? response?.config?.method ?? '').toLowerCase();
+    output: {
+      postReceive: [
+        async function (this: any, items: any[], response: any) {
+          const status = response?.statusCode ?? response?.status ?? 0;
+          const method = String(response?.request?.method ?? response?.config?.method ?? '').toLowerCase();
+          const created = method === 'post' || status === 201;
+          const success = status >= 200 && status < 300;
+          const msg = created ? 'Lead created successfully.' : 'Lead updated successfully.';
 
-      const created = method === 'post' || status === 201;
-      const success = status >= 200 && status < 300;
-      const msg = created ? 'Lead created successfully.' : 'Lead updated successfully.';
+          if (Array.isArray(items) && items.length) {
+            return items.map((i: any) => ({
+              ...i,
+              json: {
+                message: msg,
+                success,
+                ...i.json,
+              },
+              ...(i.binary ? { binary: i.binary } : {}),
+            }));
+          }
 
-      // Se houver itens, coloca message/success no topo preservando o restante
-      if (Array.isArray(items) && items.length) {
-        return items.map((i: any) => ({
-          ...i,
-          json: {
-            message: msg,
-            success,
-            ...i.json, // resto vem depois
-          },
-          ...(i.binary ? { binary: i.binary } : {}),
-        }));
-      }
-
-      // Sem body (ex.: 204) → cria item com message/success no topo
-      return [
-        {
-          json: {
-            message: msg,
-            success,
-          },
+          return [{
+            json: {
+              message: msg,
+              success,
+            },
+          }];
         },
-      ];
+      ],
     },
-  ],
-},
-
   },
 },
       {
@@ -202,134 +331,6 @@ output: {
           },
         },
       },
-
-      // {
-      //   name: 'Create/Edit Lead',
-      //   value: 'manage_lead',
-      //   action: 'Create or edit lead',
-      //   description: 'Create a new lead or edit an existing one',
-      //   routing: {
-      //     send: {
-      //       preSend: [
-      //         async function (this, requestOptions) {
-      //           const id = this.getNodeParameter('id', 0) as string;
-      //           const isUpdate = id && id.trim() !== '';
-
-      //           if (isUpdate) {
-      //             // UPDATE mode - edit existing lead
-      //             requestOptions.method = 'PUT';
-      //             requestOptions.url = `/leads/${this.getNodeParameter('id')}`;
-
-      //             // For update, send all fields or only changed ones as desired
-      //             requestOptions.body = {
-      //               name: this.getNodeParameter('name', 0) as string,
-      //               phone: this.getNodeParameter('phone', 0) as string,
-      //               email: this.getNodeParameter('email', 0) as string,
-      //               notes: this.getNodeParameter('notes', 0) as string,
-      //             };
-
-      //             // Add tags if provided
-      //             const tagsParam = this.getNodeParameter('addtags', 0) as any;
-      //             if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
-      //               const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-      //               if (tags.length > 0) {
-      //                 requestOptions.body.tags = tags;
-      //               }
-      //             }
-
-      //             // Add custom variables if provided
-      //             const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
-      //             if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
-      //               const customVars = customVarsParam.variable.map((v: any) => ({
-      //                 slug: v.slug,
-      //                 value: v.value
-      //               }));
-      //               if (customVars.length > 0) {
-      //                 requestOptions.body.custom_variables_to_add_or_update = customVars;
-      //               }
-      //             }
-
-      //           } else {
-      //             // CREATE mode - create new lead
-      //             requestOptions.method = 'POST';
-      //             requestOptions.url = '/leads';
-
-      //             requestOptions.body = {
-      //               name: this.getNodeParameter('name', 0) as string,
-      //               phone: this.getNodeParameter('phone', 0) as string,
-      //               email: this.getNodeParameter('email', 0) as string,
-      //               notes: this.getNodeParameter('notes', 0) as string,
-      //             };
-
-      //             // Add tags
-      //             const tagsParam = this.getNodeParameter('addtags', 0) as any;
-      //             if (tagsParam && tagsParam.optiontags && Array.isArray(tagsParam.optiontags)) {
-      //               const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-      //               requestOptions.body.tags = tags;
-      //             }
-
-      //             // Add custom variables
-      //             const customVarsParam = this.getNodeParameter('customVariables', 0) as any;
-      //             if (customVarsParam && customVarsParam.variable && Array.isArray(customVarsParam.variable)) {
-      //               const customVars = customVarsParam.variable.map((v: any) => ({
-      //                 slug: v.slug,
-      //                 value: v.value
-      //               }));
-      //               requestOptions.body.custom_variables = customVars;
-      //             }
-      //           }
-
-      //           return requestOptions;
-      //         }
-      //       ]
-      //     },
-      //     output: {
-      //       postReceive: [
-      //         async function (this, items, response) {
-      //           const id = this.getNodeParameter('id', 0) as string;
-      //           const isUpdate = id && id.trim() !== '';
-      //           const isCreate = !isUpdate;
-
-      //           // Check if the operation succeeded
-      //           const isSuccess = isCreate
-      //             ? response.statusCode === 201
-      //             : (response.statusCode === 200 || response.statusCode === 204);
-
-      //           if (isSuccess) {
-      //             return [
-      //               {
-      //                 json: {
-      //                   success: true,
-      //                   message: isCreate
-      //                     ? 'Lead created successfully.'
-      //                     : 'Lead updated successfully.',
-      //                   data: response.body,
-      //                   operation: isCreate ? 'create' : 'update',
-      //                 },
-      //               },
-      //             ];
-      //           }
-
-      //           // Error case
-      //           return [
-      //             {
-      //               json: {
-      //                 success: false,
-      //                 message: isCreate
-      //                   ? `Unable to create lead: ${response.body?.message || 'Unknown error'}`
-      //                   : `Unable to update lead: ${response.body?.message || 'Unknown error'}`,
-      //                 errorCode: response.statusCode,
-      //                 errorData: response.body,
-      //                 operation: isCreate ? 'create' : 'update',
-      //               },
-      //             },
-      //           ];
-      //         },
-      //       ],
-      //     },
-      //   },
-      // },
-
       {
         name: 'Add Lists to Lead',
         value: 'add_list_lead',
@@ -393,6 +394,6 @@ output: {
         },
       },
     ],
-    default: 'create_edit_lead',
+    default: 'create_lead',
   },
 ];
