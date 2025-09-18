@@ -15,24 +15,6 @@ export const leadsFields: INodeProperties[] = [
     },
     description: 'Lead identifier',
   },
-  // {
-  //   displayName: 'Operation Mode',
-  //   name: 'operationMode',
-  //   type: 'options',
-  //   options: [
-  //     { name: 'Create New Lead', value: 'create' },
-  //     { name: 'Edit Existing Lead', value: 'update' },
-	// 		{ name: 'Auto Create/Edit Lead', value: 'create_edit' }
-  //   ],
-  //   default: 'create',
-  //   displayOptions: {
-  //     show: {
-  //       resource: ['leads'],
-  //       operation: ['create_edit_lead'],
-  //     },
-  //   },
-  //   description: 'Choose whether to create a new lead or edit an existing one',
-  // },
   {
     displayName: 'Lead ID',
     name: 'id',

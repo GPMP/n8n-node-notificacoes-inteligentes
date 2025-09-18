@@ -14,152 +14,64 @@ export const leadsOperations: INodeProperties[] = [
     },
     options: [
 {
-  name: 'Create',
+  name: 'Create Lead',
   value: 'create_lead',
   action: 'Create lead',
   description: 'Create a new lead',
   routing: {
-    send: {
-      preSend: [
-        async function (this: any, requestOptions) {
-          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
-
-          const body: any = {
-            name: this.getNodeParameter('name', 0) as string,
-            phone,
-            email: this.getNodeParameter('email', 0) as string,
-            notes: this.getNodeParameter('notes', 0) as string,
-          };
-
-
-          const tagsParam = this.getNodeParameter('addtags', 0, undefined) as any;
-          if (tagsParam?.optiontags && Array.isArray(tagsParam.optiontags)) {
-            const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-            if (tags.length > 0) body.tags = tags;
-          }
-
-
-          const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
-          if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
-            const customVars = customVarsParam.variable.map((v: any) => ({
-              slug: v.slug,
-              value: v.value,
-            }));
-            if (customVars.length > 0) body.custom_variables = customVars;
-          }
-
-          requestOptions.method = 'POST';
-          requestOptions.url = '/leads';
-          requestOptions.body = body;
-
-          return requestOptions;
-        },
-      ],
-    },
-    output: {
-      postReceive: [
-        async function (this: any, items: any[], response: any) {
-          const status = response?.statusCode ?? response?.status ?? 0;
-          const success = status >= 200 && status < 300;
-          const msg = 'Lead created successfully.';
-
-          if (Array.isArray(items) && items.length) {
-            return items.map((i: any) => ({
-              ...i,
-              json: {
-                message: msg,
-                success,
-                ...i.json,
+    request: {method: 'POST', url: '/leads'},
+		output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Lead created successfully.',
+												response: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to create lead'}`
+                );
               },
-              ...(i.binary ? { binary: i.binary } : {}),
-            }));
-          }
-
-          return [{
-            json: {
-              message: msg,
-              success,
-            },
-          }];
-        },
-      ],
-    },
+            ],
+          },
   },
 },
-
-
 {
   name: 'Update',
   value: 'update_lead',
   action: 'Update lead',
   description: 'Update an existing lead',
   routing: {
-    send: {
-      preSend: [
-        async function (this: any, requestOptions) {
-          const leadId = (this.getNodeParameter('id', 0) as string) ?? '';
-          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
-
-          const body: any = {
-            name: this.getNodeParameter('name', 0) as string,
-            phone,
-            email: this.getNodeParameter('email', 0) as string,
-            notes: this.getNodeParameter('notes', 0) as string,
-          };
-
-          // Processar tags
-          const tagsParam = this.getNodeParameter('addtags', 0, undefined) as any;
-          if (tagsParam?.optiontags && Array.isArray(tagsParam.optiontags)) {
-            const tags = tagsParam.optiontags.map((tag: any) => tag.tags1).filter(Boolean);
-            if (tags.length > 0) body.tags = tags;
-          }
-
-          // Processar variáveis customizadas
-          const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
-          if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
-            const customVars = customVarsParam.variable.map((v: any) => ({
-              slug: v.slug,
-              value: v.value,
-            }));
-            if (customVars.length > 0) body.custom_variables = customVars;
-          }
-
-          requestOptions.method = 'PUT';
-          requestOptions.url = `/leads/${leadId}`;
-          requestOptions.body = body;
-
-          return requestOptions;
-        },
-      ],
-    },
-    output: {
-      postReceive: [
-        async function (this: any, items: any[], response: any) {
-          const status = response?.statusCode ?? response?.status ?? 0;
-          const success = status >= 200 && status < 300;
-          const msg = 'Lead updated successfully.';
-
-          if (Array.isArray(items) && items.length) {
-            return items.map((i: any) => ({
-              ...i,
-              json: {
-                message: msg,
-                success,
-                ...i.json,
+		request:{
+			method: 'PUT',
+      url: '=/leads/{{$parameter.id}}',
+		},
+			output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201 ) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Lead updated successfully.',
+												response: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to update lead'}`
+                );
               },
-              ...(i.binary ? { binary: i.binary } : {}),
-            }));
-          }
-
-          return [{
-            json: {
-              message: msg,
-              success,
-            },
-          }];
-        },
-      ],
-    },
+            ],
+          },
   },
 },
 {
@@ -171,7 +83,9 @@ export const leadsOperations: INodeProperties[] = [
     send: {
       preSend: [
         async function (this: any, requestOptions) {
-          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
+          const rawPhone = (this.getNodeParameter('phone', 0) as string) ?? '';
+          const phone = rawPhone.replace(/\D/g, '');
+          if (!phone) throw new Error('Para "Create or Update", o campo "phone" é obrigatório.');
 
           const body: any = {
             name: this.getNodeParameter('name', 0) as string,
@@ -190,32 +104,34 @@ export const leadsOperations: INodeProperties[] = [
 
           const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
           if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
-            const customVars = customVarsParam.variable.map((v: any) => ({
-              slug: v.slug,
-              value: v.value,
-            }));
+            const customVars = customVarsParam.variable
+              .map((v: any) => ({ slug: v.slug, value: v.value }))
+              .filter((v: any) => v.slug);
             if (customVars.length > 0) body.custom_variables = customVars;
           }
 
 
-          const existingLead = await this.helpers.httpRequestWithAuthentication!.call(this, 'niApi', {
-            method: 'GET',
-            baseURL: 'https://api.notificacoesinteligentes.com',
-            url: '/leads',
-            qs: { 'filter[phone]': phone },
-          });
+          const existingLead = await this.helpers
+            .httpRequestWithAuthentication!.call(this, 'niApi', {
+              method: 'GET',
+              baseURL: 'https://api.notificacoesinteligentes.com',
+              url: '/leads',
+              qs: { 'filter[phone]': phone, 'page[size]': 1 },
+            });
 
           if (existingLead?.data?.length > 0) {
-
             requestOptions.method = 'PUT';
             requestOptions.url = `/leads/${existingLead.data[0].id}`;
           } else {
-
             requestOptions.method = 'POST';
             requestOptions.url = '/leads';
           }
 
           requestOptions.body = body;
+
+
+          if (!requestOptions.url) throw new Error('URL não definida no Create or Update.');
+
           return requestOptions;
         },
       ],
@@ -229,24 +145,13 @@ export const leadsOperations: INodeProperties[] = [
           const success = status >= 200 && status < 300;
           const msg = created ? 'Lead created successfully.' : 'Lead updated successfully.';
 
-          if (Array.isArray(items) && items.length) {
-            return items.map((i: any) => ({
-              ...i,
-              json: {
-                message: msg,
-                success,
-                ...i.json,
-              },
-              ...(i.binary ? { binary: i.binary } : {}),
-            }));
-          }
-
-          return [{
-            json: {
-              message: msg,
-              success,
-            },
-          }];
+          return (Array.isArray(items) && items.length)
+            ? items.map((i: any) => ({
+                ...i,
+                json: { message: msg, success, ...i.json },
+                ...(i.binary ? { binary: i.binary } : {}),
+              }))
+            : [{ json: { message: msg, response: response.body, success } }];
         },
       ],
     },
@@ -319,6 +224,7 @@ export const leadsOperations: INodeProperties[] = [
                       json: {
                         success: true,
                         message: 'Lead deleted successfully.',
+
                       },
                     },
                   ];

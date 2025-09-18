@@ -275,18 +275,57 @@ The Leads resource allows you to register, search, edit, delete, and manage list
 #### Create Lead
 Creates a new lead (contact) in the system.
 
-**Required Fields:**
+**REQUIRED FIELDS:**
 -   **Name:** Full name of the lead.
--   **Phone:** Phone number, including area code.
+-   **Phone:** Phone number, including area code (DDD).
 -   **Email:** Lead's email address.
 
-**Optional Fields:**
+**OPTIONAL FIELDS:**
 -   **Notes:** Additional observations about the lead.
 -   **Custom Variables:** Allows adding extra personalized variables for each lead (e.g., CPF, date of birth, etc.).
 -   **Tags:** Add keywords to group or categorize leads (e.g., "VIP client", "prospect").
 
-**How to use:**
-Select "Create Lead", fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to register the lead.
+**HOW TO USE:**
+Select the "Lead" Resource, then "Create". Fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to register the lead.
+
+**IMPORTANT POINTS:**
+If you wish to add a custom variable, both the SLUG and VALUE are required. Both values can be accessed by searching for custom variables (Resource "Custom Variable" and Operation "Get All Custom Variables").
+
+**ATTENTION:**
+The `value` field of the custom variable must always be of the correct type for the custom variable. A custom variable of type CPF must contain a CPF, it cannot contain text.
+
+#### Update Lead
+Allows updating data of an existing lead.
+
+**REQUIRED FIELDS:**
+-   **Lead ID:** Identifier of the lead to be edited.
+-   **Name:** Updated name of the lead.
+-   **Email:** Updated email of the lead.
+
+**OPTIONAL FIELDS:**
+-   **Notes:** Update or add observations.
+-   **Custom Variables:** Change or add custom variables.
+
+**HOW TO USE:**
+Select the "Lead" Resource, then "Update Lead". Fill in the required fields and, if desired, include notes or custom variables. Execute to update the lead.
+
+#### Create or Update
+Allows creating or updating data of an existing lead.
+
+The API analyzes the provided phone number to determine if the lead exists or not. If the lead doesn't exist, a new lead is created. If the lead exists, it is updated with the new data provided.
+
+**REQUIRED FIELDS:**
+-   **Name:** Name of the lead.
+-   **Phone:** Phone number of the lead.
+
+**OPTIONAL FIELDS:**
+-   **Email:** Email of the lead.
+-   **Notes:** Update or add observations.
+-   **Custom Variables:** Change or add custom variables.
+-   **Tags:** Add tags to the lead. Attention: If the lead already exists, the update operation will not add tags to it.
+
+**HOW TO USE:**
+Select the "Lead" Resource, then "Create or Update". Fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to create or update the lead.
 
 #### Get All Leads
 Lists all leads registered in the system.
@@ -309,21 +348,6 @@ Returns the complete data of a specific lead from its unique identifier.
 
 **How to use:**
 Select "Get Lead by ID", enter the Lead ID, and if desired, mark the relationships to include. Execute to see complete details.
-
-#### Edit Lead
-Allows updating the data of an existing lead.
-
-**Required Fields:**
--   **Lead ID:** Identifier of the lead to be edited.
--   **Name:** Updated lead name.
-
-**Optional Fields:**
--   **Notes:** Update or add observations.
--   **Custom Variables:** Change or add custom variables.
--   **Email:** Updated lead email.
-
-**How to use:**
-Select "Edit Lead", enter the ID, update the desired fields, and execute.
 
 #### Delete Lead
 Permanently removes a lead from the system.
