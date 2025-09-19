@@ -116,7 +116,7 @@ export const leadsOperations: INodeProperties[] = [
               method: 'GET',
               baseURL: 'https://api.notificacoesinteligentes.com',
               url: '/leads',
-              qs: { 'filter[phone]': phone, 'page[size]': 1 },
+              qs: { 'filter[exact_phone]':`+55${phone}`},
             });
 
           if (existingLead?.data?.length > 0) {

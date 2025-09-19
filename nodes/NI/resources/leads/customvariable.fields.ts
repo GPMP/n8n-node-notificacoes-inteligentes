@@ -15,20 +15,6 @@ export const customvariablefields: INodeProperties[] = [
     description: 'The name of the custom variable',
     routing: { send: { type: 'body', property: 'name' } },
   },
-  // {
-  //   displayName: 'Group ID',
-  //   name: 'groupId',
-  //   type: 'string',
-  //   default: '',
-  //   displayOptions: {
-  //     show: {
-  //       resource: ['customvariables'],
-  //       operation: ['updatecustomvariable'],
-  //     },
-  //   },
-  //   description: 'The unique identifier of the variable group',
-  //   routing: { send: { type: 'body', property: 'group_id'} },
-  // },
   {
     displayName: 'Custom Variable ID',
     name: 'customVariableId',
