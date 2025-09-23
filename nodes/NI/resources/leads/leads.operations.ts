@@ -83,8 +83,8 @@ export const leadsOperations: INodeProperties[] = [
     send: {
       preSend: [
         async function (this: any, requestOptions) {
-          const rawPhone = (this.getNodeParameter('phone', 0) as string) ?? '';
-          const phone = rawPhone.replace(/\D/g, '');
+          const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
+          // const phone = rawPhone.replace(/\D/g, '');
           if (!phone) throw new Error('Para "Create or Update", o campo "phone" é obrigatório.');
 
           const body: any = {
@@ -110,13 +110,20 @@ export const leadsOperations: INodeProperties[] = [
             if (customVars.length > 0) body.custom_variables = customVars;
           }
 
+					const trackingParam = this.getNodeParameter('tracking_data', 0, undefined) as any;
+          if (trackingParam?.trackingOptions && Array.isArray(trackingParam.trackingOptions)) {
+            const tracking = trackingParam.trackingOptions.map((track: any) => track.value).filter(Boolean);
+            if (tracking.length > 0) body.tracking_data = tracking;
+          }
+
+
 
           const existingLead = await this.helpers
             .httpRequestWithAuthentication!.call(this, 'niApi', {
               method: 'GET',
               baseURL: 'https://api.notificacoesinteligentes.com',
               url: '/leads',
-              qs: { 'filter[exact_phone]':`+55${phone}`},
+              qs: { 'filter[exact_phone]':`${phone}`},
             });
 
           if (existingLead?.data?.length > 0) {
