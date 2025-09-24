@@ -124,6 +124,7 @@ export const leadsOperations: INodeProperties[] = [
               baseURL: 'https://api.notificacoesinteligentes.com',
               url: '/leads',
               qs: { 'filter[exact_phone]':`${phone}`},
+							timeout: 5000,
             });
 
           if (existingLead?.data?.length > 0) {

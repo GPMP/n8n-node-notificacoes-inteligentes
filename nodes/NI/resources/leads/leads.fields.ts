@@ -52,7 +52,13 @@ export const leadsFields: INodeProperties[] = [
   name: 'notice',
   type: 'notice',
   default: '',
+	displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['create_lead','update_lead','create_update_lead'],
+      },
 },
+	},
 
   {
     displayName: 'Email',
@@ -253,7 +259,7 @@ export const leadsFields: INodeProperties[] = [
         name: 'tracking_user_agent',
         type: 'string',
         default: '',
-        description: 'Filter leads by name',
+        description: 'Collecting information about a users browser and device from the "User Agent" string it sends to websites',
       },
       {
         displayName: 'Tracking IP Address',
@@ -267,7 +273,7 @@ export const leadsFields: INodeProperties[] = [
         name: 'tracking_bing_muid',
         type: 'string',
         default: '',
-        description: 'Filter leads by email address',
+        description: 'It identifies a users browser and device for website customization and analytics',
       },
       {
         displayName: 'Tracking Meta ADS Fbid',
@@ -326,7 +332,7 @@ export const leadsFields: INodeProperties[] = [
         description: 'Google Display Ads click ID',
       },
 			{
-        displayName: 'Tracking Google Dclid',
+        displayName: 'Tracking Google Wbraid',
         name: 'tracking_google_wbraid',
         type: 'string',
         default: '',
@@ -389,7 +395,7 @@ export const leadsFields: INodeProperties[] = [
         description: 'Campaign identifier',
       },
 			{
-        displayName: 'Tracking Utm Medium',
+        displayName: 'TrackinniApig Utm Medium',
         name: 'tracking_utm_medium',
         type: 'string',
         default: '',
@@ -431,6 +437,7 @@ export const leadsFields: INodeProperties[] = [
           'tracking_ip_address':'={{$value.tracking_ip_address}}',
           'tracking_bing_muid':'={{$value.tracking_bing_muid}}',
           'tracking_meta_ads_fbid':'={{$value.tracking_meta_ads_fbid}}',
+					'tracking_meta_ads_fbp':'={{$value.tracking_meta_ads_fbp}}',
 					'tracking_meta_ads_fbc':'={{$value.tracking_meta_ads_fbc}}',
 					'tracking_google_ga':'={{$value.tracking_google_ga}}',
 					'tracking_google_gbraid':'={{$value.tracking_google_gbraid}}',
