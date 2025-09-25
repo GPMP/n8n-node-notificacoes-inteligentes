@@ -307,7 +307,101 @@ export const leadsOperations: INodeProperties[] = [
           },
         },
       },
-    ],
+			{
+  name: 'Add Tags to Lead',
+  value: 'add_tags',
+  action: 'Add tags',
+  routing: {
+		request:{
+			method: 'POST',
+      url: '=/leads/{{$parameter.id}}/tags',
+		},
+			output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201 ) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Tags linked successfully.',
+												response: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to link tags'}`
+                );
+              },
+            ],
+          },
+  },
+},
+{
+  name: 'Update Tags From Lead',
+  value: 'update_tags',
+  action: 'Update tags',
+  routing: {
+		request:{
+			method: 'PUT',
+      url: '=/leads/{{$parameter.id}}/tags',
+		},
+			output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201 ) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Tags updated successfully.',
+												response: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to update tags'}`
+                );
+              },
+            ],
+          },
+  },
+},
+{
+  name: 'Remove Tags From Lead',
+  value: 'remove_tags',
+  action: 'Remove tags',
+  routing: {
+		request:{
+			method: 'DELETE',
+      url: '=/leads/{{$parameter.id}}/tags',
+		},
+			output: {
+            postReceive: [
+              async function (this, items, response) {
+                if (response.statusCode === 200 || response.statusCode === 204 || response.statusCode === 201 ) {
+                  return [
+                    {
+                      json: {
+                        success: true,
+                        message: 'Tags removed successfully.',
+												response: response.body,
+                      },
+                    },
+                  ];
+                }
+                throw new Error(
+                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to remove tags'}`
+                );
+              },
+            ],
+          },
+  },
+},
+],
     default: 'create_lead',
+
   },
 ];

@@ -11,7 +11,7 @@ export const leadsFields: INodeProperties[] = [
     displayOptions: {
       show: {
         resource: ['leads', 'leadslist'],
-        operation: ['get_lead', 'delete_lead', 'addlist', 'add_list_lead', 'remove_list_lead','update_lead'],
+        operation: ['get_lead', 'delete_lead', 'addlist', 'add_list_lead', 'remove_list_lead','update_lead', 'add_tags', 'update_tags', 'remove_tags'],
       },
     },
     description: 'Lead identifier',
@@ -193,6 +193,23 @@ export const leadsFields: INodeProperties[] = [
       },
     },
   },
+	{
+    displayName: 'Tags',
+    name: 'action_tag',
+    type: 'string',
+    required: true,
+    default: '',
+    displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['add_tags', 'update_tags', 'remove_tags'],
+      },
+    },
+    description: 'Tags to be Added/Updated or Removed from Lead',
+		routing:{request:{
+			body: {tags:'={{$value.split(",").map(item => item.trim())}}',
+        },}}
+  },
   {
     displayName: 'Filters',
     name: 'filters',
@@ -252,7 +269,7 @@ export const leadsFields: INodeProperties[] = [
     name: 'tracking_data',
     type: 'collection',
     default: {},
-    placeholder: 'Choose',
+    placeholder: 'Add Tracking Data',
     options: [
       {
         displayName: 'Tracking User Agent',
