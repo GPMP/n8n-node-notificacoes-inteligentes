@@ -1,10 +1,10 @@
 /* eslint-disable n8n-nodes-base/node-filename-against-convention */
 import type { INodeTypeDescription } from 'n8n-workflow';
-import { leadsOperations } from './resources/leads/leads.operations';
-import { leadsFields } from './resources/leads/leads.fields';
-import { integrationsOperations } from './resources/Integrations/integrations.operations';
-import { integrationsFields } from './resources/Integrations/integrations.fields';
-import { NodeConnectionType } from 'n8n-workflow';
+import {leadsOperations} from './resources/leads/leads.operations';
+import {leadsFields} from './resources/leads/leads.fields';
+import {integrationsOperations} from './resources/Integrations/integrations.operations';
+import {integrationsFields} from './resources/Integrations/integrations.fields';
+import {NodeConnectionType} from 'n8n-workflow';
 import {variablegroupsoperations} from './resources/leads/variablegroups.operations';
 import {variablegroupsfields} from './resources/leads/variablegroups.fields';
 import {customvariableoperations} from './resources/leads/customvariable.operations';
@@ -13,6 +13,8 @@ import {listsOperations} from './resources/leads/lists.operations';
 import {listsFields} from './resources/leads/lists.fields';
 import {eventsOperations} from './resources/events/events.operations';
 import {eventsFields} from './resources/events/events.fields';
+
+
 
 
 export function getNodeDescription(): INodeTypeDescription {

@@ -153,62 +153,80 @@ export const leadsFields: INodeProperties[] = [
       },
     },
   },
-  {
-    displayName: 'Tags',
-    name: 'addtags',
-    type: 'fixedCollection',
-    typeOptions: {
-      multipleValues: true,
-    },
-    placeholder: 'Add Tags',
-    default: {},
-    displayOptions: {
-      show: {
-        resource: ['leads'],
-        operation: ['create_lead','create_update_lead'],
+  // {
+  //   displayName: 'Tags',
+  //   name: 'addtags',
+  //   type: 'fixedCollection',
+  //   typeOptions: {
+  //     multipleValues: true,
+  //   },
+  //   placeholder: 'Add Tags',
+  //   default: {},
+  //   displayOptions: {
+  //     show: {
+  //       resource: ['leads'],
+  //       operation: ['create_lead','create_update_lead'],
 
-      },
-    },
-    options: [
-      {
-        name: 'optiontags',
-        displayName: 'Add Tags',
-        values: [
-          {
-            displayName: 'Tags',
-            name: 'tags1',
-            type: 'string',
-            default: '',
-            description: 'Tag name',
-          },
-        ],
-      },
-    ],
-    routing: {
-      request: {
-        body: {
-          tags:
-            '={{ Array.isArray($value.optiontags) ? $value.optiontags.map(o => o.tags1).filter(Boolean) : (Array.isArray($value) ? $value.map(o => o.tags1).filter(Boolean) : []) }}',
-        },
-      },
-    },
-  },
+  //     },
+  //   },
+  //   options: [
+  //     {
+  //       name: 'optiontags',
+  //       displayName: 'Add Tags',
+  //       values: [
+  //         {
+  //           displayName: 'Tags',
+  //           name: 'tags1',
+  //           type: 'string',
+  //           default: '',
+  //           description: 'Tag name',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   routing: {
+  //     request: {
+  //       body: {
+  //         tags:
+  //           '={{ Array.isArray($value.optiontags) ? $value.optiontags.map(o => o.tags1).filter(Boolean) : (Array.isArray($value) ? $value.map(o => o.tags1).filter(Boolean) : []) }}',
+  //       },
+  //     },
+  //   },
+  // },
 	{
     displayName: 'Tags',
     name: 'action_tag',
     type: 'string',
-    required: true,
     default: '',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['add_tags', 'update_tags', 'remove_tags'],
+        operation: ['add_tags', 'update_tags', 'remove_tags','create_lead','create_update_lead'],
       },
     },
     description: 'Tags to be Added/Updated or Removed from Lead',
+		// routing:{request:{
+		// 	body: {tags:'={{$value.split(",").map(item => item.trim())}}'},}}
+  },
+	{
+    // eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+    displayName: 'Selectable Tags',
+    name: 'selectable_tag',
+    type: 'multiOptions',
+    default: [],
+		typeOptions:{
+			loadOptionsMethod:'getTags'
+		},
+    displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['add_tags', 'update_tags', 'remove_tags','create_lead','create_update_lead'],
+      },
+    },
+    // eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-dynamic-multi-options, n8n-nodes-base/node-param-description-missing-final-period
+    description: 'Tags already created and available in your account. Choose from the list',
 		routing:{request:{
-			body: {tags:'={{$value.split(",").map(item => item.trim())}}',
-        },}}
+			body: {tags:'={{$value}}'},}}
   },
   {
     displayName: 'Filters',
@@ -412,7 +430,7 @@ export const leadsFields: INodeProperties[] = [
         description: 'Campaign identifier',
       },
 			{
-        displayName: 'TrackinniApig Utm Medium',
+        displayName: 'Tracking Utm Medium',
         name: 'tracking_utm_medium',
         type: 'string',
         default: '',
@@ -521,6 +539,44 @@ export const leadsFields: INodeProperties[] = [
       request: {
         body: {
           lists: '={{$value.split(",").map(item => parseInt(item.trim(), 10))}}',
+        },
+      },
+    },
+  },
+	{
+    displayName: 'Filters',
+    name: 'filters',
+    type: 'collection',
+    default: {},
+    placeholder: 'Choose',
+    options: [
+      {
+        displayName: 'Scope',
+        name: 'scope_filter',
+        type: 'string',
+        default: '',
+        description: 'Filter leads by scope',
+      },
+      {
+        displayName: 'Label',
+        name: 'label_filter',
+        type: 'string',
+        default: '',
+        description: 'Filter leads by label',
+      },
+    ],
+    displayOptions: {
+      show: {
+        resource: ['leads'],
+        operation: ['get_all_tags'],
+      },
+    },
+    description: 'Set filters to search for specific leads',
+    routing: {
+      request: {
+        qs: {
+          'filter[scope]': '={{$value.scope_filter}}',
+          'filter[label]': '={{$value.label_filter}}',
         },
       },
     },
