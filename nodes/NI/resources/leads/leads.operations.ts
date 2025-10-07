@@ -29,20 +29,11 @@ export const leadsOperations: INodeProperties[] = [
             notes: this.getNodeParameter('notes', 0) as string,
           };
 
-          // Coletar tags do campo action_tag (string com vírgulas)
-          const actionTagsParam = this.getNodeParameter('action_tag', 0, '') as string;
           let tagsToAdd: string[] = [];
-
-          if (actionTagsParam) {
-            tagsToAdd = actionTagsParam.split(',').map((tag: string) => tag.trim()).filter(Boolean);
-          }
-
-          // Coletar tags do campo selectable_tag (multiOptions)
-          const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
-          if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-            tagsToAdd = [...tagsToAdd, ...selectableTags];
-          }
-
+const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+  tagsToAdd = [...selectableTags];
+}
           // Remover duplicatas e adicionar ao body
           if (tagsToAdd.length > 0) {
             body.tags = [...new Set(tagsToAdd)];
@@ -145,17 +136,10 @@ export const leadsOperations: INodeProperties[] = [
             notes: this.getNodeParameter('notes', 0) as string,
           };
 
-          const actionTagsParam = this.getNodeParameter('action_tag', 0, '') as string;
-let tagsToAdd: string[] = [];
-
-if (actionTagsParam) {
-  tagsToAdd = actionTagsParam.split(',').map((tag: string) => tag.trim()).filter(Boolean);
-}
-
-// Coletar tags do campo selectable_tag (multiOptions)
+          let tagsToAdd: string[] = [];
 const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
 if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-  tagsToAdd = [...tagsToAdd, ...selectableTags];
+  tagsToAdd = [...selectableTags];
 }
 
 // Remover duplicatas
@@ -215,7 +199,7 @@ if (tagsToAdd.length > 0) {
 
           requestOptions.body = body;
 
-          if (!requestOptions.url) throw new Error('URL não definida no Create or Update.');
+          if (!requestOptions.url) throw new Error('URL error.');
 
           return requestOptions;
         },
@@ -403,25 +387,15 @@ if (tagsToAdd.length > 0) {
         async function (this: any, requestOptions) {
           const body: any = {};
 
-          // Coletar tags do campo action_tag (string com vírgulas)
-          const actionTagsParam = this.getNodeParameter('action_tag', 0, '') as string;
           let allTags: string[] = [];
-
-          if (actionTagsParam) {
-            allTags = actionTagsParam.split(',').map((tag: string) => tag.trim()).filter(Boolean);
-          }
-
-          // Coletar tags do campo selectable_tag (multiOptions)
-          const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
-          if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-            allTags = [...allTags, ...selectableTags];
-          }
+const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+  allTags = [...selectableTags];
+}
 
           // Remover duplicatas e definir no body
           if (allTags.length > 0) {
             body.tags = [...new Set(allTags)];
-          } else {
-            throw new Error('Pelo menos uma tag deve ser fornecida (usando "Tags" ou "Selectable Tags")');
           }
 
           requestOptions.body = body;
@@ -466,25 +440,14 @@ if (tagsToAdd.length > 0) {
         async function (this: any, requestOptions) {
           const body: any = {};
 
-          // Coletar tags do campo action_tag (string com vírgulas)
-          const actionTagsParam = this.getNodeParameter('action_tag', 0, '') as string;
           let allTags: string[] = [];
-
-          if (actionTagsParam) {
-            allTags = actionTagsParam.split(',').map((tag: string) => tag.trim()).filter(Boolean);
-          }
-
-          // Coletar tags do campo selectable_tag (multiOptions)
-          const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
-          if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-            allTags = [...allTags, ...selectableTags];
-          }
+const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+  allTags = [...selectableTags];}
 
           // Remover duplicatas e definir no body
           if (allTags.length > 0) {
             body.tags = [...new Set(allTags)];
-          } else {
-            throw new Error('Pelo menos uma tag deve ser fornecida (usando "Tags" ou "Selectable Tags")');
           }
 
           requestOptions.body = body;
@@ -529,19 +492,10 @@ if (tagsToAdd.length > 0) {
         async function (this: any, requestOptions) {
           const body: any = {};
 
-          // Coletar tags do campo action_tag (string com vírgulas)
-          const actionTagsParam = this.getNodeParameter('action_tag', 0, '') as string;
           let allTags: string[] = [];
-
-          if (actionTagsParam) {
-            allTags = actionTagsParam.split(',').map((tag: string) => tag.trim()).filter(Boolean);
-          }
-
-          // Coletar tags do campo selectable_tag (multiOptions)
-          const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
-          if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-            allTags = [...allTags, ...selectableTags];
-          }
+const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+  allTags = [...selectableTags];}
 
           // Remover duplicatas e definir no body
           if (allTags.length > 0) {

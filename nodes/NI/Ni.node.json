@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.NI",
+	"node": "n8n-nodes-notificacoes-inteligentes.NI",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": [

@@ -153,61 +153,6 @@ export const leadsFields: INodeProperties[] = [
       },
     },
   },
-  // {
-  //   displayName: 'Tags',
-  //   name: 'addtags',
-  //   type: 'fixedCollection',
-  //   typeOptions: {
-  //     multipleValues: true,
-  //   },
-  //   placeholder: 'Add Tags',
-  //   default: {},
-  //   displayOptions: {
-  //     show: {
-  //       resource: ['leads'],
-  //       operation: ['create_lead','create_update_lead'],
-
-  //     },
-  //   },
-  //   options: [
-  //     {
-  //       name: 'optiontags',
-  //       displayName: 'Add Tags',
-  //       values: [
-  //         {
-  //           displayName: 'Tags',
-  //           name: 'tags1',
-  //           type: 'string',
-  //           default: '',
-  //           description: 'Tag name',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   routing: {
-  //     request: {
-  //       body: {
-  //         tags:
-  //           '={{ Array.isArray($value.optiontags) ? $value.optiontags.map(o => o.tags1).filter(Boolean) : (Array.isArray($value) ? $value.map(o => o.tags1).filter(Boolean) : []) }}',
-  //       },
-  //     },
-  //   },
-  // },
-	{
-    displayName: 'Tags',
-    name: 'action_tag',
-    type: 'string',
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['leads'],
-        operation: ['add_tags', 'update_tags', 'remove_tags','create_lead','create_update_lead'],
-      },
-    },
-    description: 'Tags to be Added/Updated or Removed from Lead',
-		// routing:{request:{
-		// 	body: {tags:'={{$value.split(",").map(item => item.trim())}}'},}}
-  },
 	{
     // eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
     displayName: 'Selectable Tags',
