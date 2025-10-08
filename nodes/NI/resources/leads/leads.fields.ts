@@ -10,8 +10,8 @@ export const leadsFields: INodeProperties[] = [
     default: '',
     displayOptions: {
       show: {
-        resource: ['leads', 'leadslist'],
-        operation: ['get_lead', 'delete_lead', 'addlist', 'add_list_lead', 'remove_list_lead','update_lead', 'add_tags', 'update_tags', 'remove_tags'],
+        resource: ['leads'],
+        operation: ['get_lead', 'delete_lead','update_lead', 'add_tags', 'update_tags', 'remove_tags'],
       },
     },
     description: 'Lead identifier',
@@ -462,28 +462,6 @@ export const leadsFields: INodeProperties[] = [
       request: {
         qs: {
           include: '={{$value}}',
-        },
-      },
-    },
-  },
-  {
-    displayName: 'List ID(s)',
-    name: 'lists_id',
-    placeholder: '1234, 5678, 9101112',
-    type: 'string',
-    required: true,
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['leads'],
-        operation: ['add_list_lead', 'remove_list_lead'],
-      },
-    },
-    description: 'List ID(s) to associate with or remove from the lead (comma-separated)',
-    routing: {
-      request: {
-        body: {
-          lists: '={{$value.split(",").map(item => parseInt(item.trim(), 10))}}',
         },
       },
     },

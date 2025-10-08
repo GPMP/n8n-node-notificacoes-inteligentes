@@ -314,68 +314,6 @@ if (tagsToAdd.length > 0) {
           },
         },
       },
-      {
-        name: 'Add Lists to Lead',
-        value: 'add_list_lead',
-        action: 'Add lists to lead',
-        description: 'Add the provided lists to a specific lead',
-        routing: {
-          request: {
-            method: 'POST',
-            url: '=/leads/{{$parameter.id}}/lists/attach',
-          },
-          output: {
-            postReceive: [
-              async function (this, items, response) {
-                if (response.statusCode === 200 || response.statusCode === 204) {
-                  return [
-                    {
-                      json: {
-                        success: true,
-                        message: 'Lists added to lead successfully.',
-                      },
-                    },
-                  ];
-                }
-                throw new Error(
-                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to add lists to lead'}`
-                );
-              },
-            ],
-          },
-        },
-      },
-      {
-        name: 'Remove Lists From Lead',
-        value: 'remove_list_lead',
-        action: 'Remove lists from lead',
-        description: 'Remove the provided lists from a specific lead',
-        routing: {
-          request: {
-            method: 'POST',
-            url: '=/leads/{{$parameter.id}}/lists/detach',
-          },
-          output: {
-            postReceive: [
-              async function (this, items, response) {
-                if (response.statusCode === 200 || response.statusCode === 204) {
-                  return [
-                    {
-                      json: {
-                        success: true,
-                        message: 'Lists removed from lead successfully.',
-                      },
-                    },
-                  ];
-                }
-                throw new Error(
-                  `Error ${response.statusCode}: ${response.body?.message || 'Unable to remove lists from lead'}`
-                );
-              },
-            ],
-          },
-        },
-      },
 			{
   name: 'Add Tags to Lead',
   value: 'add_tags',

@@ -74,9 +74,9 @@ export const integrationsFields: INodeProperties[] = [
     type: 'multiOptions',
     placeholder: 'Choose',
     options: [{ name: 'Available Events', value: 'available_events' }, { name: 'Checklist', value: 'checklist' }],
-    default: [],
+    default: ['available_events'],
     description: 'Properties to include in the response',
     displayOptions: { show: { resource: ['integration'], operation: ['get_integration'] } },
-    routing: { request: { qs: { append: '={{$value}}' } } },
+    routing: { request: { qs: { append: '={{ $value && $value.length ? $value.join(",") : undefined }}', } } },
   },
 ];
