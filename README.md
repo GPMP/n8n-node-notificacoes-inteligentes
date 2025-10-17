@@ -268,132 +268,76 @@ A confirmation message will be displayed if the operation is successful.
 
 ## Usage Guide - Leads (n8n)
 
-The Leads resource allows you to register, search, edit, delete, and manage lists of leads (contacts) on your platform directly from n8n, with support for custom variables, tags, and advanced filters.
 
-### Available Operations
+## Overview
+The **Leads** feature allows you to manage contacts directly through n8n, with support for custom variables, tags, and advanced filters.
 
-#### Create Lead
-Creates a new lead (contact) in the system.
+## Available Operations
 
-**REQUIRED FIELDS:**
--   **Name:** Full name of the lead.
--   **Phone:** Phone number, including area code (DDD).
--   **Email:** Lead's email address.
-
-**OPTIONAL FIELDS:**
--   **Notes:** Additional observations about the lead.
--   **Custom Variables:** Allows adding extra personalized variables for each lead (e.g., CPF, date of birth, etc.).
--   **Tags:** Add keywords to group or categorize leads (e.g., "VIP client", "prospect").
-
-**HOW TO USE:**
-Select the "Lead" Resource, then "Create". Fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to register the lead.
-
-**IMPORTANT POINTS:**
-If you wish to add a custom variable, both the SLUG and VALUE are required. Both values can be accessed by searching for custom variables (Resource "Custom Variable" and Operation "Get All Custom Variables").
-
-**ATTENTION:**
-The `value` field of the custom variable must always be of the correct type for the custom variable. A custom variable of type CPF must contain a CPF, it cannot contain text.
-
-#### Update Lead
-Allows updating data of an existing lead.
-
-**REQUIRED FIELDS:**
--   **Lead ID:** Identifier of the lead to be edited.
--   **Name:** Updated name of the lead.
--   **Email:** Updated email of the lead.
-
-**OPTIONAL FIELDS:**
--   **Notes:** Update or add observations.
--   **Custom Variables:** Change or add custom variables.
-
-**HOW TO USE:**
-Select the "Lead" Resource, then "Update Lead". Fill in the required fields and, if desired, include notes or custom variables. Execute to update the lead.
-
-#### Create or Update
-Allows creating or updating data of an existing lead.
-
-The API analyzes the provided phone number to determine if the lead exists or not. If the lead doesn't exist, a new lead is created. If the lead exists, it is updated with the new data provided.
-
-**REQUIRED FIELDS:**
--   **Name:** Name of the lead.
--   **Phone:** Phone number of the lead.
-
-**OPTIONAL FIELDS:**
--   **Email:** Email of the lead.
--   **Notes:** Update or add observations.
--   **Custom Variables:** Change or add custom variables.
--   **Tags:** Add tags to the lead. Attention: If the lead already exists, the update operation will not add tags to it.
-
-**HOW TO USE:**
-Select the "Lead" Resource, then "Create or Update". Fill in the required fields and, if desired, include notes, tags, or custom variables. Execute to create or update the lead.
-
-#### Get All Leads
-Lists all leads registered in the system.
-
-**Optional Fields:**
--   **Filters:** Allows filtering by name, phone, email, or tag.
--   **Include Relationships:** Check to bring related data, such as lists, tags or list sources.
-
-**How to use:**
-Select "Get All Leads", define the desired filters (or leave blank to list all) and execute.
-
-#### Get Lead by ID
-Returns the complete data of a specific lead from its unique identifier.
+### 🆕 **Create Lead**
+Creates a new contact in the system.
 
 **Required Fields:**
--   **Lead ID:** Enter the ID of the desired lead (can be obtained by listing all).
+- `Name` - Lead's full name
+- `Phone` - Phone number with area code and region code
+- `Email` - Email address
 
 **Optional Fields:**
--   **Include Relationships:** Choose to bring related lists or tags.
+- `Notes` - Additional observations
+- `Custom Variables` - Extra personalized data (CPF, birth date, etc)
+- `Tags` - Keywords for categorization
+- `Tracking Data` - Trackable information from website actions
 
-**How to use:**
-Select "Get Lead by ID", enter the Lead ID, and if desired, mark the relationships to include. Execute to see complete details.
+**Important:** Custom variables must use the correct data type (e.g., CPF field must contain only numbers).
 
-#### Delete Lead
+###  **Update Lead**
+Modifies data of an existing lead.
+
+**Required Fields:**
+- `Lead ID` - Unique lead identifier
+- `Name` - Updated name
+- `Email` - Updated email
+
+### **Create or Update Lead**
+Smart operation that automatically checks if lead exists by phone number.
+
+** Important:** The `Phone` field must include country code with `+` (e.g., +5511999999999).
+
+### **Tag Management**
+
+**Add Tags to a Lead**
+- `Lead ID` + `Tags` - Adds new tags to existing lead
+
+**Update Lead Tags**
+- `Lead ID` + `Tags` - **Completely replaces** previous tags
+
+**Delete Tags from a Lead**
+- `Lead ID` + `Tags` - Removes specific tags from lead
+
+### **Search and Query**
+
+**Search All Leads**
+- Lists all registered contacts
+- **Optional filters:** name, phone, email, tags
+- `Include Relationships` - Includes related lists, tags and sources
+
+**Search Lead by ID**
+- Returns complete data of a specific lead
+- **Required field:** `Lead ID`
+- **Optional:** Include relationships
+
+### **Delete Lead**
 Permanently removes a lead from the system.
 
 **Required Field:**
--   **Lead ID:** Identifier of the lead to be removed.
+- `Lead ID` - Identifier of lead to be removed
 
-**How to use:**
-Select "Delete Lead", enter the Lead ID, and execute.
-A confirmation message will be displayed if the operation is successful.
+---
 
-#### Add Lists to a Lead
-Associates one or more lists with the specified lead.
+## Useful Links
+ [Complete Documentation](https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/)
 
-**Required Fields:**
--   **Lead ID:** Lead identifier.
--   **List ID(s):** IDs of the lists to associate (e.g., 1234, 5678).
 
-**How to use:**
-Select "Add Lists to a Lead", enter the Lead ID and the lists (separated by commas). Execute to associate.
-
-#### Remove Lists from a Lead
-Removes one or more lists associated with the lead.
-
-**Required Fields:**
--   **Lead ID:** Lead identifier.
--   **List ID(s):** IDs of the lists to remove (e.g., 1234, 5678).
-
-**How to use:**
-Select "Remove Lists from a Lead", enter the Lead ID and the list IDs. Execute to remove.
-
-### Special Fields
--   **Custom Variables:** Allows adding slug/value pairs to the lead (e.g., slug="cpf", value="123.456.789-00").
--   **Tags:** Keywords for grouping leads, entered as a list.
--   **Filters:** Search fields to filter leads by name, phone, email, or tag.
--   **Include Relationships:** Choose to bring along lists, tags, users, and other information connected to the lead.
--   **List ID(s):** List IDs separated by commas, used to add or remove multiple lists at once.
-
-### Tips
--   Use "Get All Leads" to find a lead's ID.
--   For fields like lists, separate IDs by commas and do not use extra spaces.
--   The system requires mandatory fields, but take advantage of optional fields to better detail your lead and facilitate automations.
--   Custom variables are ideal for your business-specific data.
--   Always review data before performing deletion actions, as they are irreversible.
-
-[Additional information about Leads in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/)
 
 ---
 
