@@ -192,75 +192,70 @@ In summary, the Node transforms the NI API into visual and intuitive blocks in n
 
 ## Usage Guide - Integration (n8n)
 
+## Overview
 The Integration resource allows you to create, search, update, and list integrations connected to your account directly from n8n.
 
-### Available Operations
+## Available Operations
 
-#### Create New Integration
+### Create New Integration
 Creates a new integration connecting your platform to the system.
 
 **Required Fields:**
--   **Name:** Give a friendly name to identify the integration (e.g., "My Shopify Store").
--   **Platform:** Specify the platform (e.g., shopify-next, hotmart-v2, wooocommerce, etc). See the list of supported platforms in the field description. **Note:** Only integrations created with the `api-next` platform can add or remove leads from your lead list via the API.
+- Name: Give a friendly name to identify the integration (e.g., "My Shopify Store")
+- Platform: Specify the platform (e.g., shopify-next, hotmart-v2, wooocommerce, etc). See the list of supported platforms in the field description.
 
-**How to use:**
-Select the "Create New Integration" operation, fill in the name and platform, and execute.
-The integration will be created and listed in your panel.
+**Important Note:** Only integrations created with the api-next platform can add or remove leads from your lead list via the API.
 
-#### Get All Integrations
+**How to use:** Select the "Create New Integration" operation, fill in the name and platform, and execute. The integration will be created and listed in your panel.
+
+### Get All Integrations
 Lists all integrations already registered in your account.
 
 **No fields need to be filled in.**
 
-Returns a list with all registered names and platforms.
+**Returns a list with all registered names and platforms.**
 
-**How to use:**
-Select "Get All Integrations" and execute.
-You will see the complete list of integrations.
+**How to use:** Select "Get All Integrations" and execute. You will see the complete list of integrations.
 
-#### Get Integration
+### Get Integration
 Allows querying the detailed data of a specific integration.
 
 **Required Fields:**
--   **ID:** The unique identifier of the integration you want to query (you can copy this ID when listing all integrations).
+- ID: The unique identifier of the integration you want to query (you can copy this ID when listing all integrations).
 
 **Additional Parameters (optional):**
--   You can choose to include extra fields in the response, such as "Available Events", "Setup Fields", or "Checklist".
--   Just mark the ones you want detailed.
+- You can choose to include extra fields in the response, such as "Available Events", "Setup Fields", or "Checklist"
+- Just mark the ones you want detailed
 
-**How to use:**
-Select "Get an Integration", enter the ID, select (if desired) any additional parameters, and execute.
+**How to use:** Select "Get an Integration", enter the ID, select (if desired) any additional parameters, and execute.
 
-#### Edit Integration Name
+### Edit Integration Name
 Updates the name of an existing integration.
 
 **Required Fields:**
--   **ID:** The identifier of the integration you want to rename.
--   **New Name:** The new name to display in the panel.
+- ID: The identifier of the integration you want to rename
+- New Name: The new name to display in the panel
 
-**How to use:**
-Select "Edit Integration Name", enter the ID and the new name, and execute.
+**How to use:** Select "Edit Integration Name", enter the ID and the new name, and execute.
 
-#### Delete Integration
-Permanently removes a Integration from the system.
+### Delete Integration
+Permanently removes an Integration from the system.
 
 **Required Field:**
--   **Lead ID:** Identifier of the integration to be removed.
+- Integration ID: Identifier of the integration to be removed
 
-**How to use:**
-Select "Delete Integration", enter the Lead ID, and execute.
-A confirmation message will be displayed if the operation is successful.
+**How to use:** Select "Delete Integration", enter the Integration ID, and execute. A confirmation message will be displayed if the operation is successful.
 
-#### Special Fields
--   **Name:** Integration name (up to 100 characters).
--   **Platform:** Integration platform (consult the list in the field description).
--   **ID:** Unique integration identifier, usually provided when creating or listing integrations.
--   **Additional Parameters:** Check to include extra information in the integration search.
+## Special Fields
+- Name: Integration name (up to 100 characters)
+- Platform: Integration platform (consult the list in the field description)
+- ID: Unique integration identifier, usually provided when creating or listing integrations
+- Additional Parameters: Check to include extra information in the integration search
 
-#### Tips
--   Use "Get All Integrations" to find the ID of the integration you want to edit or query.
--   Always check the required fields (marked with `*`) before executing.
--   For platforms, consult the examples in the field description to avoid typing errors.
+## Tips
+- Use "Get All Integrations" to find the ID of the integration you want to edit or query
+- Always check the required fields (marked with *) before executing
+- For platforms, consult the examples in the field description to avoid typing errors
 
 [Additional information about Integrations in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/como-conectar-mrlog2/)
 
