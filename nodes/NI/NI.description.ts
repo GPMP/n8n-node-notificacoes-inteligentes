@@ -33,13 +33,16 @@ export function getNodeDescription(): INodeTypeDescription {
       },
     ],
     requestDefaults: {
-      baseURL: 'https://api.notificacoesinteligentes.com',
+      baseURL: '=https://api.notificacoesinteligentes.com',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     },
     usableAsTool: true,
+
+
+
     properties: [
       {
         displayName: 'Resource',
@@ -48,7 +51,6 @@ export function getNodeDescription(): INodeTypeDescription {
 				placeholder:'Choose',
         noDataExpression: true,
         options: [
-          {name: 'Event', value: 'events'},
 					{name: 'Integration', value: 'integration'},
 					{name: 'Lead', value: 'leads'},
         ],
@@ -58,7 +60,7 @@ export function getNodeDescription(): INodeTypeDescription {
       ...leadsFields,
 			...integrationsOperations,
 			...integrationsFields,
-			
+
     ],
   };
 }

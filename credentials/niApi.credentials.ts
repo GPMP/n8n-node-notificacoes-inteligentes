@@ -10,6 +10,10 @@ export class niApi implements ICredentialType {
   displayName = 'NI API';
   documentationUrl = 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/';
 
+extends = ['httpHeaderAuth'];
+
+
+
 
   properties: INodeProperties[] = [
 		{
@@ -29,7 +33,8 @@ export class niApi implements ICredentialType {
     type: 'generic',
     properties: {
       headers: {
-        'Authorization': '=Bearer {{$credentials.bearerToken}}',
+        'Authorization': '= Bearer {{$credentials.bearerToken}}',
+				'Accept': 'application/json'
       }
     },
   };

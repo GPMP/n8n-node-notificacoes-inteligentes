@@ -133,7 +133,7 @@ This guide will help you **generate and configure your API Key (Bearer Token)** 
 
 ## ✅ Ready!
 
-You can now use your **Custom Node** to create, edit, delete, or query custom variables securely using your **API Key (Bearer Token)**.
+You can now use your **Custom Node** to create, edit and delete securely using your **API Key (Bearer Token)**.
 
 ---
 
@@ -396,99 +396,5 @@ Select "Remove Lists from a Lead", enter the Lead ID and the list IDs. Execute t
 [Additional information about Leads in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/gerenciamento-de-leads-1x8lj7m/)
 
 ---
-
----
-
-## Usage Guide - Events (n8n)
-
-The Events resource allows creating and sending different types of events to integrations, such as: abandoned cart, invoices, payments, cancellations, deliveries, NPS, member access, and password reset, among others. Ideal for automations and intelligent notifications in your flow.
-
-### Available Operations
-
-#### Create Abandoned Cart Event
-Sends an event to notify about an abandoned shopping cart.
-
-**Required Fields:**
--   Integration ID
--   Customer data (name, phone)
--   Order products (name, quantity, value)
-
-**Optional Field:**
--   Cart/checkout data (URL, ID)
-
-#### Create Printed Billet Event
-Notifies that an invoice was generated and printed for the customer.
-
-**Required Fields:**
-- Customer data (name, phone)
-- Order data (ID, values, status, discounts, products)
-
-**Optional Field:**
--   Address data
-
-#### Create Event for Canceled, Paid, Refunded, Delivered, Dispatched, Processing, Out for Delivery, Status Updated, Awaiting Pickup, or Awaiting Payment Order
-Each event records a different order status, always including:
-
-**Required Fields:**
--   Customer data
--   Order data (ID, values, status, discounts, products)
--   Payment details (billet, pix, etc.) according to the event type
-
-**Optional Field:**
--   Address and delivery data
-
-#### Create Member Access Granted Event
-Sends access data for members.
-
-**Required Fields:**
--   Customer data
--   Member page URL, login, and temporary password
--   Products associated with the access
-
-#### Create Password Reset Event
-Notifies the customer with the link to reset their password.
-
-**Required Fields:**
--   Customer data
--   Password reset URL
-
-#### Create NPS (Satisfaction Survey) Event
-Involves two separate events:
-
-##### Create NPS Response Event
-Records the score, comment, and date of the customer's satisfaction response after they answer an NPS survey.
-
-**Required Fields:**
--   Customer data
--   Score given by the customer
--   (Optional: comment and response date)
-
-##### Create NPS Survey Event
-Sends an event to trigger the NPS survey link to the customer.
-
-**Required Fields:**
--   Customer data
--   Survey URL (surveyurl)
-
-### Important Common Fields
--   **Customer Data:** Always include first name, phone, email, CPF/CNPJ, currency, gender, date of birth, IP.
--   **Products:** Name, quantity, and value of products (can add several).
--   **Address:** City, country, neighborhood, number, ZIP code, state, street, complement.
--   **Order:** ID, values (total, discount, products_total), status.
--   **Delivery:** Shipping cost, description, tracking code, tracking URL, estimated delivery date, message.
--   **Payment (invoice/Pix):** Links, codes, values, and specific dates.
--   **NPS:** Score, comment, response date, or survey URL.
--   **Member Access:** URLs, login, password, and access products.
--   **Password Reset:** URL to reset.
-
-### Tips
--   Always fill in all required fields for each operation, respecting suggested formats (e.g., dates, currency).
--   For product or address lists, use the "Add product data" or "Additional Parameters" option.
--   The system validates: blank required fields block execution!
--   In the case of PIX events, check the correct payment method option to show specific fields.
--   Grouped fields (like "checkout", "addressparameter", "deliveryparameter") must be expanded to enter detailed data.
--   Use the event corresponding to the actual order/action status.
-
-[Additional information about Events in NI](https://ajuda.notificacoesinteligentes.com/pt-br/article/eventos-1n02369/)
 
 #### If you haven't found what you're looking for, take a look at our [Help Center](https://ajuda.notificacoesinteligentes.com/pt-br/).
