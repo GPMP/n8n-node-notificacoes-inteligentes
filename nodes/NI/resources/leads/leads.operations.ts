@@ -129,38 +129,11 @@ if (Array.isArray(selectableTags) && selectableTags.length > 0) {
 
           if (!phone) throw new Error('Para "Create or Update", o campo "phone" é obrigatório.');
 
-          const body: any = {
-            name: this.getNodeParameter('name', 0) as string,
-            phone,
-            email: this.getNodeParameter('email', 0) as string,
-            notes: this.getNodeParameter('notes', 0) as string,
-          };
+          const name = this.getNodeParameter('name', 0) as string;
+          const email = this.getNodeParameter('email', 0) as string;
+          const notes = this.getNodeParameter('notes', 0) as string;
 
-          let tagsToAdd: string[] = [];
-const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
-if (Array.isArray(selectableTags) && selectableTags.length > 0) {
-  tagsToAdd = [...selectableTags];
-}
-
-// Remover duplicatas
-if (tagsToAdd.length > 0) {
-  body.tags = [...new Set(tagsToAdd)];
-}
-
-          const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
-          if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
-            const customVars = customVarsParam.variable
-              .map((v: any) => ({ slug: v.slug, value: v.value }))
-              .filter((v: any) => v.slug);
-            if (customVars.length > 0) body.custom_variables = customVars;
-          }
-
-          const trackingParam = this.getNodeParameter('tracking_data', 0, undefined) as any;
-          if (trackingParam?.trackingOptions && Array.isArray(trackingParam.trackingOptions)) {
-            const tracking = trackingParam.trackingOptions.map((track: any) => track.value).filter(Boolean);
-            if (tracking.length > 0) body.tracking_data = tracking;
-          }
-
+          // Busca lead existente
           const existingLead = await this.helpers
             .httpRequestWithAuthentication!.call(this, 'niApi', {
               method: 'GET',
@@ -170,31 +143,91 @@ if (tagsToAdd.length > 0) {
               timeout: 5000,
             });
 
+          const body: any = {};
+
+          // Se é um lead existente (PUT)
           if (existingLead?.data?.length > 0) {
             const leadId = existingLead.data[0].id;
             requestOptions.method = 'PUT';
             requestOptions.url = `/leads/${leadId}`;
 
-            delete body.tags;
+            // NÃO envia o phone no PUT (já foi usado para buscar o lead)
+            // Apenas envia os outros campos normalmente
+            body.name = name;
+            body.email = email;
+            body.notes = notes;
 
-            // Armazena informação sobre tags para usar no postReceive
+            // Processa tags separadamente via endpoint específico
+            let tagsToAdd: string[] = [];
+            const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+            if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+              tagsToAdd = [...selectableTags];
+            }
+
             if (tagsToAdd.length > 0) {
               await this.helpers.httpRequestWithAuthentication!.call(this, 'niApi', {
                 method: 'POST',
                 baseURL: 'https://api.notificacoesinteligentes.com',
                 url: `/leads/${leadId}/tags`,
                 body: {
-                  tags: tagsToAdd
+                  tags: [...new Set(tagsToAdd)]
                 },
                 timeout: 5000,
               });
-
-              // Armazena info sobre tags adicionadas
               (this as any).tagsAdded = tagsToAdd;
             }
+
+            // Custom variables
+            const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
+            if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
+              const customVars = customVarsParam.variable
+                .map((v: any) => ({ slug: v.slug, value: v.value }))
+                .filter((v: any) => v.slug);
+              if (customVars.length > 0) body.custom_variables = customVars;
+            }
+
+            // Tracking data
+            const trackingParam = this.getNodeParameter('tracking_data', 0, undefined) as any;
+            if (trackingParam?.trackingOptions && Array.isArray(trackingParam.trackingOptions)) {
+              const tracking = trackingParam.trackingOptions
+                .map((track: any) => track.value)
+                .filter(Boolean);
+              if (tracking.length > 0) body.tracking_data = tracking;
+            }
+
           } else {
+            // Se é um lead novo (POST) - envia todos os campos normalmente
             requestOptions.method = 'POST';
             requestOptions.url = '/leads';
+
+            body.name = name;
+            body.phone = phone;
+            body.email = email;
+            body.notes = notes;
+
+            let tagsToAdd: string[] = [];
+            const selectableTags = this.getNodeParameter('selectable_tag', 0, []) as string[];
+            if (Array.isArray(selectableTags) && selectableTags.length > 0) {
+              tagsToAdd = [...selectableTags];
+            }
+
+            if (tagsToAdd.length > 0) {
+              body.tags = [...new Set(tagsToAdd)];
+            }
+
+            const customVarsParam = this.getNodeParameter('customVariables', 0, undefined) as any;
+            if (customVarsParam?.variable && Array.isArray(customVarsParam.variable)) {
+              const customVars = customVarsParam.variable
+                .map((v: any) => ({ slug: v.slug, value: v.value }))
+                .filter((v: any) => v.slug);
+              if (customVars.length > 0) body.custom_variables = customVars;
+            }
+
+            const trackingParam = this.getNodeParameter('tracking_data', 0, undefined) as any;
+            if (trackingParam?.trackingOptions && Array.isArray(trackingParam.trackingOptions)) {
+              const tracking = trackingParam.trackingOptions.map((track: any) => track.value).filter(Boolean);
+              if (tracking.length > 0) body.tracking_data = tracking;
+            }
           }
 
           requestOptions.body = body;
@@ -215,7 +248,6 @@ if (tagsToAdd.length > 0) {
 
           let msg = created ? 'Lead created successfully.' : 'Lead updated successfully.';
 
-          // Adiciona informação sobre tags se foram adicionadas
           if ((this as any).tagsAdded && (this as any).tagsAdded.length > 0) {
             const tagsCount = (this as any).tagsAdded.length;
             const tagsNames = (this as any).tagsAdded.join(', ');

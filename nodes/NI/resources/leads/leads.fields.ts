@@ -35,20 +35,20 @@ export const leadsFields: INodeProperties[] = [
     displayName: 'Phone',
     name: 'phone',
     type: 'string',
-    required: true,
 		placeholder: "+55 (Brasil), +1 (EUA), +54 (Argentina)...",
+		required:true,
     default: '',
     displayOptions: {
       show: {
         resource: ['leads'],
-        operation: ['create_lead','update_lead','create_update_lead'],
+        operation: ['create_lead','create_update_lead'],
       },
     },
     routing: { send: { type: 'body', property: 'phone' } },
     description: "Phone country code with + prefix is required. Examples: +55, +1, +54, +52.",
   },
 	{
-  displayName: 'WARNING! You must include the plus sign (+) prefix with the number; Ex: | +55 | +1',
+  displayName: 'WARNING! You must include the plus sign (+) prefix with the number; Ex: +55, +1',
   name: 'notice',
   type: 'notice',
   default: '',

@@ -1,13 +1,12 @@
 {
   "name": "n8n-nodes-notificacoes-inteligentes",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "description": "Notificações Inteligentes Node",
   "keywords": [
     "n8n-community-node-package",
     "Notificações Inteligentes",
     "NI",
     "n8n-node-ni"
-
   ],
   "license": "MIT",
   "homepage": "https://notificacoesinteligentes.com/",
@@ -36,10 +35,11 @@
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": ["dist/credentials/niApi.credentials.js"],
+    "credentials": [
+      "dist/credentials/niApi.credentials.js"
+    ],
     "nodes": [
       "dist/nodes/NI/NI.node.js"
-
     ]
   },
   "devDependencies": {
@@ -48,13 +48,11 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
     "gulp": "^5.0.0",
     "prettier": "^3.5.3",
+    "rimraf": "^6.1.0",
     "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
   },
-  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912",
-  "dependencies": {
-    "rimraf": "^6.0.1"
-  }
+  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
 }

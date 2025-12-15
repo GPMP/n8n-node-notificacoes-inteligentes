@@ -10,7 +10,7 @@ export class niApi implements ICredentialType {
   displayName = 'NI API';
   documentationUrl = 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/';
 
-extends = ['httpHeaderAuth'];
+
 
 
 
