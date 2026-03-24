@@ -54,8 +54,6 @@ export class NI implements INodeType {
       }));
 
   } catch (error) {
-    // Caso haja erro, logue para depuração
-    this.logger?.debug?.('getTags loadOptions error', { error });
     return [];
   }
 }

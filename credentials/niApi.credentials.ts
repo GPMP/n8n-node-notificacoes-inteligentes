@@ -8,7 +8,7 @@ import {
 export class niApi implements ICredentialType {
   name = 'niApi';
   displayName = 'NI API';
-  documentationUrl = 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/';
+  documentationUrl = 'https://docs.notificacoesinteligentes.com/';
 
 
 
@@ -25,7 +25,7 @@ export class niApi implements ICredentialType {
       },
       default: '',
       required: true,
-      description: 'Token de autenticação da API no formato Bearer',
+      description: 'API authentication token in Bearer format',
     },
   ];
 
