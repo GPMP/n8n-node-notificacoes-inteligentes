@@ -35,7 +35,7 @@ export const leadsFields: INodeProperties[] = [
     displayName: 'Phone',
     name: 'phone',
     type: 'string',
-		placeholder: "+55 (Brasil), +1 (EUA), +54 (Argentina)...",
+		placeholder: "+55 (Brazil), +1 (EUA), +54 (Argentina)...",
 		required:true,
     default: '',
     displayOptions: {
@@ -74,7 +74,7 @@ export const leadsFields: INodeProperties[] = [
       },
     },
     routing: { send: { type: 'body', property: 'email' } },
-    description: 'Lead’s email address (required for create)', // Dupliquei email pois o email do update não é required
+    description: 'Lead email address (required for create)', // Duplicated email because update email is not required
   },
   {
     displayName: 'Email',
@@ -386,7 +386,7 @@ export const leadsFields: INodeProperties[] = [
         name: 'tracking_utm_source',
         type: 'string',
         default: '',
-        description: 'Origem do link',
+        description: 'Link source',
       },
       {
         displayName: 'Tracking Utm Term',

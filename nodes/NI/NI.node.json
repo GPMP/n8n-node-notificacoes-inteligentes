@@ -1,0 +1,22 @@
+{
+	"node": "NI",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication"],
+	"subcategories": {},
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://notificacoesinteligentes.com"
+			}
+		],
+		"entityDocumentation": [
+			{
+				"url": "https://api.notificacoesinteligentes.com/docs"
+			}
+		]
+	},
+	"featureFlags": {
+		"feedbackPanel": false
+	}
+}
