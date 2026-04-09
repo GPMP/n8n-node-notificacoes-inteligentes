@@ -1,12 +1,13 @@
-name: Publish to npm
+name: Publish
 
 on:
   push:
     tags:
-      - 'v*'
+      - '*.*.*'
 
 jobs:
   publish:
+    name: Publish to npm
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -15,17 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 'lts/*'
+          cache: 'npm'
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: npm ci
 
-      - run: pnpm run build
-
-      - run: pnpm publish --provenance --access public --no-git-checks
+      - name: Release
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
