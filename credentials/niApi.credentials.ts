@@ -8,7 +8,7 @@ import {
 
 export class niApi implements ICredentialType {
 	name = 'niApi';
-	displayName = 'NI Credentials';
+	displayName = 'NI API';
 	icon = 'file:../nodes/NI/Nifoto.svg' as Icon;
 	documentationUrl = 'https://docs.notificacoesinteligentes.com/';
 

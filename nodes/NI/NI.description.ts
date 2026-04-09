@@ -12,7 +12,7 @@ import {NodeConnectionType} from 'n8n-workflow';
 
 export function getNodeDescription(): INodeTypeDescription {
   return {
-    displayName: 'Notificações Inteligentes',
+    displayName:'Ni',
     name: 'NI',
 
     // eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
@@ -20,7 +20,7 @@ export function getNodeDescription(): INodeTypeDescription {
     group: ['action'],
     version: 1,
 				subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
-    description: 'NI Integration',
+    description: 'Your Ni Integration',
     defaults: {
       name: 'NI Node',
     },
@@ -60,7 +60,6 @@ export function getNodeDescription(): INodeTypeDescription {
       ...leadsFields,
 			...integrationsOperations,
 			...integrationsFields,
-
     ],
   };
 }

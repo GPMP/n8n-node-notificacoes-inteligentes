@@ -35,7 +35,7 @@ export const leadsFields: INodeProperties[] = [
     displayName: 'Phone',
     name: 'phone',
     type: 'string',
-		placeholder: "+55 (Brazil), +1 (EUA), +54 (Argentina)...",
+		placeholder: "+55 (Brazil), +1 (USA), +54 (Argentina)...",
 		required:true,
     default: '',
     displayOptions: {

@@ -1,4 +1,5 @@
 import type { INodeType, ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
+import { NodeApiError } from 'n8n-workflow';
 import { getNodeDescription } from './NI.description';
 
 export class NI implements INodeType {
@@ -49,7 +50,10 @@ export class NI implements INodeType {
 							value: String(t.label), // We use the label as value
 						}));
 				} catch (error) {
-					return [];
+					throw new NodeApiError(this.getNode(), error, {
+						message: 'Failed to load tags',
+						description: error instanceof Error ? error.message : 'Unknown error',
+					});
 				}
 			},
 		},
