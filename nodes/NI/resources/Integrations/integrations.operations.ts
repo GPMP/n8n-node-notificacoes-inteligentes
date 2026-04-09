@@ -16,7 +16,7 @@ export const integrationsOperations: INodeProperties[] = [
 			{
         name: 'Create Integration',
         value: 'create_integration',
-        action: 'Create Integration',
+        action: 'Create integration',
         description: 'Creates a new integration',
         routing: {
           request: {
@@ -48,7 +48,7 @@ export const integrationsOperations: INodeProperties[] = [
 			{
         name: 'Get All Integrations',
         value: 'get_all_integrations',
-        action: 'Get All Integrations',
+        action: 'Get all integrations',
         description: 'Retrieves all integrations',
         routing: {
           request: {
@@ -79,7 +79,7 @@ export const integrationsOperations: INodeProperties[] = [
 			{
         name: 'Get Integration',
         value: 'get_integration',
-        action: 'Get Integration',
+        action: 'Get integration',
         description: 'Retrieves an integration by its ID',
         routing: {
           request: {
@@ -91,7 +91,7 @@ export const integrationsOperations: INodeProperties[] = [
       {
         name: 'Edit Integration Name',
         value: 'edit_integration',
-        action: 'Edit Integration',
+        action: 'Edit integration',
         description: 'Edits the name of an existing integration',
         routing: {
           request: {
@@ -123,7 +123,7 @@ export const integrationsOperations: INodeProperties[] = [
 			{
         name: 'Delete Integration',
         value: 'delete_integration',
-        action: 'Delete Integration',
+        action: 'Delete integration',
         description: 'Deletes an existing integration',
         routing: {
           request: {
