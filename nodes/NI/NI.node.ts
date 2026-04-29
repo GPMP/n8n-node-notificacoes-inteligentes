@@ -47,7 +47,7 @@ export class NI implements INodeType {
 						.filter((t) => t && t.id != null && (t.label || t.name)) // Verify if the data is valid
 						.map((t) => ({
 							name: String(t.label ?? t.name), // What appears in the interface
-							value: String(t.label), // We use the label as value
+							value: String(t.label ?? t.name),
 						}));
 				} catch (error) {
 					throw new NodeApiError(this.getNode(), error, {

@@ -1,5 +1,6 @@
 /* eslint-disable n8n-nodes-base/node-param-option-name-wrong-for-get-many */
 import type { INodeProperties } from 'n8n-workflow';
+import { NodeApiError } from 'n8n-workflow';
 
 export const leadsOperations: INodeProperties[] = [
 	{
@@ -89,8 +90,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to create lead'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to create lead'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],
@@ -125,8 +131,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to update lead'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to update lead'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],
@@ -145,7 +156,13 @@ export const leadsOperations: INodeProperties[] = [
 								const phone = (this.getNodeParameter('phone', 0) as string) ?? '';
 
 								if (!phone)
-									throw new Error('For "Create or Update", the "phone" field is required.');
+									throw new NodeApiError(
+										this.getNode(),
+										{},
+										{
+											message: 'For "Create or Update", the "phone" field is required.',
+										},
+									);
 
 								const name = this.getNodeParameter('name', 0) as string;
 								const email = this.getNodeParameter('email', 0) as string;
@@ -268,7 +285,15 @@ export const leadsOperations: INodeProperties[] = [
 
 								requestOptions.body = body;
 
-								if (!requestOptions.url) throw new Error('URL error.');
+								if (!requestOptions.url) {
+									throw new NodeApiError(
+										this.getNode(),
+										{},
+										{
+											message: 'URL error.',
+										},
+									);
+								}
 
 								return requestOptions;
 							},
@@ -278,6 +303,18 @@ export const leadsOperations: INodeProperties[] = [
 						postReceive: [
 							async function (this: any, items: any[], response: any) {
 								const status = response?.statusCode ?? response?.status ?? 0;
+
+								if (status >= 400) {
+									throw new NodeApiError(
+										this.getNode(),
+										{},
+										{
+											message: `Error ${status}: ${response.body?.message || 'Unable to create or update lead'}`,
+											httpCode: String(status),
+										},
+									);
+								}
+
 								const method = String(
 									response?.request?.method ?? response?.config?.method ?? '',
 								).toLowerCase();
@@ -373,8 +410,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to delete lead'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to delete lead'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],
@@ -430,8 +472,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to link tags'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to link tags'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],
@@ -487,8 +534,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to update tags'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to update tags'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],
@@ -548,8 +600,13 @@ export const leadsOperations: INodeProperties[] = [
 										},
 									];
 								}
-								throw new Error(
-									`Error ${response.statusCode}: ${response.body?.message || 'Unable to remove tags'}`,
+								throw new NodeApiError(
+									this.getNode(),
+									{},
+									{
+										message: `Error ${response.statusCode}: ${response.body?.message || 'Unable to remove tags'}`,
+										httpCode: String(response.statusCode),
+									},
 								);
 							},
 						],

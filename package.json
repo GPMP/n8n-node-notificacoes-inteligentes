@@ -1,58 +1,58 @@
 {
-  "name": "n8n-nodes-notificacoes-inteligentes",
-  "version": "0.4.8",
-  "description": "Notificações Inteligentes Node",
-  "keywords": [
-    "n8n-community-node-package",
-    "Notificações Inteligentes",
-    "NI",
-    "n8n-node-ni"
-  ],
-  "license": "MIT",
-  "homepage": "https://notificacoesinteligentes.com/",
-  "author": {
-    "name": "notificacoes-inteligentes",
-    "email": "marcos.pena@gpmp.com.br"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GPMP/n8n-node-notificacoes-inteligentes"
-  },
-  "engines": {
-    "node": ">=20.15"
-  },
-  "main": "index.js",
-  "scripts": {
-    "build": "npx rimraf dist && tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
-    "release": "npm run build && npm publish --provenance --access public --no-git-checks"
-  },
-  "files": [
-    "dist"
-  ],
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/niApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/NI/NI.node.js"
-    ]
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "~8.32.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.3",
-    "gulp": "^5.0.0",
-    "prettier": "^3.5.3",
-    "rimraf": "^6.1.0",
-    "typescript": "^5.8.2"
-  },
-  "peerDependencies": {
-    "n8n-workflow": "*"
-  },
-  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
+	"name": "n8n-nodes-notificacoes-inteligentes",
+	"version": "0.4.9",
+	"description": "Notificações Inteligentes Node",
+	"keywords": [
+		"n8n-community-node-package",
+		"Notificações Inteligentes",
+		"NI",
+		"n8n-node-ni"
+	],
+	"license": "MIT",
+	"homepage": "https://notificacoesinteligentes.com/",
+	"author": {
+		"name": "notificacoes-inteligentes",
+		"email": "marcos.pena@gpmp.com.br"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GPMP/n8n-node-notificacoes-inteligentes"
+	},
+	"engines": {
+		"node": ">=20.15"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "npx rimraf dist && tsc && gulp build:icons",
+		"dev": "tsc --watch",
+		"format": "prettier nodes credentials --write",
+		"lint": "eslint nodes credentials package.json",
+		"lintfix": "eslint nodes credentials package.json --fix",
+		"release": "npm run build && npm publish --provenance --access public --no-git-checks"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/NiApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/NI/NI.node.js"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "~8.32.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-n8n-nodes-base": "^1.16.3",
+		"gulp": "^5.0.0",
+		"prettier": "^3.5.3",
+		"rimraf": "^6.1.0",
+		"typescript": "^5.8.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
 }

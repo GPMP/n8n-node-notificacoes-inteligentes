@@ -6,7 +6,7 @@ import {
 	Icon,
 } from 'n8n-workflow';
 
-export class niApi implements ICredentialType {
+export class NiApi implements ICredentialType {
 	name = 'niApi';
 	displayName = 'NI API';
 	icon = 'file:../nodes/NI/Nifoto.svg' as Icon;
@@ -30,7 +30,7 @@ export class niApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '= Bearer {{$credentials.bearerToken}}',
+				Authorization: '=Bearer {{$credentials.bearerToken}}',
 				Accept: 'application/json',
 			},
 		},
